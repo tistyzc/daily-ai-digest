@@ -199,9 +199,9 @@
             <h2 class="topic-header">{{ topic_name }} <span class="topic-count">({{ articles|length }})</span></h2>
             {% for item in articles %}
             <article class="article-card" data-topic="{{ topic_name }}">
-                <h3><a href="{{ item.article.url }}" target="_blank" rel="noopener">{{ item.article.title }}</a></h3>
+                <h3><a href="{{ item._article.url }}" target="_blank" rel="noopener">{{ item._article.title }}</a></h3>
                 <div class="article-meta">
-                    <span class="source-tag">{{ item.article.source_name }}</span>
+                    <span class="source-tag">{{ item._article.source_name }}</span>
                     {% if item.critic_flags %}
                     <span class="critic-flag">⚠ Reviewed</span>
                     {% endif %}

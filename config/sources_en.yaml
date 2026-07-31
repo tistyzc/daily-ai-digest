@@ -42,14 +42,14 @@ sources:
     authority_score: 8
     language: "en"
 
-  - name: "Anthropic Blog"
-    url: "https://www.anthropic.com/blog/feed.xml"
+  - name: "Anthropic Research"
+    url: "https://www.anthropic.com/research/feed.xml"
     category: "ai-research"
     authority_score: 9
     language: "en"
 
   - name: "OpenAI Blog"
-    url: "https://openai.com/blog/rss.xml"
+    url: "https://openai.com/news/rss.xml"
     category: "ai-research"
     authority_score: 9
     language: "en"
@@ -60,8 +60,8 @@ sources:
     authority_score: 9
     language: "en"
 
-  - name: "The Register"
-    url: "https://www.theregister.com/headlines/software/ai/"
+  - name: "The Register AI"
+    url: "https://www.theregister.com/ai/headlines.atom"
     category: "technology"
     authority_score: 7
     language: "en"

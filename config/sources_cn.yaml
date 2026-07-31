@@ -7,7 +7,7 @@ sources:
     language: "zh"
 
   - name: "机器之心"
-    url: "https://www.jiqizhixin.com/rss"
+    url: "https://rsshub.app/jiqizhixin/latest"
     category: "ai-research"
     authority_score: 8
     language: "zh"
@@ -34,16 +34,4 @@ sources:
     url: "https://sspai.com/feed"
     category: "technology"
     authority_score: 7
-    language: "zh"
-
-  - name: "阿里云开发者社区"
-    url: "https://developer.aliyun.com/feed"
-    category: "devtools"
-    authority_score: 6
-    language: "zh"
-
-  - name: "腾讯云开发者社区"
-    url: "https://cloud.tencent.com/developer/feed"
-    category: "devtools"
-    authority_score: 6
     language: "zh"
