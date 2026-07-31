@@ -198,25 +198,38 @@ def step_ai_process(articles: list, config: dict) -> tuple[list[dict], list[dict
         zh_summary = result.get("zh_summary", "")
 
         critic_issues: list[str] = []
+        result["has_factual_issue"] = False
+        result["has_bias_issue"] = False
+        result["has_safety_issue"] = False
+        result["has_privacy_issue"] = False
+        result["critic_details"] = {}
 
         # Factual check
         fc = factual.check(title, content, en_summary)
         if not fc.get("is_factually_correct"):
+            result["has_factual_issue"] = True
+            result["critic_details"]["factual"] = fc.get("issues", [])
             critic_issues.append(f"Factual: {fc.get('issues', [])}")
 
         # Safety check
         sc = safety.check(title, content, result)
         if not sc.get("is_safe"):
+            result["has_safety_issue"] = True
+            result["critic_details"]["safety"] = sc.get("flags", [])
             critic_issues.append(f"Safety: {sc.get('flags', [])}")
 
         # Bias check
         bc = bias.check(title, en_summary, zh_summary)
         if bc.get("has_bias_issues"):
+            result["has_bias_issue"] = True
+            result["critic_details"]["bias"] = {"level": bc.get("bias_level", "mild"), "issues": bc.get("issues", [])}
             critic_issues.append(f"Bias ({bc.get('bias_level')}): {bc.get('issues', [])}")
 
         # Privacy check
         pc = privacy.check(title, content, result)
         if pc.get("has_pii"):
+            result["has_privacy_issue"] = True
+            result["critic_details"]["privacy"] = pc.get("pii_types", [])
             critic_issues.append(f"Privacy: {pc.get('pii_types', [])}")
 
         result["critic_flags"] = critic_issues

@@ -28,7 +28,7 @@ class TestDigestRenderer:
         topics = {
             "Large Language Models": [
                 {
-                    "article": article,
+                    "_article": article,
                     "en_summary": "GPT-5 has improved reasoning.",
                     "zh_summary": "GPT-5推理能力提升。",
                     "key_points": ["Better reasoning"],
@@ -36,6 +36,11 @@ class TestDigestRenderer:
                     "impact": "Important for AI developers.",
                     "impact_zh": "对AI开发者很重要。",
                     "critic_flags": [],
+                    "has_factual_issue": True,
+                    "has_bias_issue": False,
+                    "has_safety_issue": False,
+                    "has_privacy_issue": False,
+                    "critic_details": {"factual": ["Claim not in source"]},
                 }
             ],
         }
@@ -54,6 +59,11 @@ class TestDigestRenderer:
         assert "OpenAI Blog" in html
         assert "GPT-5推理能力提升" in html
         assert "2026" in html or "July" in html
+        # New: TOC sidebar
+        assert "toc-sidebar" in html
+        # New: critic badges per article
+        assert "critic-badge" in html
+        assert "Factual" in html
 
     def test_render_index_with_search_and_filter(self, renderer):
         """Index should include search box and topic filter chips."""

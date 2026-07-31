@@ -7,141 +7,149 @@
     <meta name="description" content="Daily AI/IT industry news digest — auto-generated bilingual summary of what matters today.">
     <style>
         :root {
-            --bg: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --bg-card: #ffffff;
-            --text: #1a1a2e;
-            --text-secondary: #6b7280;
-            --border: #e5e7eb;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --tag-bg: #eff6ff;
-            --tag-text: #2563eb;
-            --success: #059669;
-            --warning: #d97706;
-            --danger: #dc2626;
-            --shadow: 0 1px 3px rgba(0,0,0,0.08);
-            --radius: 8px;
+            --bg: #ffffff; --bg-secondary: #f8f9fa; --bg-card: #ffffff;
+            --text: #1a1a2e; --text-secondary: #6b7280; --border: #e5e7eb;
+            --accent: #2563eb; --accent-hover: #1d4ed8;
+            --tag-bg: #eff6ff; --tag-text: #2563eb;
+            --factual: #dc2626; --bias: #d97706; --safety: #7c3aed; --privacy: #059669;
+            --factual-bg: #fef2f2; --bias-bg: #fffbeb; --safety-bg: #f5f3ff; --privacy-bg: #ecfdf5;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08); --radius: 8px;
+            --toc-width: 220px;
         }
         [data-theme="dark"] {
-            --bg: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #1e293b;
-            --text: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --border: #334155;
-            --accent: #60a5fa;
-            --accent-hover: #93bbfd;
-            --tag-bg: #1e3a5f;
-            --tag-text: #60a5fa;
+            --bg: #0f172a; --bg-secondary: #1e293b; --bg-card: #1e293b;
+            --text: #e2e8f0; --text-secondary: #94a3b8; --border: #334155;
+            --accent: #60a5fa; --accent-hover: #93bbfd;
+            --tag-bg: #1e3a5f; --tag-text: #60a5fa;
+            --factual: #f87171; --bias: #fbbf24; --safety: #c084fc; --privacy: #34d399;
+            --factual-bg: #3b1414; --bias-bg: #3b2e0a; --safety-bg: #2e1a4f; --privacy-bg: #0a3b2e;
             --shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
+            background: var(--bg); color: var(--text); line-height: 1.7;
             transition: background 0.3s, color 0.3s;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* ── Layout ── */
+        .page-wrapper { display: flex; min-height: 100vh; }
+        .content-area { flex: 1; min-width: 0; }
+
+        /* ── TOC Sidebar ── */
+        .toc-sidebar {
+            width: var(--toc-width); position: sticky; top: 0; height: 100vh;
+            overflow-y: auto; padding: 24px 16px; background: var(--bg-secondary);
+            border-right: 1px solid var(--border); font-size: 0.85rem;
+            flex-shrink: 0; z-index: 10; scrollbar-width: thin;
+        }
+        .toc-sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 12px; }
+        .toc-sidebar a {
+            display: block; padding: 5px 10px; border-radius: 4px; color: var(--text-secondary);
+            text-decoration: none; transition: all 0.15s; margin-bottom: 2px;
+            border-left: 2px solid transparent;
+        }
+        .toc-sidebar a:hover { color: var(--text); background: var(--bg); }
+        .toc-sidebar a.active { color: var(--accent); font-weight: 600; border-left-color: var(--accent); background: var(--bg); }
+        .toc-toggle { display: none; position: fixed; bottom: 20px; left: 20px; z-index: 100;
+            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border);
+            background: var(--bg); font-size: 1.2rem; cursor: pointer; box-shadow: var(--shadow);
+        }
+
+        /* ── Container ── */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Header ── */
         header {
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border);
-            padding: 32px 0 24px;
-            margin-bottom: 32px;
+            background: var(--bg-secondary); border-bottom: 1px solid var(--border);
+            padding: 32px 0 24px; margin-bottom: 32px;
         }
         header h1 { font-size: 2rem; font-weight: 800; color: var(--text); }
         header .subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-top: 4px; }
-        .header-actions {
-            display: flex; gap: 12px; align-items: center; margin-top: 12px; flex-wrap: wrap;
-        }
+        .header-actions { display: flex; gap: 12px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
         .header-actions a, .header-actions button {
             text-decoration: none; font-size: 0.875rem; padding: 6px 14px;
             border-radius: var(--radius); border: 1px solid var(--border);
-            background: var(--bg); color: var(--text); cursor: pointer;
-            transition: all 0.2s;
+            background: var(--bg); color: var(--text); cursor: pointer; transition: all 0.2s;
         }
         .header-actions a:hover, .header-actions button:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ── Stats ── */
         .stats-bar {
-            display: flex; gap: 24px; flex-wrap: wrap;
-            padding: 16px 20px; background: var(--bg-secondary);
-            border-radius: var(--radius); margin-bottom: 24px;
-            font-size: 0.9rem; color: var(--text-secondary);
+            display: flex; gap: 24px; flex-wrap: wrap; padding: 16px 20px;
+            background: var(--bg-secondary); border-radius: var(--radius);
+            margin-bottom: 24px; font-size: 0.9rem; color: var(--text-secondary);
         }
         .stats-bar strong { color: var(--text); }
-        .topic-section { margin-bottom: 40px; }
-        .topic-header {
-            font-size: 1.3rem; font-weight: 700; color: var(--accent);
-            padding-bottom: 8px; margin-bottom: 16px;
-            border-bottom: 2px solid var(--accent);
+
+        /* ── Search & Filter ── */
+        .search-box { width: 100%; max-width: 400px; padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); font-size: 0.9rem; }
+        .search-box:focus { outline: none; border-color: var(--accent); }
+        .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .filter-chip { font-size: 0.82rem; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+        .filter-chip.active, .filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* ── Critic Flags Summary Box ── */
+        .flags-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: var(--radius); padding: 14px 20px; margin-bottom: 24px; font-size: 0.85rem; }
+        [data-theme="dark"] .flags-box { background: #3b2e0a; border-color: #92400e; }
+        .flags-box summary { cursor: pointer; font-weight: 600; color: var(--bias); }
+        .flags-box ul { list-style: none; padding: 0; margin-top: 8px; }
+        .flags-box li { padding: 3px 0; border-bottom: 1px solid var(--border); }
+        .flags-box li:last-child { border-bottom: none; }
+        .flags-box .flag-article { font-weight: 600; font-size: 0.82rem; color: var(--text); }
+
+        /* ── Critic Icons ── */
+        .critic-badges { display: inline-flex; gap: 4px; align-items: center; vertical-align: middle; }
+        .critic-badge {
+            display: inline-flex; align-items: center; gap: 3px; font-size: 0.72rem;
+            padding: 2px 7px; border-radius: 12px; font-weight: 600; cursor: help;
+            white-space: nowrap; transition: opacity 0.15s;
         }
+        .critic-badge:hover { opacity: 0.8; }
+        .critic-badge.factual { background: var(--factual-bg); color: var(--factual); }
+        .critic-badge.bias { background: var(--bias-bg); color: var(--bias); }
+        .critic-badge.safety { background: var(--safety-bg); color: var(--safety); }
+        .critic-badge.privacy { background: var(--privacy-bg); color: var(--privacy); }
+
+        /* ── Topic Sections ── */
+        .topic-section { margin-bottom: 40px; scroll-margin-top: 20px; }
+        .topic-header { font-size: 1.3rem; font-weight: 700; color: var(--accent); padding-bottom: 8px; margin-bottom: 16px; border-bottom: 2px solid var(--accent); }
         .topic-count { font-size: 0.85rem; font-weight: 400; color: var(--text-secondary); }
+
+        /* ── Article Card ── */
         .article-card {
             background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius); padding: 20px 24px;
-            margin-bottom: 16px; box-shadow: var(--shadow);
-            transition: transform 0.15s, box-shadow 0.15s;
+            border-radius: var(--radius); padding: 20px 24px; margin-bottom: 16px;
+            box-shadow: var(--shadow); transition: transform 0.15s, box-shadow 0.15s;
         }
         .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .article-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
         .article-card h3 a { color: var(--text); text-decoration: none; }
         .article-card h3 a:hover { color: var(--accent); }
-        .article-meta {
-            font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 10px;
-            display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
-        }
-        .source-tag {
-            font-size: 0.78rem; padding: 2px 8px; border-radius: 4px;
-            background: var(--tag-bg); color: var(--tag-text);
-        }
-        .critic-flag {
-            font-size: 0.78rem; padding: 2px 8px; border-radius: 4px;
-            background: #fef3c7; color: var(--warning);
-        }
+        .article-meta { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 10px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .source-tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 4px; background: var(--tag-bg); color: var(--tag-text); }
         .en-summary { font-size: 0.92rem; color: var(--text); margin-bottom: 8px; }
-        .zh-summary {
-            font-size: 0.92rem; color: var(--text-secondary);
-            padding-left: 12px; border-left: 3px solid var(--border);
-            margin-bottom: 8px;
-        }
-        .key-points {
-            list-style: none; padding: 0; margin: 8px 0 0;
-            font-size: 0.85rem; color: var(--text-secondary);
-        }
+        .zh-summary { font-size: 0.92rem; color: var(--text-secondary); padding-left: 12px; border-left: 3px solid var(--border); margin-bottom: 8px; }
+        .key-points { list-style: none; padding: 0; margin: 8px 0 0; font-size: 0.85rem; color: var(--text-secondary); }
         .key-points li::before { content: "▸ "; color: var(--accent); }
-        .impact {
-            font-size: 0.85rem; padding: 8px 12px; margin-top: 8px;
-            background: var(--bg-secondary); border-radius: 6px;
-            color: var(--text-secondary); font-style: italic;
-        }
-        footer {
-            text-align: center; padding: 32px 0; margin-top: 40px;
-            border-top: 1px solid var(--border); color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
+        .impact { font-size: 0.85rem; padding: 8px 12px; margin-top: 8px; background: var(--bg-secondary); border-radius: 6px; color: var(--text-secondary); font-style: italic; }
+
+        /* ── Footer ── */
+        footer { text-align: center; padding: 32px 0; margin-top: 40px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.85rem; }
         footer a { color: var(--accent); text-decoration: none; }
-        .search-box {
-            width: 100%; max-width: 400px; padding: 8px 14px;
-            border: 1px solid var(--border); border-radius: var(--radius);
-            background: var(--bg); color: var(--text); font-size: 0.9rem;
+
+        /* ── Mobile ── */
+        @media (max-width: 900px) {
+            .toc-sidebar {
+                position: fixed; left: -280px; top: 0; width: 260px; height: 100vh;
+                z-index: 99; transition: left 0.3s; box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            }
+            .toc-sidebar.open { left: 0; }
+            .toc-toggle { display: flex; align-items: center; justify-content: center; }
+            .toc-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 98; }
+            .toc-overlay.show { display: block; }
+            .container { padding: 0 16px; }
         }
-        .search-box:focus { outline: none; border-color: var(--accent); }
-        .filter-bar {
-            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
-        }
-        .filter-chip {
-            font-size: 0.82rem; padding: 4px 12px; border-radius: 20px;
-            border: 1px solid var(--border); background: var(--bg);
-            color: var(--text-secondary); cursor: pointer; transition: all 0.2s;
-        }
-        .filter-chip.active, .filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-        .flags-box {
-            background: #fffbeb; border: 1px solid #fcd34d; border-radius: var(--radius);
-            padding: 16px 20px; margin-bottom: 24px;
-        }
-        .flags-box h4 { color: var(--warning); font-size: 0.95rem; margin-bottom: 8px; }
-        .flags-box ul { list-style: disc; padding-left: 20px; font-size: 0.85rem; }
         @media (max-width: 640px) {
             header h1 { font-size: 1.5rem; }
             .article-card { padding: 14px 16px; }
@@ -150,89 +158,143 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🤖 Daily AI Digest</h1>
-            <p class="subtitle">{{ date | format_date }} · AI-powered bilingual IT/AI news summary · Auto-generated daily</p>
-            <div class="header-actions">
-                <a href="archive/index.html">📚 Archives</a>
-                <a href="https://github.com" target="_blank">⭐ GitHub</a>
-                <button onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
-        <!-- Stats bar -->
-        <div class="stats-bar">
-            <span>📰 <strong>{{ stats.total_articles }}</strong> articles</span>
-            <span>📡 <strong>{{ stats.sources_count }}</strong> sources</span>
-            <span>🏷️ <strong>{{ topics|length }}</strong> topics</span>
-            <span>🕐 Generated at {{ generated_at[:19] }} UTC</span>
-            <span>🧠 Powered by DeepSeek</span>
-        </div>
-
-        <!-- Search & filter -->
-        <input type="text" class="search-box" id="search" placeholder="🔍 Search articles..." oninput="filterArticles()">
-        <div class="filter-bar" id="filter-bar">
-            <span class="filter-chip active" onclick="setTopicFilter('all', this)">All</span>
+    <div class="page-wrapper">
+        <!-- ── TOC Sidebar ── -->
+        <div class="toc-overlay" id="toc-overlay" onclick="closeToc()"></div>
+        <nav class="toc-sidebar" id="toc-sidebar">
+            <h3>📑 Contents</h3>
+            <a href="#top" class="active" data-toc="top">📰 Top</a>
             {% for topic_name in topics.keys() %}
-            <span class="filter-chip" onclick="setTopicFilter('{{ topic_name }}', this)">{{ topic_name }}</span>
+            <a href="#topic-{{ loop.index }}" data-toc="topic-{{ loop.index }}">{{ topic_name }} <small>({{ topics[topic_name]|length }})</small></a>
             {% endfor %}
-        </div>
+        </nav>
 
-        <!-- Critical flags from critics -->
-        {% if critical_flags %}
-        <div class="flags-box">
-            <h4>⚠️ Editorial Notes (auto-detected by AI critics)</h4>
-            <ul>
-                {% for flag in critical_flags %}
-                <li><strong>{{ flag.article_title }}</strong>: {{ flag.reason }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-
-        <!-- Topic sections -->
-        {% for topic_name, articles in topics.items() %}
-        <section class="topic-section" data-topic="{{ topic_name }}">
-            <h2 class="topic-header">{{ topic_name }} <span class="topic-count">({{ articles|length }})</span></h2>
-            {% for item in articles %}
-            <article class="article-card" data-topic="{{ topic_name }}">
-                <h3><a href="{{ item._article.url }}" target="_blank" rel="noopener">{{ item._article.title }}</a></h3>
-                <div class="article-meta">
-                    <span class="source-tag">{{ item._article.source_name }}</span>
-                    {% if item.critic_flags %}
-                    <span class="critic-flag">⚠ Reviewed</span>
-                    {% endif %}
+        <!-- ── Main Content ── -->
+        <div class="content-area">
+            <header id="top">
+                <div class="container">
+                    <h1>🤖 Daily AI Digest</h1>
+                    <p class="subtitle">{{ date | format_date }} · AI-powered bilingual IT/AI news summary · Auto-generated daily</p>
+                    <div class="header-actions">
+                        <a href="archive/index.html">📚 Archives</a>
+                        <a href="https://github.com" target="_blank">⭐ GitHub</a>
+                        <button onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+                    </div>
                 </div>
-                <p class="en-summary">{{ item.en_summary }}</p>
-                <p class="zh-summary">{{ item.zh_summary }}</p>
-                {% if item.key_points %}
-                <ul class="key-points">
-                    {% for point in item.key_points[:3] %}
-                    <li>{{ point }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-                {% if item.impact %}
-                <div class="impact">💡 <strong>Why it matters:</strong> {{ item.impact }}<br>🇨🇳 {{ item.impact_zh }}</div>
-                {% endif %}
-            </article>
-            {% endfor %}
-        </section>
-        {% endfor %}
-    </main>
+            </header>
 
-    <footer>
-        <div class="container">
-            <p>Generated daily at 08:00 Beijing time · Powered by <a href="https://deepseek.com" target="_blank">DeepSeek</a></p>
-            <p>Content automatically curated from RSS feeds, Reddit, GitHub Trending, and web search</p>
-            <p style="margin-top: 8px; font-size: 0.8rem;">⚠ AI-generated content may contain errors. Verify important claims against original sources.</p>
+            <main class="container">
+                <!-- Stats -->
+                <div class="stats-bar">
+                    <span>📰 <strong>{{ stats.total_articles }}</strong> articles</span>
+                    <span>📡 <strong>{{ stats.sources_count }}</strong> sources</span>
+                    <span>🏷️ <strong>{{ topics|length }}</strong> topics</span>
+                    <span>🕐 {{ generated_at[:19] }} UTC</span>
+                    <span>🧠 DeepSeek</span>
+                </div>
+
+                <!-- Search & Filter -->
+                <input type="text" class="search-box" id="search" placeholder="🔍 Search articles..." oninput="filterArticles()">
+                <div class="filter-bar" id="filter-bar">
+                    <span class="filter-chip active" onclick="setTopicFilter('all', this)">All</span>
+                    {% for topic_name in topics.keys() %}
+                    <span class="filter-chip" onclick="setTopicFilter('{{ topic_name }}', this)">{{ topic_name }}</span>
+                    {% endfor %}
+                </div>
+
+                <!-- Critic Flags Summary (collapsible) -->
+                {% if critical_flags %}
+                <details class="flags-box" id="flags-summary">
+                    <summary>⚠️ AI Critic Notes ({{ critical_flags|length }} articles flagged — click to expand)</summary>
+                    <ul>
+                        {% for flag in critical_flags %}
+                        <li>
+                            <span class="flag-article">{{ flag.article_title }}</span>
+                            <br><small>{{ flag.reason }}</small>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </details>
+                {% endif %}
+
+                <!-- Legend -->
+                <div style="margin-bottom: 20px; font-size: 0.78rem; color: var(--text-secondary); display: flex; gap: 14px; flex-wrap: wrap;">
+                    <span class="critic-badge factual">🔴 Factual</span> 事实可能不准
+                    <span class="critic-badge bias">🟡 Bias</span> 有营销/偏见
+                    <span class="critic-badge safety">🟣 Safety</span> 内容安全
+                    <span class="critic-badge privacy">🟢 Privacy</span> 有隐私信息
+                </div>
+
+                <!-- Topic Sections -->
+                {% for topic_name, articles in topics.items() %}
+                <section class="topic-section" data-topic="{{ topic_name }}" id="topic-{{ loop.index }}">
+                    <h2 class="topic-header">{{ topic_name }} <span class="topic-count">({{ articles|length }})</span></h2>
+                    {% for item in articles %}
+                    <article class="article-card" data-topic="{{ topic_name }}">
+                        <h3><a href="{{ item._article.url }}" target="_blank" rel="noopener">{{ item._article.title }}</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">{{ item._article.source_name }}</span>
+                            <span class="critic-badges">
+                                {% if item.has_factual_issue %}
+                                <span class="critic-badge factual" title="{{ item.critic_details.factual|join('; ') }}">🔴 Factual</span>
+                                {% endif %}
+                                {% if item.has_bias_issue %}
+                                <span class="critic-badge bias" title="Bias level: {{ item.critic_details.bias.level }} — {{ item.critic_details.bias.issues|join('; ') }}">🟡 Bias</span>
+                                {% endif %}
+                                {% if item.has_safety_issue %}
+                                <span class="critic-badge safety" title="{{ item.critic_details.safety|join('; ') }}">🟣 Safety</span>
+                                {% endif %}
+                                {% if item.has_privacy_issue %}
+                                <span class="critic-badge privacy" title="PII: {{ item.critic_details.privacy|join(', ') }}">🟢 Privacy</span>
+                                {% endif %}
+                            </span>
+                        </div>
+                        <p class="en-summary">{{ item.en_summary }}</p>
+                        <p class="zh-summary">{{ item.zh_summary }}</p>
+                        {% if item.key_points %}
+                        <ul class="key-points">
+                            {% for point in item.key_points[:3] %}
+                            <li>{{ point }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {% if item.impact %}
+                        <div class="impact">💡 <strong>Why it matters:</strong> {{ item.impact }}<br>🇨🇳 {{ item.impact_zh }}</div>
+                        {% endif %}
+                    </article>
+                    {% endfor %}
+                </section>
+                {% endfor %}
+            </main>
+
+            <footer>
+                <div class="container">
+                    <p>Generated daily at 08:00 Beijing time · Powered by <a href="https://deepseek.com" target="_blank">DeepSeek</a></p>
+                    <p>Content automatically curated from RSS feeds, Reddit, GitHub Trending, and web search</p>
+                    <p style="margin-top: 8px; font-size: 0.8rem;">⚠ AI-generated content may contain errors. Verify important claims against original sources.</p>
+                </div>
+            </footer>
         </div>
-    </footer>
+    </div>
+
+    <!-- TOC mobile toggle -->
+    <button class="toc-toggle" id="toc-toggle" onclick="toggleToc()" title="Table of Contents">☰</button>
 
     <script>
+        /* ── Theme ── */
+        function toggleTheme() {
+            const html = document.documentElement, btn = document.getElementById('theme-btn');
+            const next = html.dataset.theme === 'light' ? 'dark' : 'light';
+            html.dataset.theme = next;
+            btn.textContent = next === 'dark' ? '☀️ Light' : '🌙 Dark';
+            localStorage.setItem('theme', next);
+        }
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) { document.documentElement.dataset.theme = saved; document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark'; }
+        })();
+
+        /* ── Search & Filter ── */
         let activeTopic = 'all';
         function setTopicFilter(topic, el) {
             activeTopic = topic;
@@ -247,34 +309,53 @@
                 let visible = (activeTopic === 'all' || activeTopic === t);
                 let hasVisible = false;
                 section.querySelectorAll('.article-card').forEach(card => {
-                    const text = card.textContent.toLowerCase();
-                    const show = visible && text.includes(query);
+                    const show = visible && card.textContent.toLowerCase().includes(query);
                     card.style.display = show ? '' : 'none';
                     if (show) hasVisible = true;
                 });
                 section.style.display = hasVisible ? '' : 'none';
             });
         }
-        function toggleTheme() {
-            const html = document.documentElement;
-            const btn = document.getElementById('theme-btn');
-            if (html.dataset.theme === 'light') {
-                html.dataset.theme = 'dark';
-                btn.textContent = '☀️ Light';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                html.dataset.theme = 'light';
-                btn.textContent = '🌙 Dark';
-                localStorage.setItem('theme', 'light');
-            }
+
+        /* ── TOC Scroll Spy ── */
+        const tocLinks = document.querySelectorAll('.toc-sidebar a[data-toc]');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.toc-sidebar a[data-toc="${id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-80px 0px -70% 0px' });
+
+        // Observe header and all topic sections
+        const topEl = document.getElementById('top');
+        if (topEl) observer.observe(topEl);
+        document.querySelectorAll('.topic-section[id]').forEach(s => observer.observe(s));
+
+        // Smooth scroll on TOC click
+        tocLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-toc');
+                const el = document.getElementById(targetId);
+                if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                // Close mobile TOC
+                if (window.innerWidth <= 900) closeToc();
+            });
+        });
+
+        /* ── Mobile TOC ── */
+        function toggleToc() {
+            document.getElementById('toc-sidebar').classList.toggle('open');
+            document.getElementById('toc-overlay').classList.toggle('show');
         }
-        (function() {
-            const saved = localStorage.getItem('theme');
-            if (saved) {
-                document.documentElement.dataset.theme = saved;
-                document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark';
-            }
-        })();
+        function closeToc() {
+            document.getElementById('toc-sidebar').classList.remove('open');
+            document.getElementById('toc-overlay').classList.remove('show');
+        }
     </script>
 </body>
 </html>
