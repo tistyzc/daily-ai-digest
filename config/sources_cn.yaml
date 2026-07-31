@@ -41,3 +41,27 @@ sources:
     category: "ai-business"
     authority_score: 8
     language: "zh"
+
+  - name: "极客公园"
+    url: "https://www.geekpark.net/rss"
+    category: "technology"
+    authority_score: 8
+    language: "zh"
+
+  - name: "品玩 (PingWest)"
+    url: "https://rsshub.rssforever.com/pingwest/status"
+    category: "technology"
+    authority_score: 7
+    language: "zh"
+
+  - name: "36氪快讯"
+    url: "https://rsshub.rssforever.com/36kr/newsflashes"
+    category: "business"
+    authority_score: 7
+    language: "zh"
+
+  - name: "艾瑞咨询"
+    url: "https://rsshub.rssforever.com/iresearch/report"
+    category: "business"
+    authority_score: 7
+    language: "zh"
