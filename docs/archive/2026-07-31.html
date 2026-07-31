@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily AI Digest — 2026-07-31</title>
+    <meta name="description" content="Daily AI/IT industry news digest — auto-generated bilingual summary of what matters today.">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text: #1a1a2e;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --tag-bg: #eff6ff;
+            --tag-text: #2563eb;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --accent: #60a5fa;
+            --accent-hover: #93bbfd;
+            --tag-bg: #1e3a5f;
+            --tag-text: #60a5fa;
+            --shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 32px 0 24px;
+            margin-bottom: 32px;
+        }
+        header h1 { font-size: 2rem; font-weight: 800; color: var(--text); }
+        header .subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-top: 4px; }
+        .header-actions {
+            display: flex; gap: 12px; align-items: center; margin-top: 12px; flex-wrap: wrap;
+        }
+        .header-actions a, .header-actions button {
+            text-decoration: none; font-size: 0.875rem; padding: 6px 14px;
+            border-radius: var(--radius); border: 1px solid var(--border);
+            background: var(--bg); color: var(--text); cursor: pointer;
+            transition: all 0.2s;
+        }
+        .header-actions a:hover, .header-actions button:hover { border-color: var(--accent); color: var(--accent); }
+        .stats-bar {
+            display: flex; gap: 24px; flex-wrap: wrap;
+            padding: 16px 20px; background: var(--bg-secondary);
+            border-radius: var(--radius); margin-bottom: 24px;
+            font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .stats-bar strong { color: var(--text); }
+        .topic-section { margin-bottom: 40px; }
+        .topic-header {
+            font-size: 1.3rem; font-weight: 700; color: var(--accent);
+            padding-bottom: 8px; margin-bottom: 16px;
+            border-bottom: 2px solid var(--accent);
+        }
+        .topic-count { font-size: 0.85rem; font-weight: 400; color: var(--text-secondary); }
+        .article-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px 24px;
+            margin-bottom: 16px; box-shadow: var(--shadow);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .article-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+        .article-card h3 a { color: var(--text); text-decoration: none; }
+        .article-card h3 a:hover { color: var(--accent); }
+        .article-meta {
+            font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 10px;
+            display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+        }
+        .source-tag {
+            font-size: 0.78rem; padding: 2px 8px; border-radius: 4px;
+            background: var(--tag-bg); color: var(--tag-text);
+        }
+        .critic-flag {
+            font-size: 0.78rem; padding: 2px 8px; border-radius: 4px;
+            background: #fef3c7; color: var(--warning);
+        }
+        .en-summary { font-size: 0.92rem; color: var(--text); margin-bottom: 8px; }
+        .zh-summary {
+            font-size: 0.92rem; color: var(--text-secondary);
+            padding-left: 12px; border-left: 3px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .key-points {
+            list-style: none; padding: 0; margin: 8px 0 0;
+            font-size: 0.85rem; color: var(--text-secondary);
+        }
+        .key-points li::before { content: "▸ "; color: var(--accent); }
+        .impact {
+            font-size: 0.85rem; padding: 8px 12px; margin-top: 8px;
+            background: var(--bg-secondary); border-radius: 6px;
+            color: var(--text-secondary); font-style: italic;
+        }
+        footer {
+            text-align: center; padding: 32px 0; margin-top: 40px;
+            border-top: 1px solid var(--border); color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        .search-box {
+            width: 100%; max-width: 400px; padding: 8px 14px;
+            border: 1px solid var(--border); border-radius: var(--radius);
+            background: var(--bg); color: var(--text); font-size: 0.9rem;
+        }
+        .search-box:focus { outline: none; border-color: var(--accent); }
+        .filter-bar {
+            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+        }
+        .filter-chip {
+            font-size: 0.82rem; padding: 4px 12px; border-radius: 20px;
+            border: 1px solid var(--border); background: var(--bg);
+            color: var(--text-secondary); cursor: pointer; transition: all 0.2s;
+        }
+        .filter-chip.active, .filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .flags-box {
+            background: #fffbeb; border: 1px solid #fcd34d; border-radius: var(--radius);
+            padding: 16px 20px; margin-bottom: 24px;
+        }
+        .flags-box h4 { color: var(--warning); font-size: 0.95rem; margin-bottom: 8px; }
+        .flags-box ul { list-style: disc; padding-left: 20px; font-size: 0.85rem; }
+        @media (max-width: 640px) {
+            header h1 { font-size: 1.5rem; }
+            .article-card { padding: 14px 16px; }
+            .stats-bar { gap: 12px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🤖 Daily AI Digest</h1>
+            <p class="subtitle">July 31, 2026 · AI-powered bilingual IT/AI news summary · Auto-generated daily</p>
+            <div class="header-actions">
+                <a href="archive/index.html">📚 Archives</a>
+                <a href="https://github.com" target="_blank">⭐ GitHub</a>
+                <button onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Stats bar -->
+        <div class="stats-bar">
+            <span>📰 <strong>30</strong> articles</span>
+            <span>📡 <strong>6</strong> sources</span>
+            <span>🏷️ <strong>8</strong> topics</span>
+            <span>🕐 Generated at 2026-07-31T08:49:14 UTC</span>
+            <span>🧠 Powered by DeepSeek</span>
+        </div>
+
+        <!-- Search & filter -->
+        <input type="text" class="search-box" id="search" placeholder="🔍 Search articles..." oninput="filterArticles()">
+        <div class="filter-bar" id="filter-bar">
+            <span class="filter-chip active" onclick="setTopicFilter('all', this)">All</span>
+            
+            <span class="filter-chip" onclick="setTopicFilter('Large Language Models', this)">Large Language Models</span>
+            
+            <span class="filter-chip" onclick="setTopicFilter('AI Research & Breakthroughs', this)">AI Research & Breakthroughs</span>
+            
+            <span class="filter-chip" onclick="setTopicFilter('Developer Tools & Platforms', this)">Developer Tools & Platforms</span>
+            
+            <span class="filter-chip" onclick="setTopicFilter('AI Business & Funding', this)">AI Business & Funding</span>
+            
+            <span class="filter-chip" onclick="setTopicFilter('Security & Safety', this)">Security & Safety</span>
+            
+            <span class="filter-chip" onclick="setTopicFilter('Infrastructure & Cloud', this)">Infrastructure & Cloud</span>
+            
+            <span class="filter-chip" onclick="setTopicFilter('Industry Trends & Analysis', this)">Industry Trends & Analysis</span>
+            
+            <span class="filter-chip" onclick="setTopicFilter('AI Ethics & Policy', this)">AI Ethics & Policy</span>
+            
+        </div>
+
+        <!-- Critical flags from critics -->
+        
+        <div class="flags-box">
+            <h4>⚠️ Editorial Notes (auto-detected by AI critics)</h4>
+            <ul>
+                
+                <li><strong>Introducing gpt-oss</strong>: Bias (mild): ["The summary uses promotional language like 'strong real-world performance' and 'robust tool use capabilities' without specific benchmarks or comparisons, which could be seen as hype.", 'It lacks any mention of limitations or potential drawbacks, making it read like a press release.', "The claim 'outperforming similarly sized open models on reasoning tasks' is presented without evidence or context, which could be misleading."]</li>
+                
+                <li><strong>Introducing OpenAI for Government</strong>: Bias (mild): ["The summary reads like a press release, using promotional language such as 'most advanced AI tools' and 'cutting-edge technology' without critical context or counterpoints.", 'It lacks any mention of potential concerns, such as data privacy, security, or the implications of a private company providing AI tools to the government.', "The phrase 'serving the public good' is an uncritical endorsement of the initiative's stated goals."]</li>
+                
+                <li><strong>Introducing GPT-5.2</strong>: Bias (mild): ["The summary uses promotional language such as 'most advanced frontier model' and 'state-of-the-art' without independent verification or comparison to competitors.", 'The description reads like a press release, lacking any critical perspective or acknowledgment of limitations.', 'No mention of potential concerns (e.g., cost, performance trade-offs, or alternative models) that would provide balance.']</li>
+                
+                <li><strong>UEFA and its national associations will not participate in FIFA competitions</strong>: Factual: ["The source article is a statement from UEFA and its 55 national associations, but the summary claims they will not participate in FIFA competitions. The actual statement likely addresses a specific issue (e.g., FIFA's plans for a Club World Cup or World Cup expansion) and may not be a blanket refusal to participate in all FIFA competitions. Without the full text, the summary overstates the decision.", "The summary mentions 'unresolved governance and reform issues' but the source may cite specific reasons (e.g., FIFA's lack of consultation, scheduling conflicts) that are not accurately captured.", "The summary says 'potentially reshaping the international football calendar' which is speculative and may not be directly stated in the source."]</li>
+                
+                <li><strong>The Download: a chip talent battle, and deflating AI hype</strong>: Factual: ["The summary states 'new data suggesting most jobs are largely unaffected by AI,' but the source article does not contain this claim. The source only mentions investor anxiety about AI's earnings potential, without any data about job impact.", "The summary omits the detail that the bonus is 'set to pay' employees, which is minor but not an error.", "The summary correctly captures the main points about Samsung engineers defecting to SK Hynix, the $476,000 bonus, HBM chips for Nvidia, and the talent war's significance."]</li>
+                
+                <li><strong>Stacked pull requests are now in public preview</strong>: Factual: ["The summary states the feature is in 'public preview', but the source does not specify 'public' preview; it only mentions 'preview'.", 'The summary claims praise from leads from Vercel, TED, and jQuery. The source includes quotes from Tim Neutkens (Next.js lead, Vercel) and John Resig (creator of jQuery), but there is no mention of TED or any lead from TED.']; Bias (mild): ["The summary includes promotional language such as 'praised by leads from Vercel, TED, and jQuery' which reads like a press release, lacking any counterpoints or limitations.", "The phrase '大大提升了代码审查效率' (greatly improved review efficiency) is an uncritical endorsement without acknowledging potential drawbacks or alternative approaches.", "The mention of 'AI 辅助开发带来的大规模变更场景' adds hype by implying the feature is uniquely suited for AI-driven workflows without evidence."]</li>
+                
+                <li><strong>Show HN: What should the GUI for AI agents look like?</strong>: Factual: ["The summary claims 'The beta is available for download' but the source article does not mention any beta or download availability.", "The summary claims the product 'targeting users of ChatGPT/Claude who haven't adopted agent workflows' but the source does not specify a target audience in this way."]</li>
+                
+                <li><strong>Physicists Solve a Muon Mystery. Now, Old Results Don't Add Up</strong>: Factual: ['The source article is not provided; only the URL and metadata are given. The summary cannot be verified against the actual content.', "The summary claims physicists resolved a muon mystery and that old results don't add up, but without the article text, it's impossible to confirm these claims.", 'The summary may be hallucinated or based on assumptions, as no source content is available to check.']</li>
+                
+                <li><strong>How an overlooked geothermal plant got a second chance</strong>: Factual: ['The summary states the new well was drilled to 8,000 feet, but the source does not specify the depth of the new well; it only mentions the old wells were 2,500 feet deep.', 'The summary claims water flow increased to over 4,000 gallons per minute, but this figure is not mentioned in the source.', 'The summary says the success challenges conventional wisdom that deeper drilling reduces water flow, but the source does not discuss this conventional wisdom or any such challenge.']</li>
+                
+                <li><strong>GitHub Copilot in Visual Studio — July update</strong>: Factual: ["The summary states that the new agent, skills, and review features are available in all plans, but the source text says 'Availability varies by feature' and does not specify that these are available in all plans. The source only mentions that org-level custom instructions require Business or Enterprise, but does not confirm the availability of the other features across all plans.", 'The summary omits the detail that the built-in skills are off by default and require corresponding workloads to be installed, which is a key aspect of the feature.', "The summary does not mention that the new agent is in public preview, which is a significant detail, though it does say 'public preview' in the first sentence, so this is not an issue."]</li>
+                
+                <li><strong>GitHub Copilot in Visual Studio Code, July 2026 releases</strong>: Factual: ["The summary mentions 'general availability of Copilot vision for images/PDFs' and 'BYOK model integration in the Agents window' which are not mentioned in the source article.", "The summary states 'keyboard-driven navigation' as a new feature, but the source does not mention this.", 'The summary omits several key features from the source, such as review changes faster, quick chat, group and reorder sessions, track running subagents, handle pull request updates, and multi-chat support details.', "The summary incorrectly attributes the changes to 'GitHub Copilot in VS Code' while the source refers to 'VS Code' releases generally."]</li>
+                
+                <li><strong>A fundamental flaw leaves LLMs strikingly vulnerable to attack</strong>: Factual: ["The summary mentions 'chain-of-thought forgery' attack and specific models 'GPT-5' and 'gpt-oss-20b', but these are not mentioned in the source article. The source only describes exploiting a flaw concerning how LLMs identify instructions, and does not name specific models.", "The summary states the flaw is 'potentially unsolvable', which is supported by the source quote 'fundamentally unsolvable', but the source does not mention 'chain-of-thought forgery' or the specific model names.", "The source does not mention 'GPT-5' or 'gpt-oss-20b' at all; these appear to be hallucinated."]</li>
+                
+                <li><strong>科技爱好者周刊（第 405 期）：资源，社会公平与算力</strong>: Privacy: ['email address']</li>
+                
+                <li><strong>科技爱好者周刊（第 403 期）：为什么 Dropbox 不成功</strong>: Factual: ["The summary claims 'AI coding costs now exceed engineer salaries at Anthropic, with AI expenses being 2.3 times payroll.' The source says AI expenses are 2.3 times the total payroll, not that they exceed engineer salaries. Also, the source does not state that AI costs exceed engineer salaries; it says AI costs are 2.3 times payroll, which is a different comparison.", "The summary mentions 'TypeScript 7.0's release with a Go-based engine that is 10x faster.' This is not mentioned anywhere in the source article. The source discusses Dropbox, AI costs, and other tech news, but there is no mention of TypeScript or a Go-based engine."]; Privacy: ['email address']</li>
+                
+            </ul>
+        </div>
+        
+
+        <!-- Topic sections -->
+        
+        <section class="topic-section" data-topic="Large Language Models">
+            <h2 class="topic-header">Large Language Models <span class="topic-count">(3)</span></h2>
+            
+            <article class="article-card" data-topic="Large Language Models">
+                <h3><a href="https://openai.com/index/introducing-gpt-oss" target="_blank" rel="noopener">Introducing gpt-oss</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">OpenAI Blog</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">OpenAI has released two new open-weight language models, gpt-oss-120b and gpt-oss-20b, under the Apache 2.0 license. These models are designed to deliver strong real-world performance at low cost, outperforming similarly sized open models on reasoning tasks and demonstrating robust tool use capabilities. They are optimized for efficient deployment on consumer hardware.</p>
+                <p class="zh-summary">OpenAI 发布了两个新的开源权重模型 gpt-oss-120b 和 gpt-oss-20b，采用 Apache 2.0 许可。这两个模型在推理任务上优于同规模的开源模型，并展现出强大的工具调用能力，同时针对消费级硬件进行了优化，能以低成本实现高性能。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>OpenAI released gpt-oss-120b and gpt-oss-20b, two open-weight models under Apache 2.0.</li>
+                    
+                    <li>These models outperform similarly sized open models on reasoning tasks.</li>
+                    
+                    <li>They are optimized for efficient deployment on consumer hardware and have strong tool use capabilities.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This release provides developers with high-performance, open-weight models that can run on consumer hardware, enabling cost-effective AI applications and local deployment without sacrificing reasoning quality.<br>🇨🇳 这一发布为开发者提供了高性能的开源权重模型，可在消费级硬件上运行，支持低成本 AI 应用和本地部署，同时不牺牲推理质量。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Large Language Models">
+                <h3><a href="https://openai.com/index/introducing-gpt-5-2" target="_blank" rel="noopener">Introducing GPT-5.2</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">OpenAI Blog</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">OpenAI has announced GPT-5.2, its most advanced frontier model designed for everyday professional tasks, featuring state-of-the-art reasoning, long-context understanding, coding, and vision capabilities. The model is available in ChatGPT and via the OpenAI API, aimed at powering faster and more reliable agentic workflows.</p>
+                <p class="zh-summary">OpenAI 发布了 GPT-5.2，这是其面向日常专业工作的最强前沿模型，在推理、长上下文理解、编程和视觉方面均达到顶尖水平。该模型已上线 ChatGPT 和 OpenAI API，旨在驱动更快、更可靠的智能体工作流。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>GPT-5.2 is OpenAI's most advanced frontier model for professional use.</li>
+                    
+                    <li>It excels in reasoning, long-context understanding, coding, and vision.</li>
+                    
+                    <li>Available in ChatGPT and via the OpenAI API for agentic workflows.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This release signals a major upgrade for developers building AI-powered applications, offering enhanced capabilities for complex reasoning and multimodal tasks, which can lead to more efficient and reliable automation.<br>🇨🇳 此次发布对开发者意义重大，意味着构建 AI 应用时可利用更强的推理和多模态能力，实现更高效、更可靠的自动化流程。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Large Language Models">
+                <h3><a href="https://www.ctgt.ai/research/distillation-censorship-transfer" target="_blank" rel="noopener">Show HN: Distilling DeepSeek into GPT-OSS doesn't transfer censorship. Try it</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">Hacker News</span>
+                    
+                </div>
+                <p class="en-summary">A team at CTGT Inc. distilled DeepSeek V4 Flash into GPT-OSS-120B for finance tasks, achieving 83.61% on FinanceReasoning at an 8k token budget, outperforming Kimi K3 and Inkling. They also tested whether censorship traits transferred, finding that the distilled model remained as uncensored as its American base, with the teacher showing a +45.45 point gap on politically sensitive pairs. They released the LineageEval framework and open weights to promote auditable evaluation of such distillation risks.</p>
+                <p class="zh-summary">CTGT Inc. 团队用 DeepSeek V4 Flash 作为教师模型，对 GPT-OSS-120B 进行蒸馏，在 8k token 预算下 FinanceReasoning 得分 83.61%，超过 Kimi K3 和 Inkling。他们重点测试了“审查特性”是否随蒸馏迁移，结果发现蒸馏后的模型行为与美国基座模型一致，并未继承教师的审查倾向。团队开源了 LineageEval 评估框架和 20B 权重，希望用可审计的方式推动相关讨论。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Self-distilled 120B model scores 83.61% on FinanceReasoning at 8k token budget, beating Kimi K3 (81.93%) and Inkling (65.13%).</li>
+                    
+                    <li>Censorship traits from DeepSeek V4 Flash did not transfer to the distilled GPT-OSS model; teacher showed +45.45 point gap on sensitive pairs, while students stayed within 1 point of base.</li>
+                    
+                    <li>Released LineageEval framework and 20B open weights; plans to test Chinese teacher into Chinese-lineage base (Qwen) next.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This provides empirical evidence that distillation can decouple task-specific knowledge from undesirable traits like censorship, enabling safer use of powerful teachers without inheriting their biases.<br>🇨🇳 这为蒸馏技术提供了实证：可以分离任务知识与不良特性（如审查），让开发者更安全地利用强大教师模型，而无需担心继承其偏见。</div>
+                
+            </article>
+            
+        </section>
+        
+        <section class="topic-section" data-topic="AI Research & Breakthroughs">
+            <h2 class="topic-header">AI Research & Breakthroughs <span class="topic-count">(3)</span></h2>
+            
+            <article class="article-card" data-topic="AI Research & Breakthroughs">
+                <h3><a href="https://openai.com/index/introducing-indqa" target="_blank" rel="noopener">Introducing IndQA</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">OpenAI Blog</span>
+                    
+                </div>
+                <p class="en-summary">OpenAI has launched IndQA, a new benchmark designed to evaluate AI systems' performance in Indian languages. Developed with domain experts, IndQA assesses cultural understanding and reasoning across 12 languages and 10 knowledge areas, aiming to improve AI's effectiveness in diverse linguistic contexts.</p>
+                <p class="zh-summary">OpenAI 推出了新基准 IndQA，用于评估 AI 系统在印度语言上的表现。该基准由领域专家参与构建，覆盖 12 种语言和 10 个知识领域，重点考察文化理解与推理能力，旨在推动 AI 在多元语言环境中的实用性提升。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>IndQA is a new benchmark from OpenAI for Indian languages.</li>
+                    
+                    <li>It evaluates cultural understanding and reasoning across 12 languages and 10 knowledge areas.</li>
+                    
+                    <li>The benchmark was built with domain experts to ensure relevance and accuracy.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This benchmark provides a standardized way to measure and improve AI performance in underrepresented languages, helping developers build more inclusive and culturally aware AI systems.<br>🇨🇳 该基准为衡量和提升 AI 在低资源语言上的表现提供了标准化方法，帮助开发者构建更具包容性和文化感知力的 AI 系统。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="AI Research & Breakthroughs">
+                <h3><a href="https://marbleos.com/demo" target="_blank" rel="noopener">Show HN: What should the GUI for AI agents look like?</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">Hacker News</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">MarbleOS, created by Akilan and Miguel, proposes a GUI for AI agents inspired by historical interfaces like Xerox PARC and Macintosh, aiming to move beyond chat-based interaction. The interface represents delegated tasks as cards, shows tools and artifacts visibly, and allows multiple jobs to run concurrently, making agent capabilities more discoverable. The beta is available for download, targeting users of ChatGPT/Claude who haven't adopted agent workflows.</p>
+                <p class="zh-summary">MarbleOS 的创始人 Akilan 和 Miguel 借鉴 Xerox PARC 和 Macintosh 的 GUI 设计，提出了一种面向 AI 代理的图形界面，旨在超越传统的聊天交互。该界面将任务以卡片形式呈现，直观展示工具和产出物，支持多任务并行，让代理能力更可见。目前提供 beta 版下载，主要面向已使用 ChatGPT/Claude 但尚未深入代理工作流的用户。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>MarbleOS introduces a card-based GUI for AI agents, inspired by historical GUIs like Xerox PARC and Macintosh.</li>
+                    
+                    <li>The interface makes agent capabilities visible, showing tools and artifacts, and supports concurrent task execution.</li>
+                    
+                    <li>Targets users familiar with ChatGPT/Claude but new to agent workflows, with a downloadable beta available.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This matters because it challenges the dominant chat-based paradigm for AI interaction, potentially making agent workflows more accessible and intuitive for developers and end-users.<br>🇨🇳 这对开发者很重要，因为它挑战了以聊天为主的 AI 交互范式，可能让代理工作流对开发者和终端用户更易用、更直观。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="AI Research & Breakthroughs">
+                <h3><a href="https://www.quantamagazine.org/physicists-solve-a-muon-mystery-now-old-results-dont-add-up-20260729/" target="_blank" rel="noopener">Physicists Solve a Muon Mystery. Now, Old Results Don't Add Up</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">Hacker News</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">Physicists have resolved a long-standing discrepancy in muon magnetic moment measurements, but the solution reveals that previous experimental results were based on incorrect theoretical calculations. This finding means that older muon experiments need to be re-evaluated, potentially altering our understanding of particle physics.</p>
+                <p class="zh-summary">物理学家终于解开了μ子磁矩测量中的长期谜团，但这一突破却让旧有的实验结果变得不再可靠——原来之前的理论计算存在偏差。这意味着需要重新审视过去的μ子实验，可能会改写粒子物理学的某些认知。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>The muon magnetic moment discrepancy has been solved, but it invalidates previous theoretical calculations.</li>
+                    
+                    <li>Old experimental results must be re-evaluated in light of the new understanding.</li>
+                    
+                    <li>The finding could impact the Standard Model and searches for new physics.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This highlights the importance of rigorous theoretical validation in experimental physics, reminding developers and AI practitioners that even established results can be overturned by better models.<br>🇨🇳 这提醒开发者和AI从业者，即便是看似稳固的实验结果也可能因更精确的模型而失效，严谨的理论验证至关重要。</div>
+                
+            </article>
+            
+        </section>
+        
+        <section class="topic-section" data-topic="Developer Tools & Platforms">
+            <h2 class="topic-header">Developer Tools & Platforms <span class="topic-count">(9)</span></h2>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview" target="_blank" rel="noopener">Stacked pull requests are now in public preview</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">GitHub has announced that stacked pull requests are now in public preview, allowing developers to break large changes into small, ordered, reviewable pull requests. This feature supports independent review and checking of each layer, with the ability to merge the entire stack in one click, and is integrated with existing GitHub features like branch protections and merge queues. The CLI extension `gh-stack` enables quick setup, and the feature has been praised by leads from Vercel, TED, and jQuery for improving review efficiency.</p>
+                <p class="zh-summary">GitHub 宣布堆叠式 Pull Request（Stacked PRs）现已进入公开预览，开发者可以将大型变更拆分成有序的小型 PR，每个 PR 独立审查和检查，最后一键合并整个堆栈。该功能与现有分支保护和合并队列无缝集成，并提供了 `gh-stack` CLI 扩展，方便快速上手。Vercel、TED 和 jQuery 的技术负责人均表示，这大大提升了代码审查效率，尤其适合 AI 辅助开发带来的大规模变更场景。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Stacked pull requests are now in public preview on GitHub, enabling ordered series of small PRs that can be reviewed independently and merged together.</li>
+                    
+                    <li>The feature integrates with existing GitHub workflows, including branch protections, required checks, and merge queues.</li>
+                    
+                    <li>A CLI extension `gh-stack` allows creating stacks in under a minute, and support is available across web, CLI, mobile, and coding agents like GitHub Copilot.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This reduces review bottlenecks for large features, especially in AI-assisted development where PRs tend to grow, enabling faster and more accurate code reviews while maintaining quality.<br>🇨🇳 这有助于缓解大型功能（尤其是 AI 辅助开发中 PR 体积膨胀）带来的审查瓶颈，让代码审查更快更准，同时保持质量。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.com/mokshablr/gander" target="_blank" rel="noopener">Show HN: Gander, an Android file viewer that asks for no permissions at all</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">Hacker News</span>
+                    
+                </div>
+                <p class="en-summary">Gander is a new Android file viewer that opens PDF, Word, Excel, PowerPoint, images, video, audio, Markdown, and code without requesting any permissions, including no internet access, ensuring files never leave the device. It uses Pdfium for PDFs, Media3 for media, and bundled JS libraries in a WebView for Office formats, all rendered locally. The app is 14 MB, MIT-licensed, and available on GitHub, with limitations like unsupported old binary .doc/.ppt and no spreadsheet charts.</p>
+                <p class="zh-summary">Gander 是一款全新的 Android 文件查看器，无需任何权限（连网络权限都没有）就能打开 PDF、Word、Excel、PPT、图片、视频、音频、Markdown 和代码，彻底杜绝文件上传到服务器的风险。它用 Pdfium 处理 PDF、Media3 处理媒体、WebView 里内置 JS 库渲染 Office 格式，全部本地完成。体积仅 14 MB，MIT 协议开源，已在 GitHub 发布，不过老版 .doc/.ppt 和表格图表暂不支持。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Gander requires zero permissions, including no internet access, guaranteeing files stay on-device.</li>
+                    
+                    <li>Supports a wide range of formats: PDF, Office, media, Markdown, and code, using local rendering (Pdfium, Media3, WebView JS).</li>
+                    
+                    <li>Small footprint (14 MB), MIT-licensed, available on GitHub; limitations include no old binary .doc/.ppt and no spreadsheet charts.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This matters because it offers a privacy-first, lightweight alternative to bloated office suites and cloud-dependent viewers, giving developers a model for building secure local file handling on Android.<br>🇨🇳 这对开发者来说是个重要参考：它展示了如何在 Android 上构建零权限、纯本地的文件处理方案，兼顾隐私和轻量，避免依赖臃肿套件或云端服务。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.blog/changelog/2026-07-30-reference-same-repository-actions-with-self-repository-syntax" target="_blank" rel="noopener">Reference same-repository actions with self-repository syntax</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                </div>
+                <p class="en-summary">GitHub Actions introduces a new self-repository syntax ($/) that lets workflows reference actions or reusable workflows in the same repository at the exact running commit, eliminating the need for checkout or hardcoded versions. This feature works in all contexts where ./ syntax is used, supports commit SHA pinning, and is now the recommended approach for composing internal actions. It requires GitHub Actions runner version 2.336.0 or newer and is available on github.com.</p>
+                <p class="zh-summary">GitHub Actions 推出了新的自仓库语法（$/），让你在工作流中直接引用同一仓库内的 action 或可复用工作流，且自动匹配当前运行的 commit，无需 checkout 或硬编码版本。这个语法支持所有 ./ 可用的场景，并兼容 commit SHA 锁定，成为仓库内部组合 action 的推荐方式。需要 runner 2.336.0+，已在 github.com 上线。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>New $/ syntax references same-repository actions/reusable workflows at the exact running commit.</li>
+                    
+                    <li>Works in all contexts where ./ syntax works, including steps, composite actions, and reusable workflow calls.</li>
+                    
+                    <li>Eliminates maintenance burden of hardcoding versions and supports commit SHA pinning for enterprise policies.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This simplifies internal action composition and strengthens supply-chain security by ensuring consistent, pinned references without extra checkout steps.<br>🇨🇳 简化了仓库内 action 的组合方式，并通过自动匹配 commit 提升供应链安全，减少维护成本。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.blog/changelog/2026-07-30-github-models-is-now-retired" target="_blank" rel="noopener">GitHub Models is now retired</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                </div>
+                <p class="en-summary">GitHub Models has been officially retired as of July 30, 2026, with all its features—playground, model catalog, inference API, and bring your own key (BYOK)—no longer available to any customer. This completes the retirement process announced on July 1. Users are directed to Microsoft Foundry for model access and GitHub Copilot for AI workflows within GitHub.</p>
+                <p class="zh-summary">GitHub Models 已于 2026 年 7 月 30 日正式退役，其所有功能（包括 playground、模型目录、推理 API 和 BYOK）均不再对任何客户开放，这标志着 7 月 1 日宣布的退役流程的完成。官方建议用户转向 Microsoft Foundry 获取模型，或使用 GitHub Copilot 在 GitHub 上构建 AI 工作流。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>GitHub Models is fully retired as of July 30, 2026, including for existing customers with active usage.</li>
+                    
+                    <li>All features (playground, model catalog, inference API, BYOK) are discontinued.</li>
+                    
+                    <li>Microsoft Foundry and GitHub Copilot are recommended as alternatives for AI model access and workflows.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> Developers relying on GitHub Models for AI inference must migrate to Microsoft Foundry or GitHub Copilot, potentially affecting existing projects and requiring workflow adjustments.<br>🇨🇳 依赖 GitHub Models 进行 AI 推理的开发者需要迁移到 Microsoft Foundry 或 GitHub Copilot，这可能影响现有项目并需要调整工作流。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.blog/changelog/2026-07-30-github-copilot-in-visual-studio-july-update" target="_blank" rel="noopener">GitHub Copilot in Visual Studio — July update</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">GitHub's July 2026 update for Copilot in Visual Studio introduces a new agent in public preview, built on the Copilot SDK, which improves task completion accuracy and reduces back-and-forth. It also adds built-in .NET and Azure skills, selected-code review via Copilot Actions, and organization-level custom instructions for tailored responses. The new agent, skills, and review features are available in all plans, while org-level instructions require Business or Enterprise.</p>
+                <p class="zh-summary">GitHub 在 2026 年 7 月为 Visual Studio 中的 Copilot 推出了重大更新：基于 Copilot SDK 的新 Agent 进入公开预览，能更准确地完成任务并减少交互次数；同时内置了 .NET 和 Azure 团队编写的技能，支持选中代码审查，以及组织级自定义指令。新 Agent、技能和代码审查功能对所有计划开放，但组织级指令需要 Business 或 Enterprise 版本。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>New Copilot SDK-based agent in public preview, improving first-time task success and shorter responses.</li>
+                    
+                    <li>Built-in .NET and Azure skills, off by default, can be enabled per workload.</li>
+                    
+                    <li>Selected-code review via right-click Copilot Actions, with inline suggestions.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This update streamlines agentic workflows in Visual Studio, reducing manual iteration and enabling team-wide consistency, which boosts developer productivity and code review efficiency.<br>🇨🇳 此更新简化了 Visual Studio 中的智能体工作流，减少手动迭代，并支持团队级一致性，显著提升开发效率和代码审查速度。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.blog/changelog/2026-07-30-github-copilot-in-visual-studio-code-july-2026-releases" target="_blank" rel="noopener">GitHub Copilot in Visual Studio Code, July 2026 releases</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">GitHub Copilot in VS Code July 2026 releases (v1.127–v1.131) introduce a redesigned Agents window with faster review workflows, multi-chat sessions supporting Claude, and general availability of Copilot vision for images/PDFs. New features include worktree support for isolated sessions, BYOK model integration in the Agents window, and keyboard-driven navigation.</p>
+                <p class="zh-summary">VS Code 2026年7月版本（v1.127–v1.131）为GitHub Copilot带来重大更新：Agents窗口全新设计，支持多会话并行和Claude多聊天，代码审查更高效。Copilot视觉功能正式可用，可上传图片和PDF，同时支持BYOK模型和Git worktree隔离会话，让开发者工作流更灵活。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Agents window redesign: faster review with diff counts, compact views, and worktree support for isolated sessions.</li>
+                    
+                    <li>Multi-chat sessions: keep related chats in one session, fork into peer chats, and manage via keyboard shortcuts.</li>
+                    
+                    <li>Copilot vision GA: add images and PDFs to chat; BYOK models now work in the Agents window.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> These updates significantly enhance developer productivity by enabling parallel, isolated agent sessions and richer context (images/PDFs), reducing context switching and improving code review efficiency.<br>🇨🇳 这些更新通过并行隔离的代理会话和更丰富的上下文（图片/PDF）大幅提升开发效率，减少切换成本，让代码审查更高效。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.blog/changelog/2026-07-29-default-model-enablement-for-copilot-business-and-enterprise" target="_blank" rel="noopener">Default model enablement for Copilot Business and Enterprise</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                </div>
+                <p class="en-summary">GitHub is introducing a global default enablement policy for generally available Copilot models on Business and Enterprise plans, making new models available by default instead of requiring manual admin opt-in. The policy takes effect on August 26, with a 28-day grace period for admins to configure it, and excludes open-weight models and those not covered by GitHub's data retention agreement.</p>
+                <p class="zh-summary">GitHub 宣布为 Copilot Business 和 Enterprise 计划引入全局默认启用策略：新发布的正式版模型将默认开启，无需管理员手动配置。该策略将于 8 月 26 日生效，此前有 28 天调整期；开源权重模型（如 DeepSeek、Kimi K2.7）及不符合 GitHub 数据保留协议的模型（如 Fable 5）不受此策略影响。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>New generally available Copilot models will be enabled by default on Business and Enterprise plans starting August 26.</li>
+                    
+                    <li>Admins get a single opt-out control to disable default enablement for stricter governance.</li>
+                    
+                    <li>Explicit model choices (enabled/disabled) are preserved; 'inherits default' is a dynamic state that follows the policy.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This reduces admin overhead for adopting new models, but requires organizations to review and potentially disable the policy before August 26 to maintain strict control over model availability.<br>🇨🇳 这降低了采用新模型的管理成本，但组织需在 8 月 26 日前审查并可能禁用该策略，以保持对模型可用性的严格控制。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available" target="_blank" rel="noopener">Copilot code review: Agent skills and MCP now generally available</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                </div>
+                <p class="en-summary">GitHub has made Copilot code review support for agent skills and MCP servers generally available for all Copilot Pro, Pro+, Business, and Enterprise users. Agent skills allow Copilot to invoke team-specific tools and standards via SKILL.md files, while MCP server connections pull read-only context from third-party platforms. Existing preview configurations work unchanged, and comments generated with these features now include attribution.</p>
+                <p class="zh-summary">GitHub 宣布 Copilot 代码审查现已全面支持 agent skills 和 MCP 服务器，所有 Pro、Pro+、Business 和 Enterprise 用户均可使用。通过 SKILL.md 文件，团队可注入内部工具和编码规范；MCP 连接则能引入第三方平台上下文（仅限只读）。预览期间的配置无需改动，且审查评论会标注来源，方便追踪。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Agent skills and MCP servers are now GA for Copilot code review across all paid tiers.</li>
+                    
+                    <li>Agent skills use SKILL.md files under .github/skills to add repo/organization-specific context.</li>
+                    
+                    <li>MCP server connections are read-only and reuse existing Copilot cloud agent configurations.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This GA release lets development teams embed their own tools and standards directly into automated code reviews, reducing context switching and improving review accuracy without leaving GitHub.<br>🇨🇳 这一全面上线让团队能将自有工具和规范直接嵌入自动化代码审查，减少上下文切换，提升审查准确性，且无需离开 GitHub 工作流。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Developer Tools & Platforms">
+                <h3><a href="https://github.blog/changelog/2026-07-29-codeql-2-26-1-improves-analysis-accuracy-and-framework-coverage" target="_blank" rel="noopener">CodeQL 2.26.1 improves analysis accuracy and framework coverage</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                </div>
+                <p class="en-summary">CodeQL 2.26.1 has been released, enhancing framework coverage for Go, Java/Kotlin, and JavaScript/TypeScript, and reducing false positives in Rust analysis. Key improvements include better modeling for Go's log/slog package, new models for Apache POI in Java, Angular @HostListener support in JS/TS, and refined queries for path injection, SSRF, and hard-coded cryptographic values.</p>
+                <p class="zh-summary">CodeQL 2.26.1 已发布，重点提升了 Go、Java/Kotlin 和 JavaScript/TypeScript 的框架覆盖，并减少了 Rust 分析的误报。主要改进包括对 Go log/slog 包的建模优化、Java 中 Apache POI 的新模型、Angular @HostListener 的支持，以及针对路径注入、SSRF 和硬编码加密值等查询的优化。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Improved modeling for Go's log/slog package, expanding coverage for structured logging.</li>
+                    
+                    <li>Added source, sink, and flow summary models for Apache POI in Java/Kotlin.</li>
+                    
+                    <li>Added support for Angular's @HostListener decorators, recognizing event parameters as remote flow sources.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This release improves the accuracy and coverage of GitHub code scanning, helping developers catch more security issues with fewer false positives across multiple languages.<br>🇨🇳 此版本提升了 GitHub 代码扫描的准确性和覆盖率，帮助开发者跨多种语言发现更多安全问题，同时减少误报。</div>
+                
+            </article>
+            
+        </section>
+        
+        <section class="topic-section" data-topic="AI Business & Funding">
+            <h2 class="topic-header">AI Business & Funding <span class="topic-count">(3)</span></h2>
+            
+            <article class="article-card" data-topic="AI Business & Funding">
+                <h3><a href="https://openai.com/index/openai-for-ireland" target="_blank" rel="noopener">Introducing OpenAI for Ireland</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">OpenAI Blog</span>
+                    
+                </div>
+                <p class="en-summary">OpenAI has announced 'OpenAI for Ireland,' a new initiative in partnership with the Irish Government, Dogpatch Labs, and Patch. The program aims to support small and medium-sized enterprises (SMEs), founders, and young builders in leveraging AI to drive innovation, enhance productivity, and foster the growth of Ireland's next generation of tech startups.</p>
+                <p class="zh-summary">OpenAI 宣布推出“OpenAI for Ireland”计划，与爱尔兰政府、Dogpatch Labs 和 Patch 合作，旨在帮助中小企业、创业者和年轻开发者利用 AI 进行创新、提升生产力，并培育爱尔兰下一代科技初创企业。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>OpenAI launches a new country-specific initiative in Ireland.</li>
+                    
+                    <li>Partners include the Irish Government, Dogpatch Labs, and Patch.</li>
+                    
+                    <li>Focus is on SMEs, founders, and young builders to boost AI adoption and startup creation.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This signals OpenAI's strategic expansion into regional ecosystems, potentially opening up localized support, resources, and funding opportunities for AI-driven startups and developers in Ireland.<br>🇨🇳 这表明 OpenAI 正战略性地扩展区域生态系统，可能为爱尔兰的 AI 驱动型初创企业和开发者带来本地化的支持、资源和资金机会。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="AI Business & Funding">
+                <h3><a href="https://openai.com/global-affairs/introducing-openai-for-government" target="_blank" rel="noopener">Introducing OpenAI for Government</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">OpenAI Blog</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">OpenAI has announced the launch of 'OpenAI for Government,' a new initiative aimed at providing its most advanced AI tools to public servants across the United States. The program supports the U.S. government's adoption of cutting-edge technology to serve the public good.</p>
+                <p class="zh-summary">OpenAI 正式推出“政府版 OpenAI”计划，旨在将最先进的 AI 工具带给美国公务员，助力政府采用顶尖技术、提升公共服务效能。这标志着 OpenAI 在公共部门布局的重要一步。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>OpenAI for Government is a new initiative targeting U.S. public servants.</li>
+                    
+                    <li>It aims to bring advanced AI tools to support government operations and public services.</li>
+                    
+                    <li>The program aligns with U.S. government efforts to adopt best-in-class technology.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This signals a growing trend of AI vendors tailoring solutions for government use, opening opportunities for developers to build secure, compliant AI applications in the public sector.<br>🇨🇳 这表明 AI 厂商正加速布局政府市场，为开发者提供了在公共部门构建安全、合规 AI 应用的新机遇。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="AI Business & Funding">
+                <h3><a href="https://openai.com/index/introducing-openai" target="_blank" rel="noopener">Introducing OpenAI</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">OpenAI Blog</span>
+                    
+                </div>
+                <p class="en-summary">OpenAI announced its founding as a non-profit artificial intelligence research company. Its mission is to advance digital intelligence in a way that benefits humanity as a whole, without the constraint of generating financial returns. By operating free from financial obligations, OpenAI aims to focus on positive human impact.</p>
+                <p class="zh-summary">OpenAI 宣布成立，定位为非营利性人工智能研究机构。其核心使命是推动数字智能的发展，以最可能惠及全人类的方式，不受财务回报的束缚。由于研究不受盈利压力影响，OpenAI 可以更专注于对人类产生积极影响。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>OpenAI is a non-profit AI research company.</li>
+                    
+                    <li>Goal is to advance digital intelligence for the benefit of humanity.</li>
+                    
+                    <li>Research is free from financial obligations, allowing focus on positive human impact.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This signals a new model for AI research that prioritizes ethical considerations and broad societal benefit over commercial interests, potentially influencing how future AI development is approached.<br>🇨🇳 这标志着一种新的 AI 研究模式，优先考虑伦理和广泛社会利益而非商业利益，可能影响未来 AI 开发的方式。</div>
+                
+            </article>
+            
+        </section>
+        
+        <section class="topic-section" data-topic="Security & Safety">
+            <h2 class="topic-header">Security & Safety <span class="topic-count">(4)</span></h2>
+            
+            <article class="article-card" data-topic="Security & Safety">
+                <h3><a href="https://www.technologyreview.com/2026/07/30/1140936/the-download-tricking-llms-reviving-geothermal/" target="_blank" rel="noopener">The Download: tricking LLMs, and reviving geothermal plants</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">MIT Technology Review</span>
+                    
+                </div>
+                <p class="en-summary">Researchers presented a paper at a top AI conference arguing that large language models have a fundamental flaw in how they identify instructions, making them impossible to fully secure against attacks. They demonstrated this by tricking popular LLMs into revealing prohibited information, such as how to synthesize cocaine or sabotage aircraft navigation. Separately, a small company called Zanskar revived a failing geothermal plant in New Mexico by using advanced modeling and drilling to tap a better well, showcasing hidden potential for 24-7 emissions-free electricity.</p>
+                <p class="zh-summary">研究人员在顶级AI会议上指出，大语言模型在识别指令来源上存在根本缺陷，导致它们无法被完全防护，并成功诱导主流LLM输出违禁信息（如合成可卡因的方法）。另一边，Zanskar公司利用先进建模和钻井技术，在新墨西哥州重振了一座濒临废弃的地热电厂，证明地下深处仍有未被发掘的清洁能源潜力。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>LLMs have a fundamental flaw in instruction identification, making them inherently vulnerable to attacks that can bypass safety training.</li>
+                    
+                    <li>Researchers demonstrated attacks that made LLMs reveal harmful information, such as drug synthesis and aircraft sabotage methods.</li>
+                    
+                    <li>Zanskar revived a geothermal plant in New Mexico by drilling a new well, using advanced modeling and modern drilling technology.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This matters because it underscores that current LLM safety measures are insufficient, requiring developers to design systems with inherent security limitations in mind, while the geothermal case shows how AI-driven modeling can optimize renewable energy projects.<br>🇨🇳 这提醒开发者，现有LLM安全措施无法根治漏洞，需在设计系统时考虑其固有限制；同时，AI建模在地热开发中的应用展示了提升可再生能源效率的新路径。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Security & Safety">
+                <h3><a href="https://arstechnica.com/security/2026/07/mythos-uncovers-crypto-weaknesses-that-went-unknown-for-years/" target="_blank" rel="noopener">Mythos attack on 3rd-round PQC algorithm candidate puts it out of commission</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">Ars Technica</span>
+                    
+                </div>
+                <p class="en-summary">Anthropic's Mythos security model discovered a fatal flaw in HAWK, a post-quantum digital signature algorithm under NIST's third-round PQC evaluation, leading to its withdrawal. The flaw, which had survived years of testing, renders the algorithm broken, marking a significant setback for the candidate.</p>
+                <p class="zh-summary">Anthropic 的安全模型 Mythos 发现了后量子签名算法 HAWK 的致命漏洞，该算法在 NIST 第三轮 PQC 评估中因此被淘汰。这个漏洞躲过了多年测试，最终被 AI 揪出，HAWK 开发者已宣布撤回算法，给后量子密码学候选者敲响警钟。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>HAWK, a post-quantum digital signature algorithm, was withdrawn after Anthropic's Mythos model found a fatal flaw.</li>
+                    
+                    <li>The flaw was discovered during NIST's third-round PQC testing, which HAWK had passed in earlier rounds.</li>
+                    
+                    <li>The developer of HAWK announced withdrawal following the disclosure of the results.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This demonstrates that AI-assisted security analysis can uncover hidden vulnerabilities in cryptographic algorithms, accelerating the need for more robust PQC standards and testing methodologies.<br>🇨🇳 这表明 AI 辅助安全分析能发现密码算法中的隐藏漏洞，推动更严格的 PQC 标准和测试方法，开发者需关注 AI 在安全审计中的角色。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Security & Safety">
+                <h3><a href="https://github.blog/changelog/2026-07-30-limit-remote-control-to-managed-devices" target="_blank" rel="noopener">Limit remote control to managed devices</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">GitHub Blog Changelog</span>
+                    
+                </div>
+                <p class="en-summary">GitHub has introduced a new enterprise managed setting, remoteControl, that lets administrators restrict which devices can host remotely controlled Copilot sessions. The setting supports three modes (requireSSO, disabled, enabled) and can be deployed via server-managed, MDM-managed, or file-based mechanisms, offering layered control alongside existing enterprise policies.</p>
+                <p class="zh-summary">GitHub 新增了 remoteControl 企业托管设置，让管理员能精确控制哪些设备可以托管远程控制的 Copilot 会话。该设置支持 requireSSO、disabled、enabled 三种模式，并可通过服务器管理、MDM 管理或文件方式部署，与现有企业策略配合，实现从全局到单设备的层层管控。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>New remoteControl enterprise managed setting restricts devices eligible for remotely controlled Copilot sessions.</li>
+                    
+                    <li>Three modes: requireSSO (enforce SSO), disabled (block), enabled (allow without restriction).</li>
+                    
+                    <li>Deployment options: server-managed (.github-private repo), MDM-managed (per-device), and file-based (any machine with the file).</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This gives enterprise developers and admins granular security control over Copilot remote access, enabling compliance with device-specific policies and reducing unauthorized use.<br>🇨🇳 这为企业和开发者提供了对 Copilot 远程访问的细粒度安全控制，有助于满足设备级合规要求，并降低未授权使用风险。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Security & Safety">
+                <h3><a href="https://www.technologyreview.com/2026/07/30/1140927/a-fundamental-flaw-leaves-llms-vulnerable-to-attack/" target="_blank" rel="noopener">A fundamental flaw leaves LLMs strikingly vulnerable to attack</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">MIT Technology Review</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">Researchers argue that large language models cannot be made fully secure against attacks due to a fundamental flaw in how they process instructions, presented at ICML. They demonstrated a 'chain-of-thought forgery' attack that tricks models like GPT-5 and gpt-oss-20b into bypassing safety guardrails, such as providing instructions for synthesizing cocaine. The flaw is considered potentially unsolvable, as current red-teaming and training methods are insufficient.</p>
+                <p class="zh-summary">研究人员在ICML上指出，大语言模型存在根本性缺陷，无法完全防御攻击。他们通过伪造模型的“思维链”笔记，成功诱导GPT-5等模型绕过安全限制，输出如毒品合成等违规内容。该问题可能无法彻底解决，现有红队测试和训练方法只能“治标不治本”。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Chain-of-thought forgery attacks mimic a model's internal scratch pad to trick it into following malicious instructions.</li>
+                    
+                    <li>The flaw is considered fundamentally unsolvable, as safety training relies on non-exhaustive lists of prohibited behaviors.</li>
+                    
+                    <li>Attacks were demonstrated on OpenAI models and observed in Anthropic, Alibaba, and DeepSeek models.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This highlights a critical security limitation that developers must account for when deploying LLMs in sensitive applications, as current safeguards are insufficient against novel attacks.<br>🇨🇳 这提醒开发者在敏感场景部署LLM时需正视安全局限，现有防护难以抵御新型攻击，需谨慎评估风险。</div>
+                
+            </article>
+            
+        </section>
+        
+        <section class="topic-section" data-topic="Infrastructure & Cloud">
+            <h2 class="topic-header">Infrastructure & Cloud <span class="topic-count">(1)</span></h2>
+            
+            <article class="article-card" data-topic="Infrastructure & Cloud">
+                <h3><a href="https://www.technologyreview.com/2026/07/29/1140896/geothermal-second-chance/" target="_blank" rel="noopener">How an overlooked geothermal plant got a second chance</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">MIT Technology Review</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">Zanskar, a small geothermal company, revived a failing geothermal plant in New Mexico by using advanced modeling to identify a better well site and drilling to 8,000 feet, boosting water flow to over 4,000 gallons per minute. The plant, which had seen temperatures drop by 50°F over five years, now runs at full capacity, demonstrating hidden potential in overlooked geothermal sites. The success challenges conventional wisdom that deeper drilling reduces water flow, as the new well actually increased flow.</p>
+                <p class="zh-summary">Zanskar公司用先进建模技术给新墨西哥州一座濒临废弃的地热电站找到了新井位，钻到8000英尺深后，水流增至每分钟4000加仑以上，电站满血复活。此前该站五年内水温骤降50°F，几乎无法运行。这次成功打破了“钻得越深水流越差”的传统认知，证明地热领域还有不少被低估的潜力。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Zanskar purchased the failing Lightning Dock geothermal plant in June 2024 and revived it with a new 8,000-foot well.</li>
+                    
+                    <li>Advanced modeling revealed the original wells were too shallow (2,500 feet) and poorly located, missing the main reservoir.</li>
+                    
+                    <li>The new well, operational since May 2025, maintains flow above 4,000 gallons per minute, restoring full capacity.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This demonstrates that AI-driven subsurface modeling can unlock previously uneconomical geothermal resources, offering a reliable 24/7 clean energy option for developers and energy planners.<br>🇨🇳 这说明AI驱动的建模技术能盘活原本不经济的地热资源，为开发者和能源规划者提供更可靠的24/7清洁能源选择。</div>
+                
+            </article>
+            
+        </section>
+        
+        <section class="topic-section" data-topic="Industry Trends & Analysis">
+            <h2 class="topic-header">Industry Trends & Analysis <span class="topic-count">(6)</span></h2>
+            
+            <article class="article-card" data-topic="Industry Trends & Analysis">
+                <h3><a href="https://www.uefa.com/news-media/news/02a7-213a92896eb0-54dfbf454e3b-1000--statement-on-behalf-of-uefa-and-its-55-national-associations/" target="_blank" rel="noopener">UEFA and its national associations will not participate in FIFA competitions</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">Hacker News</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">UEFA and its 55 national associations have announced they will not participate in FIFA competitions, citing unresolved governance and reform issues. This decision marks a significant escalation in the ongoing conflict between European football's governing body and FIFA, potentially reshaping the international football calendar.</p>
+                <p class="zh-summary">欧足联及其55个成员国协会宣布将不参加国际足联（FIFA）旗下的赛事，理由是治理和改革问题未获解决。这一决定标志着欧洲足球与国际足联之间的冲突显著升级，可能重塑国际足球赛程格局。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>UEFA and its 55 national associations will boycott FIFA competitions.</li>
+                    
+                    <li>The decision stems from unresolved governance and reform disputes.</li>
+                    
+                    <li>This could lead to a major restructuring of international football events.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This move could disrupt the international football calendar, affecting developers building sports-related apps, data platforms, and fan engagement tools that rely on FIFA events.<br>🇨🇳 此举可能打乱国际足球赛程，影响依赖国际足联赛事的体育类应用、数据平台和球迷互动工具的开发者。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Industry Trends & Analysis">
+                <h3><a href="https://www.technologyreview.com/2026/07/29/1140884/the-download-chip-talent-battle-deflating-ai-hype/" target="_blank" rel="noopener">The Download: a chip talent battle, and deflating AI hype</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">MIT Technology Review</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">Samsung's chip engineers are defecting to rival SK Hynix, lured by a record $476,000 bonus tied to SK Hynix's success in producing high-bandwidth memory chips for Nvidia's AI accelerators. This talent war could determine dominance in the next generation of AI chips. The article also highlights growing investor anxiety over AI's earnings potential, with new data suggesting most jobs are largely unaffected by AI.</p>
+                <p class="zh-summary">三星芯片工程师正纷纷跳槽至竞争对手SK海力士，原因是后者因向英伟达AI加速器供应高带宽内存芯片而利润创纪录，将发放高达47.6万美元的奖金，远超三星。这场人才争夺战可能决定下一代AI芯片的霸主地位。同时，投资者对AI盈利能力的焦虑加剧，最新数据显示AI对大多数岗位影响有限，市场回调风险上升。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>SK Hynix's $476,000 bonus, driven by HBM chip profits for Nvidia, is triggering a talent exodus from Samsung.</li>
+                    
+                    <li>The chip talent war could influence who leads the next generation of AI chip development.</li>
+                    
+                    <li>Investor anxiety over AI's earnings potential is rising, with Fitch warning of a potential market correction.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This highlights the critical role of talent and hardware in AI competitiveness, and signals that AI's economic returns may be overestimated, urging developers to focus on realistic applications.<br>🇨🇳 这表明人才和硬件在AI竞争中的关键作用，同时提示AI的经济回报可能被高估，开发者应聚焦于实际应用而非炒作。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Industry Trends & Analysis">
+                <h3><a href="https://www.science.org/content/article/saber-toothed-cats-became-inbred-and-struggled-move-they-went-extinct" target="_blank" rel="noopener">Saber-toothed cats became inbred–and struggled to move–before they went extinct</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">Hacker News</span>
+                    
+                </div>
+                <p class="en-summary">A new study reveals that saber-toothed cats experienced severe inbreeding and skeletal deformities, including hip dysplasia, before their extinction. These physical impairments likely hindered their mobility and contributed to their decline, offering insights into the species' final days.</p>
+                <p class="zh-summary">最新研究显示，剑齿虎在灭绝前曾经历严重的近亲繁殖，并出现髋关节发育不良等骨骼畸形，导致行动困难。这些身体缺陷可能加速了它们的衰落，为理解该物种的消亡提供了新线索。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Saber-toothed cats showed signs of inbreeding, such as hip dysplasia, before extinction.</li>
+                    
+                    <li>Skeletal deformities likely impaired their movement and hunting ability.</li>
+                    
+                    <li>The study provides a genetic and physical snapshot of a species on the brink of extinction.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This research highlights how genetic diversity loss can lead to physical decline, a lesson applicable to conservation efforts for modern endangered species.<br>🇨🇳 这项研究揭示了遗传多样性丧失如何导致生理衰退，对现代濒危物种的保护工作具有借鉴意义。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Industry Trends & Analysis">
+                <h3><a href="http://www.ruanyifeng.com/blog/2026/07/weekly-issue-405.html" target="_blank" rel="noopener">科技爱好者周刊（第 405 期）：资源，社会公平与算力</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">阮一峰周刊</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">The 405th issue of Ruan Yifeng's Tech Weekly explores Ivan Illich's 1973 theory that excessive resources (energy, speed, computing power) can worsen social inequality, suggesting limits may be needed. It also shares a WWII OSS manual on sabotaging organizations through bureaucracy, plus tech news like invisible drones and location codes.</p>
+                <p class="zh-summary">阮一峰周刊第405期探讨了哲学家伊万·伊里奇的观点：资源过多反而加剧社会不公，类比算力，提出未来可能需要限制算力。还分享了二战时期中情局前身的《简单破坏手册》，教人用官僚主义瓦解组织，以及隐形无人机、位置口令等科技动态。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Ivan Illich's 1973 theory: energy and fairness grow together only up to a threshold; beyond it, more energy increases inequality.</li>
+                    
+                    <li>The theory extends to computing power: after a point, more compute benefits a few, widening gaps, possibly requiring government limits.</li>
+                    
+                    <li>A 1944 OSS sabotage manual reveals that promoting bureaucracy (endless meetings, complex approvals) is an effective way to destroy any organization.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This issue prompts developers to consider the ethical and societal implications of compute distribution, and highlights how bureaucratic inefficiencies can cripple engineering teams.<br>🇨🇳 本期引发开发者思考算力分配的社会公平问题，同时提醒团队避免官僚化流程，以保持高效协作。</div>
+                
+            </article>
+            
+            <article class="article-card" data-topic="Industry Trends & Analysis">
+                <h3><a href="http://www.ruanyifeng.com/blog/2026/07/weekly-issue-404.html" target="_blank" rel="noopener">科技爱好者周刊（第 404 期）：你需要知道的 AI 内存知识</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">阮一峰周刊</span>
+                    
+                </div>
+                <p class="en-summary">这里记录每周值得分享的科技内容，周五发布。 本杂志 开源 ，欢迎 投稿 。另有 《谁在招人》 服务，发布程序员招聘信息。合作请 邮件联系 （yifeng.ruan@gmail.com）。 封面图 上海某商场正在举办的"海绵宝宝"展览。（ via ） 你需要知道的 AI 内存知识 自己在家运行 AI 模型，可以选择两种硬件。 一种是独立显卡，目前最顶级的消费级显卡是英伟达的 RTX 5090，带有 32GB 显存，售价3万元人民币左右。 另一种是采用板载芯片组（CPU + 板载显卡 + 板载内存）的家用电脑，比如采用 AMD 公司 Strix Halo 芯片组（具体型号 Ryzen AI Max</p>
+                <p class="zh-summary">这里记录每周值得分享的科技内容，周五发布。 本杂志 开源 ，欢迎 投稿 。另有 《谁在招人》 服务，发布程序员招聘信息。合作请 邮件联系 （yifeng.ruan@gmail.com）。 封面图 上海某商场正在举办的"海绵宝宝"展览。（ via ） 你需要知道的 AI 内存知识 自己在家运行 AI 模型，可以选择两种硬件。 一种是独立显卡，目前最顶级的消费级显卡是英伟达的 RTX 5090，带有 32GB 显存，售价3万元人民币左右。 另一种是采用板载芯片组（CPU + 板载显卡 + 板载内存）的家用电脑，比如采用 AMD 公司 Strix Halo 芯片组（具体型号 Ryzen AI Max</p>
+                
+                
+            </article>
+            
+            <article class="article-card" data-topic="Industry Trends & Analysis">
+                <h3><a href="http://www.ruanyifeng.com/blog/2026/07/weekly-issue-403.html" target="_blank" rel="noopener">科技爱好者周刊（第 403 期）：为什么 Dropbox 不成功</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">阮一峰周刊</span>
+                    
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    
+                </div>
+                <p class="en-summary">This issue of the tech weekly discusses why Dropbox stagnated, arguing its core mistake was positioning itself as a consumer tool rather than a business productivity tool, as consumers prefer to waste time while enterprises pay for efficiency. It also reports that AI coding costs now exceed engineer salaries at Anthropic, with AI expenses being 2.3 times payroll, and highlights TypeScript 7.0's release with a Go-based engine that is 10x faster.</p>
+                <p class="zh-summary">本期周刊探讨了 Dropbox 为何停滞不前，核心观点是它错在定位为消费者工具而非企业生产力工具，因为消费者只想消磨时间，而企业才愿为效率付费。同时，文章披露 Anthropic 的 AI 成本已达工资总额的 2.3 倍，并报道了 TypeScript 7.0 改用 Go 引擎后速度提升 10 倍等动态。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Dropbox's stagnation is attributed to its consumer-focused positioning, limiting growth since consumers don't pay for efficiency tools.</li>
+                    
+                    <li>AI coding costs at Anthropic are 2.3 times engineer salaries, and top software companies spend at least 40% of salary on AI per engineer.</li>
+                    
+                    <li>TypeScript 7.0 is released with a Go-based engine, achieving 10x performance improvement.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This highlights the strategic importance of targeting B2B markets for productivity tools and the rising cost of AI in software development, urging developers to consider ROI.<br>🇨🇳 这提醒开发者，生产力工具应瞄准企业市场，同时 AI 成本飙升，需权衡投入产出比。</div>
+                
+            </article>
+            
+        </section>
+        
+        <section class="topic-section" data-topic="AI Ethics & Policy">
+            <h2 class="topic-header">AI Ethics & Policy <span class="topic-count">(1)</span></h2>
+            
+            <article class="article-card" data-topic="AI Ethics & Policy">
+                <h3><a href="https://www.technologyreview.com/2026/07/30/1140942/montana-experimental-medical-hub-pushed-forward-right-to-try/" target="_blank" rel="noopener">Montana’s plan to become an experimental medical hub just pushed forward</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">MIT Technology Review</span>
+                    
+                </div>
+                <p class="en-summary">Montana has finalized rules for a unique right-to-try law allowing any biotech company with preliminarily tested drugs (sometimes in as few as 10 healthy people) to pay $12,500 for approval from a newly established review board, then sell the treatments to any consenting consumer who can pay. The law, driven by longevity enthusiasts rather than traditional patient groups, extends access beyond terminal illness to anyone, including those seeking preventive or anti-aging therapies. Supporters emphasize rigorous oversight, but experts warn of potential harm from selling unproven treatments without FDA oversight.</p>
+                <p class="zh-summary">蒙大拿州本周正式敲定了一项极具争议的“尝试权”法规：任何生物科技公司，只要药物完成初步测试（有时仅需10名健康志愿者），花12,500美元申请费，就能获得新成立的审查委员会批准，向任何愿意付费的消费者销售实验性疗法。这项法律由长寿爱好者推动，而非传统患者团体，理论上任何知情同意且付得起钱的人都能购买，包括寻求抗衰老或预防性治疗的人。支持者强调流程严谨，但专家担忧绕过FDA销售未经证实疗法可能带来严重风险。</p>
+                
+                <ul class="key-points">
+                    
+                    <li>Montana's new rules allow biotech companies to sell experimental drugs to any consenting consumer after preliminary testing, with a $12,500 application fee.</li>
+                    
+                    <li>The law is unique in that it extends access beyond terminal illness to all patients, driven by longevity enthusiasts.</li>
+                    
+                    <li>A review board including a Montana-certified doctor, scientists, and an ethicist will approve applications, but FDA oversight is absent.</li>
+                    
+                </ul>
+                
+                
+                <div class="impact">💡 <strong>Why it matters:</strong> This creates a potential regulatory loophole for AI-driven drug discovery and biotech startups to bypass FDA trials, accelerating time-to-market but raising significant safety and ethical concerns for developers and practitioners.<br>🇨🇳 这可能为AI药物发现和生物科技初创公司打开绕过FDA试验的监管漏洞，加速上市进程，但同时也带来重大的安全和伦理挑战，开发者需谨慎评估风险。</div>
+                
+            </article>
+            
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated daily at 08:00 Beijing time · Powered by <a href="https://deepseek.com" target="_blank">DeepSeek</a></p>
+            <p>Content automatically curated from RSS feeds, Reddit, GitHub Trending, and web search</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">⚠ AI-generated content may contain errors. Verify important claims against original sources.</p>
+        </div>
+    </footer>
+
+    <script>
+        let activeTopic = 'all';
+        function setTopicFilter(topic, el) {
+            activeTopic = topic;
+            document.querySelectorAll('#filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            filterArticles();
+        }
+        function filterArticles() {
+            const query = document.getElementById('search').value.toLowerCase();
+            document.querySelectorAll('.topic-section').forEach(section => {
+                const t = section.dataset.topic;
+                let visible = (activeTopic === 'all' || activeTopic === t);
+                let hasVisible = false;
+                section.querySelectorAll('.article-card').forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    const show = visible && text.includes(query);
+                    card.style.display = show ? '' : 'none';
+                    if (show) hasVisible = true;
+                });
+                section.style.display = hasVisible ? '' : 'none';
+            });
+        }
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.getElementById('theme-btn');
+            if (html.dataset.theme === 'light') {
+                html.dataset.theme = 'dark';
+                btn.textContent = '☀️ Light';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.dataset.theme = 'light';
+                btn.textContent = '🌙 Dark';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) {
+                document.documentElement.dataset.theme = saved;
+                document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark';
+            }
+        })();
+    </script>
+</body>
+</html>
