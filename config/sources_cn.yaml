@@ -35,3 +35,9 @@ sources:
     category: "technology"
     authority_score: 7
     language: "zh"
+
+  - name: "虎嗅 (AI原生100等)"
+    url: "https://rsshub.rssforever.com/huxiu/article"
+    category: "ai-business"
+    authority_score: 8
+    language: "zh"
