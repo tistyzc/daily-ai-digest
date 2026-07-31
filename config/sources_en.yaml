@@ -1,0 +1,73 @@
+# English RSS sources for AI/IT news
+sources:
+  - name: "Hacker News"
+    url: "https://hnrss.org/frontpage"
+    category: "community"
+    authority_score: 8
+    language: "en"
+
+  - name: "TechCrunch AI"
+    url: "https://techcrunch.com/category/artificial-intelligence/feed/"
+    category: "business"
+    authority_score: 7
+    language: "en"
+
+  - name: "MIT Technology Review"
+    url: "https://www.technologyreview.com/feed/"
+    category: "research"
+    authority_score: 9
+    language: "en"
+
+  - name: "Ars Technica"
+    url: "https://feeds.arstechnica.com/arstechnica/technology-lab"
+    category: "technology"
+    authority_score: 8
+    language: "en"
+
+  - name: "The Verge Tech"
+    url: "https://www.theverge.com/rss/tech/index.xml"
+    category: "technology"
+    authority_score: 7
+    language: "en"
+
+  - name: "VentureBeat AI"
+    url: "https://venturebeat.com/category/ai/feed/"
+    category: "business"
+    authority_score: 7
+    language: "en"
+
+  - name: "GitHub Blog Changelog"
+    url: "https://github.blog/changelog/feed/"
+    category: "devtools"
+    authority_score: 8
+    language: "en"
+
+  - name: "Anthropic Blog"
+    url: "https://www.anthropic.com/blog/feed.xml"
+    category: "ai-research"
+    authority_score: 9
+    language: "en"
+
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss.xml"
+    category: "ai-research"
+    authority_score: 9
+    language: "en"
+
+  - name: "Google AI Blog"
+    url: "https://blog.research.google/feeds/posts/default"
+    category: "ai-research"
+    authority_score: 9
+    language: "en"
+
+  - name: "The Register"
+    url: "https://www.theregister.com/headlines/software/ai/"
+    category: "technology"
+    authority_score: 7
+    language: "en"
+
+  - name: "Simon Willison's Blog"
+    url: "https://simonwillison.net/atom/entries/"
+    category: "devtools"
+    authority_score: 8
+    language: "en"

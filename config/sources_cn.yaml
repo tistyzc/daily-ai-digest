@@ -1,0 +1,49 @@
+# Chinese RSS sources for AI/IT news
+sources:
+  - name: "阮一峰周刊"
+    url: "https://feeds.feedburner.com/ruanyifeng"
+    category: "technology"
+    authority_score: 9
+    language: "zh"
+
+  - name: "机器之心"
+    url: "https://www.jiqizhixin.com/rss"
+    category: "ai-research"
+    authority_score: 8
+    language: "zh"
+
+  - name: "量子位"
+    url: "https://www.qbitai.com/feed"
+    category: "ai-business"
+    authority_score: 7
+    language: "zh"
+
+  - name: "InfoQ 中文"
+    url: "https://www.infoq.cn/feed"
+    category: "devtools"
+    authority_score: 7
+    language: "zh"
+
+  - name: "36氪科技"
+    url: "https://36kr.com/feed"
+    category: "business"
+    authority_score: 7
+    language: "zh"
+
+  - name: "少数派"
+    url: "https://sspai.com/feed"
+    category: "technology"
+    authority_score: 7
+    language: "zh"
+
+  - name: "阿里云开发者社区"
+    url: "https://developer.aliyun.com/feed"
+    category: "devtools"
+    authority_score: 6
+    language: "zh"
+
+  - name: "腾讯云开发者社区"
+    url: "https://cloud.tencent.com/developer/feed"
+    category: "devtools"
+    authority_score: 6
+    language: "zh"

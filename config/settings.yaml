@@ -1,0 +1,72 @@
+# Global settings for daily-ai-digest
+
+pipeline:
+  # Content gate: drop articles with fewer than this many characters
+  min_content_length: 600
+
+  # Deduplication: title similarity threshold (0-100)
+  dedup_similarity_threshold: 85
+
+  # Quality scoring weights
+  scoring:
+    authority_boost: 3        # Bonus for high-authority sources
+    cross_source_boost: 5     # Bonus when same story appears in multiple sources
+    recency_boost: 2          # Bonus for articles from last 24 hours
+    already_reported_penalty: -5  # Penalty for stories already in previous digest
+
+  # Relevance filter: min score from DeepSeek (0.0-1.0)
+  min_relevance_score: 0.7
+
+  # Max articles in final digest
+  max_articles: 30
+
+  # How many days back to look for news
+  lookback_days: 2
+
+# DeepSeek API settings
+deepseek:
+  base_url: "https://api.deepseek.com"
+  # Use deepseek-chat for fast summarization; deepseek-reasoner for critic validation
+  summary_model: "deepseek-chat"
+  critic_model: "deepseek-chat"  # cheaper for critic tasks; switch to deepseek-reasoner for higher quality
+  max_tokens_summary: 500
+  max_tokens_critic: 300
+  temperature: 0.3
+
+# Reddit settings
+reddit:
+  subreddits:
+    - "MachineLearning"
+    - "programming"
+    - "LocalLLaMA"
+    - "artificial"
+  post_limit: 15  # max posts per subreddit
+  min_score: 10   # minimum upvotes
+
+# GitHub Trending
+github:
+  languages: ["python", "typescript", "rust", "go"]
+  min_stars_today: 20
+  max_repos: 10
+
+# Web search (Tavily)
+web_search:
+  queries_en:
+    - "AI breakthrough news today"
+    - "large language model release"
+  queries_zh:
+    - "人工智能 最新进展"
+    - "大模型 发布"
+  max_results_per_query: 5
+
+# Output settings
+output:
+  docs_dir: "docs"
+  archive_dir: "docs/archive"
+  assets_dir: "docs/assets"
+  template_dir: "src/render/templates"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"

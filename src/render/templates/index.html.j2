@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily AI Digest — {{ date }}</title>
+    <meta name="description" content="Daily AI/IT industry news digest — auto-generated bilingual summary of what matters today.">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text: #1a1a2e;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --tag-bg: #eff6ff;
+            --tag-text: #2563eb;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --text: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --accent: #60a5fa;
+            --accent-hover: #93bbfd;
+            --tag-bg: #1e3a5f;
+            --tag-text: #60a5fa;
+            --shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 32px 0 24px;
+            margin-bottom: 32px;
+        }
+        header h1 { font-size: 2rem; font-weight: 800; color: var(--text); }
+        header .subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-top: 4px; }
+        .header-actions {
+            display: flex; gap: 12px; align-items: center; margin-top: 12px; flex-wrap: wrap;
+        }
+        .header-actions a, .header-actions button {
+            text-decoration: none; font-size: 0.875rem; padding: 6px 14px;
+            border-radius: var(--radius); border: 1px solid var(--border);
+            background: var(--bg); color: var(--text); cursor: pointer;
+            transition: all 0.2s;
+        }
+        .header-actions a:hover, .header-actions button:hover { border-color: var(--accent); color: var(--accent); }
+        .stats-bar {
+            display: flex; gap: 24px; flex-wrap: wrap;
+            padding: 16px 20px; background: var(--bg-secondary);
+            border-radius: var(--radius); margin-bottom: 24px;
+            font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .stats-bar strong { color: var(--text); }
+        .topic-section { margin-bottom: 40px; }
+        .topic-header {
+            font-size: 1.3rem; font-weight: 700; color: var(--accent);
+            padding-bottom: 8px; margin-bottom: 16px;
+            border-bottom: 2px solid var(--accent);
+        }
+        .topic-count { font-size: 0.85rem; font-weight: 400; color: var(--text-secondary); }
+        .article-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px 24px;
+            margin-bottom: 16px; box-shadow: var(--shadow);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .article-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+        .article-card h3 a { color: var(--text); text-decoration: none; }
+        .article-card h3 a:hover { color: var(--accent); }
+        .article-meta {
+            font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 10px;
+            display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+        }
+        .source-tag {
+            font-size: 0.78rem; padding: 2px 8px; border-radius: 4px;
+            background: var(--tag-bg); color: var(--tag-text);
+        }
+        .critic-flag {
+            font-size: 0.78rem; padding: 2px 8px; border-radius: 4px;
+            background: #fef3c7; color: var(--warning);
+        }
+        .en-summary { font-size: 0.92rem; color: var(--text); margin-bottom: 8px; }
+        .zh-summary {
+            font-size: 0.92rem; color: var(--text-secondary);
+            padding-left: 12px; border-left: 3px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .key-points {
+            list-style: none; padding: 0; margin: 8px 0 0;
+            font-size: 0.85rem; color: var(--text-secondary);
+        }
+        .key-points li::before { content: "▸ "; color: var(--accent); }
+        .impact {
+            font-size: 0.85rem; padding: 8px 12px; margin-top: 8px;
+            background: var(--bg-secondary); border-radius: 6px;
+            color: var(--text-secondary); font-style: italic;
+        }
+        footer {
+            text-align: center; padding: 32px 0; margin-top: 40px;
+            border-top: 1px solid var(--border); color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        .search-box {
+            width: 100%; max-width: 400px; padding: 8px 14px;
+            border: 1px solid var(--border); border-radius: var(--radius);
+            background: var(--bg); color: var(--text); font-size: 0.9rem;
+        }
+        .search-box:focus { outline: none; border-color: var(--accent); }
+        .filter-bar {
+            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+        }
+        .filter-chip {
+            font-size: 0.82rem; padding: 4px 12px; border-radius: 20px;
+            border: 1px solid var(--border); background: var(--bg);
+            color: var(--text-secondary); cursor: pointer; transition: all 0.2s;
+        }
+        .filter-chip.active, .filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .flags-box {
+            background: #fffbeb; border: 1px solid #fcd34d; border-radius: var(--radius);
+            padding: 16px 20px; margin-bottom: 24px;
+        }
+        .flags-box h4 { color: var(--warning); font-size: 0.95rem; margin-bottom: 8px; }
+        .flags-box ul { list-style: disc; padding-left: 20px; font-size: 0.85rem; }
+        @media (max-width: 640px) {
+            header h1 { font-size: 1.5rem; }
+            .article-card { padding: 14px 16px; }
+            .stats-bar { gap: 12px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🤖 Daily AI Digest</h1>
+            <p class="subtitle">{{ date | format_date }} · AI-powered bilingual IT/AI news summary · Auto-generated daily</p>
+            <div class="header-actions">
+                <a href="archive/index.html">📚 Archives</a>
+                <a href="https://github.com" target="_blank">⭐ GitHub</a>
+                <button onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Stats bar -->
+        <div class="stats-bar">
+            <span>📰 <strong>{{ stats.total_articles }}</strong> articles</span>
+            <span>📡 <strong>{{ stats.sources_count }}</strong> sources</span>
+            <span>🏷️ <strong>{{ topics|length }}</strong> topics</span>
+            <span>🕐 Generated at {{ generated_at[:19] }} UTC</span>
+            <span>🧠 Powered by DeepSeek</span>
+        </div>
+
+        <!-- Search & filter -->
+        <input type="text" class="search-box" id="search" placeholder="🔍 Search articles..." oninput="filterArticles()">
+        <div class="filter-bar" id="filter-bar">
+            <span class="filter-chip active" onclick="setTopicFilter('all', this)">All</span>
+            {% for topic_name in topics.keys() %}
+            <span class="filter-chip" onclick="setTopicFilter('{{ topic_name }}', this)">{{ topic_name }}</span>
+            {% endfor %}
+        </div>
+
+        <!-- Critical flags from critics -->
+        {% if critical_flags %}
+        <div class="flags-box">
+            <h4>⚠️ Editorial Notes (auto-detected by AI critics)</h4>
+            <ul>
+                {% for flag in critical_flags %}
+                <li><strong>{{ flag.article_title }}</strong>: {{ flag.reason }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Topic sections -->
+        {% for topic_name, articles in topics.items() %}
+        <section class="topic-section" data-topic="{{ topic_name }}">
+            <h2 class="topic-header">{{ topic_name }} <span class="topic-count">({{ articles|length }})</span></h2>
+            {% for item in articles %}
+            <article class="article-card" data-topic="{{ topic_name }}">
+                <h3><a href="{{ item.article.url }}" target="_blank" rel="noopener">{{ item.article.title }}</a></h3>
+                <div class="article-meta">
+                    <span class="source-tag">{{ item.article.source_name }}</span>
+                    {% if item.critic_flags %}
+                    <span class="critic-flag">⚠ Reviewed</span>
+                    {% endif %}
+                </div>
+                <p class="en-summary">{{ item.en_summary }}</p>
+                <p class="zh-summary">{{ item.zh_summary }}</p>
+                {% if item.key_points %}
+                <ul class="key-points">
+                    {% for point in item.key_points[:3] %}
+                    <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% if item.impact %}
+                <div class="impact">💡 <strong>Why it matters:</strong> {{ item.impact }}<br>🇨🇳 {{ item.impact_zh }}</div>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </section>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated daily at 08:00 Beijing time · Powered by <a href="https://deepseek.com" target="_blank">DeepSeek</a></p>
+            <p>Content automatically curated from RSS feeds, Reddit, GitHub Trending, and web search</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">⚠ AI-generated content may contain errors. Verify important claims against original sources.</p>
+        </div>
+    </footer>
+
+    <script>
+        let activeTopic = 'all';
+        function setTopicFilter(topic, el) {
+            activeTopic = topic;
+            document.querySelectorAll('#filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            filterArticles();
+        }
+        function filterArticles() {
+            const query = document.getElementById('search').value.toLowerCase();
+            document.querySelectorAll('.topic-section').forEach(section => {
+                const t = section.dataset.topic;
+                let visible = (activeTopic === 'all' || activeTopic === t);
+                let hasVisible = false;
+                section.querySelectorAll('.article-card').forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    const show = visible && text.includes(query);
+                    card.style.display = show ? '' : 'none';
+                    if (show) hasVisible = true;
+                });
+                section.style.display = hasVisible ? '' : 'none';
+            });
+        }
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.getElementById('theme-btn');
+            if (html.dataset.theme === 'light') {
+                html.dataset.theme = 'dark';
+                btn.textContent = '☀️ Light';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.dataset.theme = 'light';
+                btn.textContent = '🌙 Dark';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) {
+                document.documentElement.dataset.theme = saved;
+                document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark';
+            }
+        })();
+    </script>
+</body>
+</html>
