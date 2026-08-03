@@ -71,3 +71,16 @@ sources:
     category: "devtools"
     authority_score: 8
     language: "en"
+
+  # ── AI Startup & VC ──
+  - name: "Crunchbase AI"
+    url: "https://news.crunchbase.com/sections/ai/feed/"
+    category: "ai-startup"
+    authority_score: 8
+    language: "en"
+
+  - name: "TNW (The Next Web)"
+    url: "https://feeds.feedburner.com/TheNextWeb"
+    category: "ai-startup"
+    authority_score: 7
+    language: "en"

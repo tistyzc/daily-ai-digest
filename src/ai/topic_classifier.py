@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 # Taxonomy of topics for the digest
 TOPICS = [
+    "AI Startup & Entrepreneurship",
     "Large Language Models",
     "AI Research & Breakthroughs",
     "Developer Tools & Platforms",

@@ -65,3 +65,16 @@ sources:
     category: "business"
     authority_score: 7
     language: "zh"
+
+  # ── AI 创业与融资 ──
+  - name: "钛媒体"
+    url: "https://www.tmtpost.com/rss"
+    category: "ai-startup"
+    authority_score: 8
+    language: "zh"
+
+  - name: "创业邦"
+    url: "https://rsshub.rssforever.com/cyzone/news"
+    category: "ai-startup"
+    authority_score: 7
+    language: "zh"
