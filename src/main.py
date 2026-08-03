@@ -316,12 +316,15 @@ def build_archive_index(archive_dir: Path) -> list[dict]:
             if f.name == "index.html":
                 continue
             date_str = f.stem
+            # Count articles by scanning the HTML
+            html = f.read_text(encoding="utf-8")
+            article_count = html.count('<article class="article-card"')
             archives.append(
                 {
                     "date": date_str,
                     "title": f"Daily AI Digest — {date_str}",
-                    "article_count": 0,  # Could parse HTML but non-trivial
-                    "url": f"archive/{f.name}",
+                    "article_count": article_count,
+                    "url": f.name,  # Relative to archive/ directory
                 }
             )
     return archives
