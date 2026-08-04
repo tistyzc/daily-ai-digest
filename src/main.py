@@ -293,16 +293,16 @@ def step_render(
     )
     renderer.write_file(index_html, str(docs_dir / "index.html"))
 
-    # Render archive page
-    archives = build_archive_index(archive_dir)
-    archive_html = renderer.render_archive(archives)
+    # Save today's archive FIRST, so build_archive_index picks it up
     archive_dir_path = docs_dir / "archive"
     archive_dir_path.mkdir(parents=True, exist_ok=True)
-    renderer.write_file(archive_html, str(archive_dir_path / "index.html"))
-
-    # Save archive for today
     today_archive = archive_dir_path / f"{date_str}.html"
     renderer.write_file(index_html, str(today_archive))
+
+    # Render archive page (now includes today)
+    archives = build_archive_index(archive_dir)
+    archive_html = renderer.render_archive(archives)
+    renderer.write_file(archive_html, str(archive_dir_path / "index.html"))
 
     logger.info(f"[Render] Output written to {docs_dir}/")
 
