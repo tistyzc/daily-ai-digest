@@ -2,17 +2,22 @@
 
 import logging
 import os
+import time
 
-from openai import OpenAI
+from openai import InternalServerError, OpenAI
 
 logger = logging.getLogger(__name__)
 
 
 class DeepSeekClient:
-    """Thin wrapper around the DeepSeek API via OpenAI SDK."""
+    """Thin wrapper around the DeepSeek API via OpenAI SDK.
+
+    Handles 503 (service busy) with automatic retries.
+    """
 
     DEFAULT_BASE_URL = "https://api.deepseek.com"
     DEFAULT_MODEL = "deepseek-chat"
+    RETRY_DELAYS = [10, 30, 60]  # seconds between retries for 503 errors
 
     def __init__(
         self,
@@ -29,14 +34,30 @@ class DeepSeekClient:
 
         self.base_url = base_url or self.DEFAULT_BASE_URL
         self.default_model = default_model or self.DEFAULT_MODEL
-        self.max_retries = max_retries
 
         self.client = OpenAI(
             api_key=self.api_key,
             base_url=self.base_url,
-            max_retries=self.max_retries,
+            max_retries=0,  # We handle retries ourselves for 503
         )
         logger.info(f"DeepSeek client initialized: model={self.default_model} base={self.base_url}")
+
+    def _call_with_retry(self, **kwargs) -> str:
+        """Call the API with retries for 503 Service Unavailable errors."""
+        last_error = None
+        for attempt in range(len(self.RETRY_DELAYS) + 1):
+            try:
+                response = self.client.chat.completions.create(**kwargs)
+                return response.choices[0].message.content or ""
+            except InternalServerError as e:
+                last_error = e
+                if attempt < len(self.RETRY_DELAYS):
+                    delay = self.RETRY_DELAYS[attempt]
+                    logger.warning(f"DeepSeek 503 — retrying in {delay}s (attempt {attempt + 1}/{len(self.RETRY_DELAYS) + 1})")
+                    time.sleep(delay)
+                else:
+                    raise
+        raise last_error  # type: ignore[return-value]
 
     def chat(
         self,
@@ -56,7 +77,7 @@ class DeepSeekClient:
             response_format: Optional {"type": "json_object"} for structured output.
 
         Returns:
-            The model's text response.
+            The model's text response. Retries on 503 errors.
         """
         kwargs: dict = {
             "model": model or self.default_model,
@@ -67,8 +88,7 @@ class DeepSeekClient:
         if response_format:
             kwargs["response_format"] = response_format
 
-        response = self.client.chat.completions.create(**kwargs)
-        return response.choices[0].message.content or ""
+        return self._call_with_retry(**kwargs)
 
     def chat_json(
         self,
@@ -77,7 +97,7 @@ class DeepSeekClient:
         max_tokens: int = 500,
         temperature: float = 0.1,
     ) -> str:
-        """Same as chat() but requests JSON output."""
+        """Same as chat() but requests JSON output. Retries on 503 errors."""
         return self.chat(
             messages=messages,
             model=model,

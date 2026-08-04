@@ -7,7 +7,7 @@ sources:
     language: "zh"
 
   - name: "机器之心"
-    url: "https://rsshub.app/jiqizhixin/latest"
+    url: "https://rsshub.rssforever.com/jiqizhixin/articles"
     category: "ai-research"
     authority_score: 8
     language: "zh"
