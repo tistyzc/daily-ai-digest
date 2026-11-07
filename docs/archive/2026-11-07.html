@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily AI Digest — 2026-11-07</title>
+    <meta name="description" content="Daily AI/IT industry news digest — auto-generated bilingual summary of what matters today.">
+    <style>
+        :root {
+            --bg: #ffffff; --bg-secondary: #f8f9fa; --bg-card: #ffffff;
+            --text: #1a1a2e; --text-secondary: #6b7280; --border: #e5e7eb;
+            --accent: #2563eb; --accent-hover: #1d4ed8;
+            --tag-bg: #eff6ff; --tag-text: #2563eb;
+            --factual: #dc2626; --bias: #d97706; --safety: #7c3aed; --privacy: #059669;
+            --factual-bg: #fef2f2; --bias-bg: #fffbeb; --safety-bg: #f5f3ff; --privacy-bg: #ecfdf5;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08); --radius: 8px;
+            --toc-width: 220px;
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a; --bg-secondary: #1e293b; --bg-card: #1e293b;
+            --text: #e2e8f0; --text-secondary: #94a3b8; --border: #334155;
+            --accent: #60a5fa; --accent-hover: #93bbfd;
+            --tag-bg: #1e3a5f; --tag-text: #60a5fa;
+            --factual: #f87171; --bias: #fbbf24; --safety: #c084fc; --privacy: #34d399;
+            --factual-bg: #3b1414; --bias-bg: #3b2e0a; --safety-bg: #2e1a4f; --privacy-bg: #0a3b2e;
+            --shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* ── Layout ── */
+        .page-wrapper { display: flex; min-height: 100vh; }
+        .content-area { flex: 1; min-width: 0; }
+
+        /* ── TOC Sidebar ── */
+        .toc-sidebar {
+            width: var(--toc-width); position: sticky; top: 0; height: 100vh;
+            overflow-y: auto; padding: 24px 16px; background: var(--bg-secondary);
+            border-right: 1px solid var(--border); font-size: 0.85rem;
+            flex-shrink: 0; z-index: 10; scrollbar-width: thin;
+        }
+        .toc-sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 12px; }
+        .toc-sidebar a {
+            display: block; padding: 5px 10px; border-radius: 4px; color: var(--text-secondary);
+            text-decoration: none; transition: all 0.15s; margin-bottom: 2px;
+            border-left: 2px solid transparent;
+        }
+        .toc-sidebar a:hover { color: var(--text); background: var(--bg); }
+        .toc-sidebar a.active { color: var(--accent); font-weight: 600; border-left-color: var(--accent); background: var(--bg); }
+        .toc-toggle { display: none; position: fixed; bottom: 20px; left: 20px; z-index: 100;
+            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border);
+            background: var(--bg); font-size: 1.2rem; cursor: pointer; box-shadow: var(--shadow);
+        }
+
+        /* ── Container ── */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Header ── */
+        header {
+            background: var(--bg-secondary); border-bottom: 1px solid var(--border);
+            padding: 32px 0 24px; margin-bottom: 32px;
+        }
+        header h1 { font-size: 2rem; font-weight: 800; color: var(--text); }
+        header .subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-top: 4px; }
+        .header-actions { display: flex; gap: 12px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+        .header-actions a, .header-actions button {
+            text-decoration: none; font-size: 0.875rem; padding: 6px 14px;
+            border-radius: var(--radius); border: 1px solid var(--border);
+            background: var(--bg); color: var(--text); cursor: pointer; transition: all 0.2s;
+        }
+        .header-actions a:hover, .header-actions button:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ── Stats ── */
+        .stats-bar {
+            display: flex; gap: 24px; flex-wrap: wrap; padding: 16px 20px;
+            background: var(--bg-secondary); border-radius: var(--radius);
+            margin-bottom: 24px; font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .stats-bar strong { color: var(--text); }
+
+        /* ── Search & Filter ── */
+        .search-box { width: 100%; max-width: 400px; padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); font-size: 0.9rem; }
+        .search-box:focus { outline: none; border-color: var(--accent); }
+        .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .filter-chip { font-size: 0.82rem; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+        .filter-chip.active, .filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* ── Critic Flags Summary Box ── */
+        .flags-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: var(--radius); padding: 14px 20px; margin-bottom: 24px; font-size: 0.85rem; }
+        [data-theme="dark"] .flags-box { background: #3b2e0a; border-color: #92400e; }
+        .flags-box summary { cursor: pointer; font-weight: 600; color: var(--bias); }
+        .flags-box ul { list-style: none; padding: 0; margin-top: 8px; }
+        .flags-box li { padding: 3px 0; border-bottom: 1px solid var(--border); }
+        .flags-box li:last-child { border-bottom: none; }
+        .flags-box .flag-article { font-weight: 600; font-size: 0.82rem; color: var(--text); }
+
+        /* ── Critic Icons ── */
+        .critic-badges { display: inline-flex; gap: 4px; align-items: center; vertical-align: middle; }
+        .critic-badge {
+            display: inline-flex; align-items: center; gap: 3px; font-size: 0.72rem;
+            padding: 2px 7px; border-radius: 12px; font-weight: 600; cursor: help;
+            white-space: nowrap; transition: opacity 0.15s;
+        }
+        .critic-badge:hover { opacity: 0.8; }
+        .critic-badge.factual { background: var(--factual-bg); color: var(--factual); }
+        .critic-badge.bias { background: var(--bias-bg); color: var(--bias); }
+        .critic-badge.safety { background: var(--safety-bg); color: var(--safety); }
+        .critic-badge.privacy { background: var(--privacy-bg); color: var(--privacy); }
+
+        /* ── Topic Sections ── */
+        .topic-section { margin-bottom: 40px; scroll-margin-top: 20px; }
+        .topic-header { font-size: 1.3rem; font-weight: 700; color: var(--accent); padding-bottom: 8px; margin-bottom: 16px; border-bottom: 2px solid var(--accent); }
+        .topic-count { font-size: 0.85rem; font-weight: 400; color: var(--text-secondary); }
+
+        /* ── Article Card ── */
+        .article-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px 24px; margin-bottom: 16px;
+            box-shadow: var(--shadow); transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .article-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+        .article-card h3 a { color: var(--text); text-decoration: none; }
+        .article-card h3 a:hover { color: var(--accent); }
+        .article-meta { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 10px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .source-tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 4px; background: var(--tag-bg); color: var(--tag-text); }
+        .en-summary { font-size: 0.92rem; color: var(--text); margin-bottom: 8px; }
+        .zh-summary { font-size: 0.92rem; color: var(--text-secondary); padding-left: 12px; border-left: 3px solid var(--border); margin-bottom: 8px; }
+        .key-points { list-style: none; padding: 0; margin: 8px 0 0; font-size: 0.85rem; color: var(--text-secondary); }
+        .key-points li::before { content: "▸ "; color: var(--accent); }
+        .impact { font-size: 0.85rem; padding: 8px 12px; margin-top: 8px; background: var(--bg-secondary); border-radius: 6px; color: var(--text-secondary); font-style: italic; }
+
+        /* ── Footer ── */
+        footer { text-align: center; padding: 32px 0; margin-top: 40px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.85rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* ── Mobile ── */
+        @media (max-width: 900px) {
+            .toc-sidebar {
+                position: fixed; left: -280px; top: 0; width: 260px; height: 100vh;
+                z-index: 99; transition: left 0.3s; box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            }
+            .toc-sidebar.open { left: 0; }
+            .toc-toggle { display: flex; align-items: center; justify-content: center; }
+            .toc-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 98; }
+            .toc-overlay.show { display: block; }
+            .container { padding: 0 16px; }
+        }
+        @media (max-width: 640px) {
+            header h1 { font-size: 1.5rem; }
+            .article-card { padding: 14px 16px; }
+            .stats-bar { gap: 12px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- ── TOC Sidebar ── -->
+        <div class="toc-overlay" id="toc-overlay" onclick="closeToc()"></div>
+        <nav class="toc-sidebar" id="toc-sidebar">
+            <h3>📑 Contents</h3>
+            <a href="#top" class="active" data-toc="top">📰 Top</a>
+            
+            <a href="#topic-1" data-toc="topic-1">Large Language Models <small>(1)</small></a>
+            
+            <a href="#topic-2" data-toc="topic-2">AI Research & Breakthroughs <small>(1)</small></a>
+            
+            <a href="#topic-3" data-toc="topic-3">Developer Tools & Platforms <small>(4)</small></a>
+            
+            <a href="#topic-4" data-toc="topic-4">Open Source <small>(1)</small></a>
+            
+            <a href="#topic-5" data-toc="topic-5">AI Business & Funding <small>(5)</small></a>
+            
+            <a href="#topic-6" data-toc="topic-6">Security & Safety <small>(1)</small></a>
+            
+            <a href="#topic-7" data-toc="topic-7">Industry Trends & Analysis <small>(15)</small></a>
+            
+            <a href="#topic-8" data-toc="topic-8">AI Ethics & Policy <small>(2)</small></a>
+            
+        </nav>
+
+        <!-- ── Main Content ── -->
+        <div class="content-area">
+            <header id="top">
+                <div class="container">
+                    <h1>🤖 Daily AI Digest</h1>
+                    <p class="subtitle">November 07, 2026 · AI-powered bilingual IT/AI news summary · Auto-generated daily</p>
+                    <div class="header-actions">
+                        <a href="archive/index.html">📚 Archives</a>
+                        <a href="https://github.com" target="_blank">⭐ GitHub</a>
+                        <button onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="container">
+                <!-- Stats -->
+                <div class="stats-bar">
+                    <span>📰 <strong>30</strong> articles</span>
+                    <span>📡 <strong>7</strong> sources</span>
+                    <span>🏷️ <strong>8</strong> topics</span>
+                    <span>🕐 2026-11-07T04:21:35 UTC</span>
+                    <span>🧠 DeepSeek</span>
+                </div>
+
+                <!-- Search & Filter -->
+                <input type="text" class="search-box" id="search" placeholder="🔍 Search articles..." oninput="filterArticles()">
+                <div class="filter-bar" id="filter-bar">
+                    <span class="filter-chip active" onclick="setTopicFilter('all', this)">All</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Large Language Models', this)">Large Language Models</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Research & Breakthroughs', this)">AI Research & Breakthroughs</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Developer Tools & Platforms', this)">Developer Tools & Platforms</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Open Source', this)">Open Source</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Business & Funding', this)">AI Business & Funding</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Security & Safety', this)">Security & Safety</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Industry Trends & Analysis', this)">Industry Trends & Analysis</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Ethics & Policy', this)">AI Ethics & Policy</span>
+                    
+                </div>
+
+                <!-- Critic Flags Summary (collapsible) -->
+                
+                <details class="flags-box" id="flags-summary">
+                    <summary>⚠️ AI Critic Notes (12 articles flagged — click to expand)</summary>
+                    <ul>
+                        
+                        <li>
+                            <span class="flag-article">Introducing GPT-5.2</span>
+                            <br><small>Bias (moderate): ["Uncritical product launch coverage that reads like a press release: 'most advanced frontier model', 'state-of-the-art', '业界领先水平' are vendor marketing claims presented as fact without independent benchmarks or evidence.", 'Missing counterpoints: no acknowledgment of limitations, no comparison to competing models (e.g., Anthropic, Google), and no mention of benchmark results or independent evaluation.', "Hype inflation: 'state-of-the-art reasoning, long-context understanding, coding, and vision' asserts leadership across all dimensions without substantiation.", "Vendor framing: 'enable faster, more reliable agentic workflows' repeats OpenAI's own promotional language uncritically."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">聚焦币安失窃案，追偿链上资产有多难？| 巴伦菁英月谈会</span>
+                            <br><small>Factual: ["The summary claims 'stablecoins more recoverable than decentralized assets like Bitcoin,' but the source does not make this comparison; it only discusses asset types in terms of legal priority/repayment order, not recoverability.", "The summary states Binance committed to full reimbursement 'from its treasury,' while the source says 'company treasury and other combined funds' (公司金库等组合资金), which is a minor but notable nuance."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">美国重金买矿、全球签协议，谁为这场关键矿产争夺战买单？</span>
+                            <br><small>Factual: ['The summary names Lithium Americas, Trilogy Metals, and USA Rare Earth as companies receiving government support, but the source text (as provided) only discusses MP Materials in detail; these other companies are not mentioned in the source excerpt.', "The summary states 'four companies' implicitly by listing four, but the source only explicitly covers MP Materials; the claim of four supported companies is not supported by the provided text."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">科技爱好者周刊（第 418 期）：如果科技停止在21世纪初</span>
+                            <br><small>Factual: ["The summary claims the newsletter covers 'JetBrains' first loss in 20 years,' but the source text contains no mention of JetBrains or any financial loss.", "The summary states the newsletter 'also covers Google's space TPU experiment' — this is supported — but the JetBrains claim is fabricated/hallucinated."]; Privacy: ['email address']</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">家电行业，集体过冬</span>
+                            <br><small>Factual: ["The summary says 'Only Midea, Haier, and Gree remained profitable at scale,' but the source states 20 companies had positive profit; the three giants captured ~90% of profit, not that they were the only profitable ones.", "The summary mentions 'reduced subsidies' as a struggle for smaller players, but the source does not mention reduced subsidies anywhere."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">县城理发店，批量消失了？</span>
+                            <br><small>Factual: ["The summary claims 'roughly one per 300 people' — this figure does not appear in the source and is fabricated.", "The summary claims 'the at-home hair dye market surpassing 38 billion yuan' — this figure does not appear in the source and is fabricated.", "The summary claims '68% of consumers now DIY dyeing' — this statistic does not appear in the source and is fabricated.", "The source mentions young people dyeing hair at home only in a truncated sentence ('甚至她们学会了在家') without any market size or percentage figures."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">博世用豆包工作：让工程师少搬信息，多解问题</span>
+                            <br><small>Bias (mild): ["Uncritical product-launch framing: the piece reads largely as a positive case study of ByteDance's Doubao Work products, with no mention of limitations, failure modes, data-privacy/security concerns (AI monitoring private chats and meetings), or competing tools.", "Hype-adjacent metrics presented without context: 'requirement to deployment in just over a week' and 'productive after one day of onboarding' are impressive-sounding but unverified and lack baseline comparison or independent validation.", "One-sided sourcing: claims like 'reports reliably score 70-80 points' come from the deploying team with no external verification or acknowledgment of what the remaining 20% judgment gap means for risk.", "Vendor-ecosystem promotion: the digest centers a single vendor's product suite (Doubao Work + Doubao Work Partner) without noting alternatives or lock-in considerations."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">创始人扶90后表弟“上位”，百亿辣条帝国面临双重挑战</span>
+                            <br><small>Factual: ["The summary states 'H1 2026 revenue' but the source refers to '今年上半年' (this year's first half) without specifying 2026; the article's context (Nov 3 announcement, 2022 listing) suggests 2025, not 2026. The year 2026 is not supported by the source.", "The summary says Yu Feng is 'a 15-year company veteran' — the source says he has 'over 15 years of experience in the snack food industry' and joined Weilong in 2011 (about 14 years), so '15-year company veteran' is a slight mischaracterization.", "The summary omits that the management changes take effect from November 3, 2026 (per source), which is inconsistent with the 'H1 2026' framing."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">中期选举后美国芯片股重挫，纳指单日暴跌 5.52%；民主党宣布推动《禁止人工智能法案》；OpenAI 推出 GPT-6 Cyber</span>
+                            <br><small>Factual: ["The summary claims OpenAI's GPT-6 Cyber has an 'under 1% unauthorized action rate' — this figure does not appear in the source. The source only says the model improves vulnerability discovery and reduces privilege-escalation attack risk; the article is also truncated.", "The summary states Democrats 'won control of Congress' — the source says Democrats won the midterm elections and won control of Congress, which is consistent, but the summary omits that the selloff was described as the worst second trading day after a midterm since 1896 (not an error, just omitted).", "The summary says the ASI bill was 'announced' by Democrats — consistent with source. No issue.", "The summary says Gemini Omni 1.2 Flash supports '15-second conversational video editing' — consistent with source. No issue."]; Bias (mild): ["Chinese summary uses sensationalist framing ('吓崩', '狂泻', '更狠的是', '监管力度堪比核武器') that goes beyond neutral reporting and amplifies market panic", "GPT-6 Cyber's 'under 1% unauthorized action rate' is presented as a bare vendor claim without noting it is self-reported or unverified", "Google's price cut ('价格还降了三成') is stated without context on prior pricing or comparison to competitors", 'No counterpoint on the proposed ASI ban — no mention of industry opposition, feasibility concerns, or likelihood of passage, making the regulatory threat read as more certain than it is', "Framing of the selloff as directly 'caused' by the election outcome is asserted without acknowledging other market factors"]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">一个人用得好 AI，为什么一家公司却用不好？</span>
+                            <br><small>Bias (mild): ["Uncritical product launch coverage: the summary reads largely as a list of Tencent's announcements (WorkBuddy upgrades, Buddy One, Tencent Docs redesign) without any independent assessment or skepticism.", 'Missing counterpoints: the Suning case (3 days to 4 hours) is presented as a clean success metric with no caveats about scope, baseline, or whether results generalize; no mention of competing enterprise AI platforms or alternative approaches.', "Vendor-centric framing: the piece centers entirely on one company's ecosystem and its narrative of the problem, without noting that the 'individual easy, enterprise hard' framing is itself a vendor talking point."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">The Week’s 10 Biggest Funding Rounds: AI, Defense And Space Tech Lead For Large Rounds</span>
+                            <br><small>Factual: ['The summary mentions Northwood Space ($375M) and Applied Compute ($350M at $3.25B valuation), but neither company nor these figures appear in the source text — these are hallucinated.', 'The source only lists three rounds (Shield AI, Zipline, CesiumAstro); the summary implies a fuller top-10 list with additional named companies not present in the source.']</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">The Download: a humanoid cleans house and Samsung builds for the AI boom</span>
+                            <br><small>Factual: ["The summary mentions 'warnings of an ongoing cyber threat targeting internet-connected appliances,' but the source text (which is truncated) does not contain any such claim. This appears to be hallucinated content not supported by the source."]</small>
+                        </li>
+                        
+                    </ul>
+                </details>
+                
+
+                <!-- Legend -->
+                <div style="margin-bottom: 20px; font-size: 0.78rem; color: var(--text-secondary); display: flex; gap: 14px; flex-wrap: wrap;">
+                    <span class="critic-badge factual">🔴 Factual</span> 事实可能不准
+                    <span class="critic-badge bias">🟡 Bias</span> 有营销/偏见
+                    <span class="critic-badge safety">🟣 Safety</span> 内容安全
+                    <span class="critic-badge privacy">🟢 Privacy</span> 有隐私信息
+                </div>
+
+                <!-- Topic Sections -->
+                
+                <section class="topic-section" data-topic="Large Language Models" id="topic-1">
+                    <h2 class="topic-header">Large Language Models <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="Large Language Models">
+                        <h3><a href="https://openai.com/index/introducing-gpt-5-2" target="_blank" rel="noopener">Introducing GPT-5.2</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: moderate — Uncritical product launch coverage that reads like a press release: 'most advanced frontier model', 'state-of-the-art', '业界领先水平' are vendor marketing claims presented as fact without independent benchmarks or evidence.; Missing counterpoints: no acknowledgment of limitations, no comparison to competing models (e.g., Anthropic, Google), and no mention of benchmark results or independent evaluation.; Hype inflation: 'state-of-the-art reasoning, long-context understanding, coding, and vision' asserts leadership across all dimensions without substantiation.; Vendor framing: 'enable faster, more reliable agentic workflows' repeats OpenAI's own promotional language uncritically.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI announced GPT-5.2, its most advanced frontier model for everyday professional work, featuring state-of-the-art reasoning, long-context understanding, coding, and vision. It is available in ChatGPT and the OpenAI API to enable faster, more reliable agentic workflows.</p>
+                        <p class="zh-summary">OpenAI 发布了 GPT-5.2，这是其面向日常专业工作的最先进前沿模型，在推理、长上下文理解、编程和视觉方面均达到业界领先水平。该模型已在 ChatGPT 和 OpenAI API 中上线，旨在支持更快速、更可靠的智能体工作流。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>GPT-5.2 is OpenAI's most advanced frontier model for professional work.</li>
+                            
+                            <li>It offers state-of-the-art reasoning, long-context understanding, coding, and vision.</li>
+                            
+                            <li>Available in ChatGPT and the OpenAI API for agentic workflows.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners can leverage GPT-5.2 to build more capable and efficient agentic applications with improved reasoning and multimodal understanding.<br>🇨🇳 开发者和 AI 从业者可以利用 GPT-5.2 构建更强大、更高效的智能体应用，享受更优的推理和多模态理解能力。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Research & Breakthroughs" id="topic-2">
+                    <h2 class="topic-header">AI Research & Breakthroughs <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Research & Breakthroughs">
+                        <h3><a href="https://openai.com/index/introducing-indqa" target="_blank" rel="noopener">Introducing IndQA</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched IndQA, a new benchmark designed to evaluate AI systems' performance in Indian languages. Developed with domain experts, it assesses cultural understanding and reasoning across 12 languages and 10 knowledge areas.</p>
+                        <p class="zh-summary">OpenAI 推出了 IndQA，一个专门评估 AI 系统在印度语言环境下表现的新基准。该基准由领域专家参与构建，覆盖 12 种语言和 10 个知识领域，重点测试文化理解与推理能力。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>IndQA is a new benchmark for evaluating AI systems in Indian languages.</li>
+                            
+                            <li>It was built with domain experts to ensure cultural and linguistic accuracy.</li>
+                            
+                            <li>The benchmark covers 12 languages and 10 knowledge areas, testing cultural understanding and reasoning.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This benchmark enables developers to more accurately assess and improve AI models' cultural and linguistic competence for Indian language markets, which are often underrepresented in AI evaluation.<br>🇨🇳 该基准使开发者能够更准确地评估和提升 AI 模型在印度语言市场的文化和语言能力，这些市场在 AI 评估中往往代表性不足。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Developer Tools & Platforms" id="topic-3">
+                    <h2 class="topic-header">Developer Tools & Platforms <span class="topic-count">(4)</span></h2>
+                    
+                    <article class="article-card" data-topic="Developer Tools & Platforms">
+                        <h3><a href="http://www.geekpark.net/news/373643" target="_blank" rel="noopener">博世用豆包工作：让工程师少搬信息，多解问题</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — Uncritical product-launch framing: the piece reads largely as a positive case study of ByteDance's Doubao Work products, with no mention of limitations, failure modes, data-privacy/security concerns (AI monitoring private chats and meetings), or competing tools.; Hype-adjacent metrics presented without context: 'requirement to deployment in just over a week' and 'productive after one day of onboarding' are impressive-sounding but unverified and lack baseline comparison or independent validation.; One-sided sourcing: claims like 'reports reliably score 70-80 points' come from the deploying team with no external verification or acknowledgment of what the remaining 20% judgment gap means for risk.; Vendor-ecosystem promotion: the digest centers a single vendor's product suite (Doubao Work + Doubao Work Partner) without noting alternatives or lock-in considerations.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Bosch's R&D division deployed ByteDance's Doubao Work and Doubao Work Partner to automate the post-communication workflow of fault analysis, where engineers previously spent half a day gathering scattered messages, routing issues, and writing reports. The AI agent monitors chats, consolidates fragmented problem descriptions, drafts reports covering 70-80% of content, attends meetings to capture clarifications, and archives knowledge into a shared base. The project went from requirement to deployment in just over a week, with the AI agent productive after one day of onboarding.</p>
+                        <p class="zh-summary">博世某研发事业部把故障分析中“沟通之后”的脏活累活交给了豆包工作和豆包工作伙伴：AI 自动巡检私聊、聚合碎片信息、按模板出报告初稿、旁听会议补全结论，还能翻出离职老工程师的历史经验。项目从需求到落地只用了一周多，AI 上岗一天就能干活，目前报告能稳定拿到七八十分，剩下两成关键判断仍由工程师把关。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Bosch engineers previously spent over half a day per issue on gathering messages, routing, meetings, and report writing before actual fault analysis began.</li>
+                            
+                            <li>Doubao Work schedules tasks to scan private messages for fault-related info and forwards them to dedicated topic groups, preserving customer communication habits.</li>
+                            
+                            <li>Doubao Work Partner consolidates fragmented messages into complete problem descriptions, generates report drafts (70-80% coverage), attends meetings to sync clarifications, and logs issues into Feishu Bitable.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This case shows developers and AI practitioners that high-value enterprise AI often targets the unglamorous post-communication overhead—information aggregation, routing, and documentation—rather than core technical tasks, and that agent onboarding can be as fast as training a new colleague.<br>🇨🇳 这个案例告诉开发者和 AI 从业者：企业级 AI 的高价值场景往往不是最核心的技术环节，而是沟通之后的整理、转派和归档等“脏活累活”；智能体的上岗培训也可以像带新同事一样简单快速。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Developer Tools & Platforms">
+                        <h3><a href="http://www.geekpark.net/news/373542" target="_blank" rel="noopener">世界互联网大会领先科技奖背后，Qoder 凭什么拿下中国 AI 编程市场第一</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Alibaba's general-purpose agent platform Qoder won the World Internet Conference Leading Technology Award, the only Chinese general Agent product honored, as AI dominated 5 of 8 engineering awards. Qoder surpassed 8 million global users and holds 47.6% of China's AI coding market per IDC, more than the next four competitors combined, while Gartner placed Alibaba Cloud in the Challengers quadrant for enterprise AI code agents.</p>
+                        <p class="zh-summary">阿里家的 Qoder 在乌镇世界互联网大会上拿下了领先科技奖，成为国内唯一获此殊荣的通用 Agent 产品。这产品 2025 年 8 月才上线，如今全球用户已破 800 万，IDC 数据显示它以 47.6% 的份额稳坐中国 AI 编程市场头把交椅，比第二到第五名加起来还多。Gartner 也把阿里云放进了企业级 AI 代码智能体的「挑战者」象限，跟 AWS、Google 并肩。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Qoder is the only Chinese general-purpose Agent product to win the 2026 Leading Technology Award, with at least 5 of 8 engineering awards AI-related</li>
+                            
+                            <li>Global users exceed 8 million; IDC 2025 report shows Alibaba leading China's AI coding market with 47.6% share, more than ranks 2-5 combined</li>
+                            
+                            <li>Gartner's enterprise AI code agent Magic Quadrant places Alibaba Cloud in the Challengers quadrant alongside AWS and Google</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals that AI coding agents are consolidating into platform-level competition, and developers should expect agent workbenches that handle repo understanding, task planning, and verification end-to-end rather than just code completion.<br>🇨🇳 这说明 AI 编程工具正从「代码补全」进化成能读懂仓库、规划任务、验证结果的智能体工作台，开发者选型时要关注平台级能力而非单一功能。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Developer Tools & Platforms">
+                        <h3><a href="https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps" target="_blank" rel="noopener">Usage metrics API flags telemetry and version gaps</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">GitHub Blog Changelog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">GitHub's Copilot usage metrics API now includes per-user fields indicating whether client telemetry was received and whether each user's IDE or Copilot extension meets minimum supported versions. Daily counts of affected users appear in enterprise and organization reports, helping admins identify and fix telemetry or version gaps without opening support tickets.</p>
+                        <p class="zh-summary">GitHub Copilot 用量指标 API 新增了用户级字段，能直接看出谁没上报客户端遥测数据、谁的 IDE 或插件版本低于最低要求。企业和管理员报告里还会给出每日受影响用户数，方便管理员主动排查问题，不用再开支持工单。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>New per-user fields: client_telemetry_present and usage_metrics_requirements (met/unmet/unknown per IDE and extension).</li>
+                            
+                            <li>Daily counts missing_client_telemetry_user_count and below_usage_metrics_minimum_user_count appear in enterprise and organization reports.</li>
+                            
+                            <li>Users without telemetry still count as active but lack detailed metrics like lines of code and feature/model breakdowns.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and admins can now pinpoint telemetry and version issues directly in Copilot metrics, improving data quality and reducing troubleshooting overhead.<br>🇨🇳 开发者和管理员可以直接在 Copilot 指标中定位遥测和版本问题，提升数据质量并减少排障成本。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Developer Tools & Platforms">
+                        <h3><a href="https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate" target="_blank" rel="noopener">Usage metrics API adds code review details and addressed rate</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">GitHub Blog Changelog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">GitHub's Copilot usage metrics API now includes a new copilot_code_review object on each repos-1-day row, reporting how many Copilot code review comments developers addressed and how many Copilot-reviewed pull requests merged without a subsequent human change request. This enables tracking of an addressed rate per repository, broken down by severity, review tier, comment type, and customization.</p>
+                        <p class="zh-summary">GitHub 的 Copilot 使用指标 API 新增了代码审查反馈的跟踪能力：现在可以查看每个仓库中 Copilot 代码审查评论被开发者采纳的比例（即“已处理率”），以及 Copilot 审查过的 PR 在合并后是否还有人要求修改。这些数据还能按严重程度、审查层级、评论类型和自定义配置细分，帮团队评估 Copilot 审查的实际效果。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>New copilot_code_review object on each repos-1-day row reports total_comments_evaluated and total_comments_addressed, enabling an addressed rate per repository.</li>
+                            
+                            <li>Counts are broken down by severity, review tier, comment type, and customization (e.g., custom instructions, skills, MCP servers).</li>
+                            
+                            <li>total_merged_no_human_change_request_after_review tracks merged PRs reviewed by Copilot with no later human change request.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners can now quantitatively measure the effectiveness of Copilot code review and the impact of customizations like instructions and MCP servers, enabling data-driven optimization of their AI-assisted review workflows.<br>🇨🇳 开发者和 AI 从业者现在可以量化评估 Copilot 代码审查的效果，以及自定义指令、MCP 服务器等配置带来的影响，从而数据驱动地优化 AI 辅助审查流程。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Open Source" id="topic-4">
+                    <h2 class="topic-header">Open Source <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="Open Source">
+                        <h3><a href="https://openai.com/index/introducing-gpt-oss" target="_blank" rel="noopener">Introducing gpt-oss</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has released gpt-oss-120b and gpt-oss-20b, two open-weight language models under the Apache 2.0 license. They outperform similarly sized open models on reasoning tasks, show strong tool use, and are optimized for consumer hardware deployment.</p>
+                        <p class="zh-summary">OpenAI 刚刚发布了 gpt-oss-120b 和 gpt-oss-20b 两款开源权重模型，采用 Apache 2.0 许可。它们在推理任务上超越了同尺寸的开源模型，工具调用能力出色，并且针对消费级硬件做了优化，部署成本很低。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Two models: gpt-oss-120b and gpt-oss-20b, both open-weight</li>
+                            
+                            <li>Released under Apache 2.0 license</li>
+                            
+                            <li>Outperform similarly sized open models on reasoning tasks</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers can now run powerful OpenAI models locally on consumer hardware, enabling cost-effective, privacy-preserving AI applications without relying on cloud APIs.<br>🇨🇳 开发者现在可以在消费级硬件上本地运行强大的 OpenAI 模型，实现低成本、保护隐私的 AI 应用，而无需依赖云 API。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Business & Funding" id="topic-5">
+                    <h2 class="topic-header">AI Business & Funding <span class="topic-count">(5)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://openai.com/index/openai-for-ireland" target="_blank" rel="noopener">Introducing OpenAI for Ireland</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched OpenAI for Ireland, a partnership with the Irish Government, Dogpatch Labs, and Patch to help SMEs, founders, and young builders use AI for innovation, productivity, and building tech startups. The initiative aims to foster the next generation of Irish tech companies.</p>
+                        <p class="zh-summary">OpenAI 近日推出了“OpenAI for Ireland”计划，与爱尔兰政府、Dogpatch Labs 和 Patch 合作，帮助中小企业、创业者和年轻开发者利用 AI 进行创新、提高生产力，并培育下一代爱尔兰科技初创企业。该计划旨在推动爱尔兰科技生态的发展。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI partners with Irish Government, Dogpatch Labs, and Patch.</li>
+                            
+                            <li>Targets SMEs, founders, and young builders to use AI for innovation and productivity.</li>
+                            
+                            <li>Aims to build the next generation of Irish tech startups.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This initiative provides Irish developers and startups with resources and support to integrate AI, potentially accelerating local innovation and creating new opportunities.<br>🇨🇳 该计划为爱尔兰开发者和初创企业提供了整合 AI 的资源和支持，有望加速本地创新并创造新机遇。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://www.tmtpost.com/8196556.html" target="_blank" rel="noopener">港股上市公司杀入币圈，高调囤币4000枚，套现1377万美元</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Delin Holdings, the only family-office company listed on the Hong Kong Stock Exchange, announced it sold 172 Bitcoin between September and November for about $13.77 million, despite having pledged in 2025 to build a 4,000-BTC reserve as a 'top Bitcoin mining hashrate stock.' Since launching mining in November 2025, the firm has mined 616 BTC but sold 577 of them, leaving fewer than 40 BTC on its books.</p>
+                        <p class="zh-summary">港股唯一上市家办德林控股高调宣布进军比特币挖矿、放话两年囤币4000枚，结果一年下来挖了616枚却卖了577枚，账上只剩不到40枚。9至11月两个月内又卖出172枚比特币，套现约1377万美元。说好的“算力第一股”，硬是活成了“清仓甩卖第一股”。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Delin Holdings sold 172 BTC in two months (Sept 3–Nov 2) at an average price of about $80,077, raising roughly $13.77 million.</li>
+                            
+                            <li>Since mining began in November 2025, the company has produced 616.469 BTC and sold 577, offloading over 90% of output.</li>
+                            
+                            <li>The company originally targeted a 4,000 BTC reserve within two years and planned up to $100 million in hashrate investment, including 2,995 Bitmain S21 hydro-cooled miners.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> The case illustrates that listed companies' Bitcoin mining narratives often serve capital-market storytelling rather than long-term treasury strategy, so developers and investors should scrutinize actual BTC holdings and cash-flow patterns rather than announced reserve targets.<br>🇨🇳 对开发者与投资者而言，上市公司的“囤币”故事往往只是资本叙事，真正该看的是实际持仓和现金流，而不是公告里的储备目标。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="http://www.geekpark.net/news/373642" target="_blank" rel="noopener">办公提效之后，企业级 Agent 开始对经营结果负责</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Tencent Cloud announced a full-lifecycle upgrade to its ADP platform at the 2026 Tencent Global Digital Ecosystem Summit, positioning it as infrastructure for enterprise 'Service Agents' that operate inside core business workflows rather than just desktop productivity assistants. The company introduced an FDE delivery methodology and ecosystem program, citing McKinsey data that 80% of workers report personal AI productivity gains but fewer than 40% believe AI contributes positively to company profit.</p>
+                        <p class="zh-summary">腾讯云在 2026 全球数字生态大会上给 ADP 平台做了全生命周期升级，目标很明确：让智能体从「帮你写文档」进化到「帮你跑业务、对经营结果负责」。麦肯锡的数据扎心地指出，八成打工人觉得 AI 提效了，但不到四成认为 AI 真给公司赚到了钱——这道鸿沟，正是企业级 Agent 要跨过去的坎。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Tencent Cloud VP Wu Yongjian frames two parallel tracks for enterprise agents: conversational desktop office agents and business-operating Service Agents.</li>
+                            
+                            <li>ADP's upgrade unifies agent capabilities with site services so teams can build end-to-end business applications, not just chatbots.</li>
+                            
+                            <li>Security and governance features include private-network direct connection, identity-bound permissions, full-chain audit trails, and 100+ open APIs.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers building enterprise agents should note the shift from demo-building to governance, cross-system integration, and measurable business outcomes—capabilities that now define platform competitiveness.<br>🇨🇳 做企业级 Agent 的开发者要注意了：竞争焦点已从「能不能搭出来」转向权限治理、跨系统打通和可量化的业务结果，平台选型时这些能力比模型参数更值得关注。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="http://www.geekpark.net/news/373637" target="_blank" rel="noopener">估值 400 亿美元，美国公司，终于做出了中国开源模型的竞对</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">作者｜Wildcard 编辑｜靖宇 11 月 5 日，OpenAI 前 CTO Mira Murati 创立的 Thinking Machines Lab（简称 TML）同一天出了两条新闻。 当天，公司发布了第二代模型 Inkling 2 Small，第三方评测机构 Artificial Analysis（AA）给的评价相当高：权重放出后，它将成为「 中国以外得分最高的开放权重模型 」。同一天，据报道，这家公司正以 400 亿美元的投前估值筹集 50 亿美元新融资。 TML 在 2025 年 2 月对外亮相，至今一年半多。这期间，他们拿过 a16z 领投的 20 亿美元种子轮，也经历了联合创始</p>
+                        <p class="zh-summary">作者｜Wildcard 编辑｜靖宇 11 月 5 日，OpenAI 前 CTO Mira Murati 创立的 Thinking Machines Lab（简称 TML）同一天出了两条新闻。 当天，公司发布了第二代模型 Inkling 2 Small，第三方评测机构 Artificial Analysis（AA）给的评价相当高：权重放出后，它将成为「 中国以外得分最高的开放权重模型 」。同一天，据报道，这家公司正以 400 亿美元的投前估值筹集 50 亿美元新融资。 TML 在 2025 年 2 月对外亮相，至今一年半多。这期间，他们拿过 a16z 领投的 20 亿美元种子轮，也经历了联合创始</p>
+                        
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://news.crunchbase.com/venture/biggest-startup-rounds-ai-defense-space-tech-shield-zipline/" target="_blank" rel="noopener">The Week’s 10 Biggest Funding Rounds: AI, Defense And Space Tech Lead For Large Rounds</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">Crunchbase AI</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary mentions Northwood Space ($375M) and Applied Compute ($350M at $3.25B valuation), but neither company nor these figures appear in the source text — these are hallucinated.; The source only lists three rounds (Shield AI, Zipline, CesiumAstro); the summary implies a fuller top-10 list with additional named companies not present in the source.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">This week's top 10 U.S. funding rounds were led by defense tech company Shield AI, which raised $2 billion in equity plus $500 million in debt, and drone delivery provider Zipline International, which secured $1.5 billion at a $21.5 billion valuation. Other notable rounds included space tech firms CesiumAstro ($730M) and Northwood Space ($375M), and AI infrastructure startup Applied Compute ($350M at a $3.25 billion valuation).</p>
+                        <p class="zh-summary">本周美国创投圈又迎来一波巨额融资，国防科技公司Shield AI以20亿美元股权融资加5亿美元债务融资拔得头筹，无人机配送公司Zipline International则以15亿美元融资、215亿美元估值紧随其后。此外，太空科技公司CesiumAstro和Northwood Space分别拿下7.3亿和3.75亿美元，AI基础设施初创Applied Compute也获得了3.5亿美元融资，估值达32.5亿美元。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Shield AI raised $2B in equity and $500M in debt, and is acquiring radar company Echodyne for $5.3B.</li>
+                            
+                            <li>Zipline International raised $1.5B at a $21.5B post-money valuation to expand U.S. drone delivery network.</li>
+                            
+                            <li>CesiumAstro closed $730M Series D at over $4.5B valuation for space and defense communications.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> The funding surge in defense, space, and AI infrastructure signals strong investor confidence in these sectors, creating opportunities for developers in autonomy, satellite communications, and AI model training platforms.<br>🇨🇳 国防、太空和AI基础设施领域的融资热潮表明投资者对这些赛道信心强劲，为从事自主系统、卫星通信和AI模型训练平台的开发者带来了新机遇。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Security & Safety" id="topic-6">
+                    <h2 class="topic-header">Security & Safety <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="Security & Safety">
+                        <h3><a href="https://www.tmtpost.com/8196993.html" target="_blank" rel="noopener">聚焦币安失窃案，追偿链上资产有多难？| 巴伦菁英月谈会</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims 'stablecoins more recoverable than decentralized assets like Bitcoin,' but the source does not make this comparison; it only discusses asset types in terms of legal priority/repayment order, not recoverability.; The summary states Binance committed to full reimbursement 'from its treasury,' while the source says 'company treasury and other combined funds' (公司金库等组合资金), which is a minor but notable nuance.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">A $6.3 billion theft from Binance, the largest crypto exchange, was executed over six months via an AI-generated fake interview that tricked an engineer into installing malware, granting attackers internal access. The incident exposed operational risk control failures rather than technical breaches, with Binance committing to full reimbursement from its treasury. Recovery depends on on-chain tracing and cross-border coordination, with stablecoins more recoverable than decentralized assets like Bitcoin.</p>
+                        <p class="zh-summary">币安遭遇约63亿美元失窃，黑客用AI伪造面试官，诱导工程师安装带毒“面试题”，潜伏半年后发动攻击。这次事件暴露的不是技术漏洞，而是运营风控的短板——一台能进后台的电脑竟能随意安装不明软件。币安承诺全额兜底，但追回资产要看链上溯源和跨境执法，稳定币能冻结，比特币却难追。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Attack was systematic: hackers spent ~6 months infiltrating, using AI-generated video interviews to deliver malware to an engineer's laptop, then escalated privileges to control signing permissions.</li>
+                            
+                            <li>Binance has both the financial capacity and incentive to fully reimburse users, as user trust is its core moat given its licenses are not in major jurisdictions.</li>
+                            
+                            <li>Recovery differs by asset type: stablecoins like USDC/USDT can be frozen by issuers, while Bitcoin and Ethereum lack central issuers, making recovery nearly impossible.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This case underscores that operational security—especially employee endpoint protection and social engineering defense—is as critical as cryptographic security for crypto exchanges, and highlights the uneven recoverability of different digital assets.<br>🇨🇳 此案提醒加密交易所：运营安全（尤其是员工终端防护和社交工程防御）与密码学安全同等重要，同时凸显不同数字资产在追回上的巨大差异。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Industry Trends & Analysis" id="topic-7">
+                    <h2 class="topic-header">Industry Trends & Analysis <span class="topic-count">(15)</span></h2>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://openai.com/index/introducing-openai" target="_blank" rel="noopener">Introducing OpenAI</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI launched as a non-profit artificial intelligence research company with the mission to advance digital intelligence in ways that benefit humanity, free from the pressure to generate financial returns. The organization emphasizes that its freedom from financial obligations allows it to focus on positive human impact.</p>
+                        <p class="zh-summary">OpenAI 以非营利人工智能研究公司的身份亮相，目标是推动数字智能发展、造福全人类，而不受盈利压力束缚。他们强调，没有财务负担才能更专注地追求积极的社会影响。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI is a non-profit AI research company.</li>
+                            
+                            <li>Its goal is to advance digital intelligence for the benefit of humanity.</li>
+                            
+                            <li>Research is unconstrained by financial return obligations.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This announcement signals a new model for AI research driven by public benefit rather than profit, which could influence how developers and researchers prioritize ethical and societal outcomes.<br>🇨🇳 这标志着一种以公益而非利润为导向的 AI 研究新模式，可能影响开发者和研究者对伦理与社会效益的优先级。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.geekpark.net/news/373639" target="_blank" rel="noopener">马斯克官宣 Cybertruck 停产：销量不足预期一成；李飞飞团队推出世界模型「模拟掌机」；小米汽车成立国际事业部｜极客早知道</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Musk announced Tesla will wind down Cybertruck production at Giga Texas around mid-next year to free capacity for Cybercab, after the truck's annualized sales of roughly 30,000 units reached only about 12% of the original 250,000-unit target. Meanwhile, Fei-Fei Li's World Labs released Frameboy, a browser-based demo that lets users explore AI-generated 3D worlds in real time at up to 15 fps via cloud GPU streaming.</p>
+                        <p class="zh-summary">马斯克在 X 上宣布，特斯拉将于明年年中前后逐步收尾得州工厂的 Cybertruck 生产，把产能让给 Cybercab。这款电动皮卡年化销量约 3 万辆，仅为原规划 25 万辆的 12% 左右，2025 年在美销量更是同比下滑 48%。另一边，李飞飞团队的 World Labs 推出网页演示项目 Frameboy，用户点选「游戏卡带」就能实时探索 AI 生成的世界，最高 15 帧，靠云端 GPU 串流跑起来。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Tesla will phase out Cybertruck production around mid-next year to free Giga Texas capacity for Cybercab expansion</li>
+                            
+                            <li>Cybertruck annualized sales are roughly 30,000 units, about 12% of Musk's 2023 target of 250,000 per year</li>
+                            
+                            <li>US Cybertruck sales fell 48% year-over-year to 20,237 units in 2025, with Q1 hitting a low of 3,519</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> The Cybertruck wind-down shows how far hype can outrun demand in hardware, while Frameboy offers developers an early hands-on glimpse of real-time, browser-accessible world models despite current frame-rate and cost limits.<br>🇨🇳 Cybertruck 的停产提醒硬件产品别把预期吹得太满；而 Frameboy 则让开发者提前摸到「网页即世界」的雏形，尽管帧率和成本仍是现实门槛。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8196552.html" target="_blank" rel="noopener">雅诗兰黛 Q1 中国大陆销售增长15%；lululemon携三项创新产品亮相进博；高梵×「上下」发布东方高定鹅绒服联名典藏系列｜消研所周报</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Estée Lauder reported 15% net sales growth in mainland China for its fiscal 2027 Q1, with market share rising for seven consecutive quarters and six of its 11 brands in China achieving double-digit growth. The company's fragrance category grew 20% organically, while skincare grew 4%, led by La Mer and The Ordinary.</p>
+                        <p class="zh-summary">雅诗兰黛2027财年Q1中国大陆销售额大涨15%，市场份额连续七个季度提升，11个品牌中有6个实现双位数增长。香水品类有机增长翻倍至20%，海蓝之谜和The Ordinary带动护肤品类增长4%。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Estée Lauder's mainland China net sales grew 15% in fiscal 2027 Q1, with market share increasing for the seventh straight quarter.</li>
+                            
+                            <li>Six of the company's 11 brands in China posted double-digit growth.</li>
+                            
+                            <li>Fragrance organic net sales growth doubled to 20% quarter-over-quarter.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals a strong recovery in China's premium beauty market, suggesting rising consumer confidence that could benefit brands and retailers investing in the region.<br>🇨🇳 这表明中国高端美妆市场正在强劲复苏，消费者信心回升，对布局中国市场的品牌和零售商是利好信号。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8196540.html" target="_blank" rel="noopener">美国重金买矿、全球签协议，谁为这场关键矿产争夺战买单？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary names Lithium Americas, Trilogy Metals, and USA Rare Earth as companies receiving government support, but the source text (as provided) only discusses MP Materials in detail; these other companies are not mentioned in the source excerpt.; The summary states 'four companies' implicitly by listing four, but the source only explicitly covers MP Materials; the claim of four supported companies is not supported by the provided text.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">The U.S. is spending heavily to rebuild a critical minerals supply chain, using equity stakes, loans, and price guarantees to support projects like MP Materials, Lithium Americas, Trilogy Metals, and USA Rare Earth, while signing cooperation frameworks with Australia and Japan. However, these companies still face construction, permitting, and profitability challenges, and it remains unclear who will bear the extra costs if the new supply chain is more expensive than existing ones.</p>
+                        <p class="zh-summary">美国正砸重金重建关键矿产供应链，一边拉盟友签协议，一边给矿企入股、贷款和价格保底。但拿到钱的MP Materials、Lithium Americas等公司仍面临建设超支、审批拖延和盈利难题。新供应链如果比现有体系更贵，多出来的成本最终由谁买单，还是个未知数。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>The U.S. Department of Defense invested $400 million in MP Materials and guaranteed a $110/kg price floor for praseodymium-neodymium products for ten years, yet the company still reported a net loss of $20.71 million in Q3 2026.</li>
+                            
+                            <li>China accounts for about 60% of global rare earth mining, 90% of separation and processing, and 94% of magnet manufacturing, meaning the U.S. cannot quickly build a complete processing system even with more mines.</li>
+                            
+                            <li>U.S.-Australia and U.S.-Japan critical minerals frameworks involve billions in potential support, but these agreements are not legally binding and funds have not been fully disbursed.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners should note that critical mineral supply chain bottlenecks could affect hardware costs and availability for EVs, robotics, and data center infrastructure, making supply chain resilience a strategic concern beyond software.<br>🇨🇳 关键矿产供应链的瓶颈可能影响电动汽车、机器人和数据中心硬件的成本与供应，开发者和AI从业者需关注硬件供应链的长期风险。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.ruanyifeng.com/blog/2026/11/weekly-issue-418.html" target="_blank" rel="noopener">科技爱好者周刊（第 418 期）：如果科技停止在21世纪初</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">阮一峰周刊</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims the newsletter covers 'JetBrains' first loss in 20 years,' but the source text contains no mention of JetBrains or any financial loss.; The summary states the newsletter 'also covers Google's space TPU experiment' — this is supported — but the JetBrains claim is fabricated/hallucinated.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                                <span class="critic-badge privacy" title="PII: email address">🟢 Privacy</span>
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">This week's issue of Ruan Yifeng's newsletter reflects on the idea that technology may have peaked in the early 2000s, arguing that the pre-iPhone era offered a better balance between technological convenience and human autonomy. It also covers Google's space TPU experiment, JetBrains' first loss in 20 years, and other tech news.</p>
+                        <p class="zh-summary">本期阮一峰周刊探讨了一个有趣的观点：科技或许在21世纪初达到了最佳平衡点，iPhone发布前的功能机时代，人类还能掌控生活，而非被技术支配。此外还报道了谷歌太空TPU实验、JetBrains首次亏损等科技动态。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>The author argues that the early 2000s, before the iPhone, represented a sweet spot where technology served as a tool without dominating daily life.</li>
+                            
+                            <li>Google's space TPU experiment succeeded in running a language model in orbit but revealed severe power and cooling constraints.</li>
+                            
+                            <li>JetBrains reported its first loss in 20 years, possibly due to the rise of AI coding tools and heavy investment in AI.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This reflection challenges developers to consider the societal impact of always-on, AI-driven technology and the trade-offs between convenience and human agency.<br>🇨🇳 这篇文章促使开发者反思永远在线、AI驱动的技术对社会的影响，以及便利性与人类自主权之间的权衡。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8196953.html" target="_blank" rel="noopener">深度聊聊“字节时间”</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">The term 'ByteDance Time' has sparked debate after a Nomura report citing QuestMobile data showed ByteDance apps account for 41.8% of total usage time among China's top 50 mobile apps, versus Tencent's 28.6%. ByteDance VP Li Liang disputed the methodology, arguing the Top 50 sample excludes long-tail apps, mini-programs, and PC/car scenarios, and the dispute escalated to a defamation lawsuit. The article argues the debate conflates data accuracy, antitrust law, and platform responsibility, and that the real structural shift is toward algorithm-driven distribution rather than any single company's dominance.</p>
+                        <p class="zh-summary">“字节时间”这个词最近火了，起因是一组数据：国内Top50 App里字节系占了41.8%的使用时长，腾讯系只有28.6%。字节副总裁李亮直接开怼，说Top50是筛过的样本，长尾应用、小程序、车机场景都没算进去，双方最后还闹上了法庭。这篇文章把争论拆成三层——数据准不准、算不算垄断、平台该担什么责——结论是：注意力向短视频迁移是真的，但拿时长份额论证垄断，中间缺了一整条证据链。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>QuestMobile data shows ByteDance apps at 41.8% of usage time among top 50 Chinese apps, Tencent at 28.6%</li>
+                            
+                            <li>ByteDance VP Li Liang disputes the Top 50 sample as unrepresentative, citing excluded long-tail apps, mini-programs, and PC/car scenarios</li>
+                            
+                            <li>The dispute escalated to a defamation lawsuit filed by Qin Shuo against Li Liang</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners should recognize that algorithm-driven distribution is becoming the dominant paradigm, which affects how content, products, and services reach users and raises new considerations for platform strategy and regulation.<br>🇨🇳 开发者和AI从业者应意识到算法分发正成为主导范式，这会影响内容、产品和服务触达用户的方式，也为平台策略和监管带来新考量。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.geekpark.net/news/373553" target="_blank" rel="noopener">极客公园创新大会 2027 首批嘉宾揭晓！</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">GeekPark Innovation Festival (GEEKPARK IF) will hold its 17th edition on December 5-6 in Beijing's 798 Art District under the theme 'Revaluation,' focusing on how AI is reshaping work, creation, and business rather than just showcasing AI capabilities. The first batch of speakers has been announced, with more to follow, and the event will feature five small-group deep-dive sessions on topics like Personal AI, AI creation, embodied intelligence, hardware/maker culture, and AI practices.</p>
+                        <p class="zh-summary">极客公园创新大会（GEEKPARK IF）第17届要来啦！12月5-6日北京798艺术区，今年主题是「Revaluation 价值，另有答案」——不聊AI多牛，而是聊AI怎么把你的工作、创作、生意重新算账。首批嘉宾已揭晓，还有五场小场深谈，聚焦Personal AI、AI创作、具身智能等硬核话题。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Event dates: December 5-6, Beijing 798 Art District</li>
+                            
+                            <li>Theme: 'Revaluation' — examining how AI revalues existing experience and advantages</li>
+                            
+                            <li>Five small-group deep-dive sessions on Personal AI, AI creation, embodied intelligence, hardware & maker, and AI practices</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This conference provides a platform for developers and AI practitioners to gain firsthand insights into how AI is practically reshaping industries and to network with leading innovators.<br>🇨🇳 对开发者来说，这是获取AI落地一手判断、与前沿创新者交流的好机会。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8196145.html" target="_blank" rel="noopener">我为什么不太看好苹果国行AI</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Apple Intelligence for China launched in developer beta on November 4, combining Apple's on-device models with Alibaba's Qwen, with a full release expected in December alongside iOS 27.3. The author, a loyal Apple user, is skeptical for three reasons: poor integration with China's fragmented third-party app ecosystem (Tencent, ByteDance, etc.), low usage of Apple's first-party apps in China due to weak Mac adoption, and the inefficiency of the local-model-plus-third-party-model approach.</p>
+                        <p class="zh-summary">苹果国行AI（Apple Intelligence）11月4日开启开发者Beta，预计12月随iOS 27.3正式上线，基座模型采用苹果本地模型+阿里千问。作者作为忠实果粉却泼了盆冷水：国内大厂生态各自封闭、苹果第一方应用（Pages、备忘录、FaceTime等）因Mac普及率低而使用率不足、本地+第三方模型的跳转体验割裂，这三点让国行AI的前景蒙上阴影。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Apple Intelligence China beta launched Nov 4, using Apple's local models plus Alibaba's Qwen; full release expected December with iOS 27.3.</li>
+                            
+                            <li>Third-party app integration is weak even in the US, and China's walled-garden ecosystem (Tencent, ByteDance, etc.) makes deep integration unlikely.</li>
+                            
+                            <li>Low Mac penetration in China means Apple's first-party apps like Pages, Numbers, and FaceTime see limited use, undercutting a key AI advantage.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers building for the Chinese market should not assume Apple Intelligence will become a dominant AI entry point; integrating with WeChat, Doubao, or Qwen apps may offer far greater reach than optimizing for Apple's first-party AI features.<br>🇨🇳 对中国市场的开发者而言，别指望苹果国行AI成为主流AI入口；接入微信、豆包或千问APP，可能比适配苹果第一方AI功能触达更多用户。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8196670.html" target="_blank" rel="noopener">家电行业，集体过冬</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary says 'Only Midea, Haier, and Gree remained profitable at scale,' but the source states 20 companies had positive profit; the three giants captured ~90% of profit, not that they were the only profitable ones.; The summary mentions 'reduced subsidies' as a struggle for smaller players, but the source does not mention reduced subsidies anywhere.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">China's home appliance industry is facing a severe downturn, with 27 listed companies reporting Q1-Q3 2026 results showing a 10% retail sales decline and most firms experiencing dual drops in revenue and profit. Only Midea, Haier, and Gree remained profitable at scale, collectively capturing about 90% of the sector's total profit, while smaller players struggle with price wars, reduced subsidies, and rising costs.</p>
+                        <p class="zh-summary">2026年前三季度家电行业成绩单出炉，27家上市公司中仅4家实现营收利润双增，行业零售额同比下滑10%。美的、海尔、格力三巨头拿走了全行业近90%的利润，但即便是头部企业也各有各的难处——美的靠B端业务和控费稳住阵脚，海尔受汇率波动拖累，格力则因过度依赖空调业务而利润大跌。中小家电企业更是雪上加霜，厨电、小家电龙头纷纷下滑甚至亏损，整个行业都在寻找过冬的出路。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>China's home appliance retail sales fell 10% year-over-year in Q1-Q3 2026, with declines accelerating each quarter (-6.0%, -12.4%, and continuing downward).</li>
+                            
+                            <li>Midea, Haier, and Gree together accounted for approximately 90% of the 27 listed companies' total profit of 82.3 billion yuan, highlighting extreme industry consolidation.</li>
+                            
+                            <li>Midea was the only one of the big three to achieve both revenue and profit growth, driven by B2B segments (building tech +10%, robotics +10%) and cost controls.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals a structural shift in China's appliance market from growth to consolidation, where developers and AI practitioners should note the rising importance of B2B diversification (robotics, building tech) and cost efficiency as survival strategies in mature hardware industries.<br>🇨🇳 家电行业从增量竞争转向存量博弈，提醒开发者和AI从业者关注B端业务多元化和降本增效在成熟硬件行业中的生存价值。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8196555.html" target="_blank" rel="noopener">县城理发店，批量消失了？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims 'roughly one per 300 people' — this figure does not appear in the source and is fabricated.; The summary claims 'the at-home hair dye market surpassing 38 billion yuan' — this figure does not appear in the source and is fabricated.; The summary claims '68% of consumers now DIY dyeing' — this statistic does not appear in the source and is fabricated.; The source mentions young people dyeing hair at home only in a truncated sentence ('甚至她们学会了在家') without any market size or percentage figures.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">China's barbershop industry is experiencing a sharp contraction, with 213,000 shops closed or transferred in Q1 2026 alone against 127,000 new openings, a net loss of 86,000. The decline is driven by over-saturation (1.144 million shops at peak, roughly one per 300 people), rising rents, and changing consumer habits—young people are cutting back on salon visits and dyeing hair at home, with the at-home hair dye market surpassing 38 billion yuan and 68% of consumers now DIY dyeing.</p>
+                        <p class="zh-summary">曾经稳赚不赔的理发店，如今在县城批量消失。2026年一季度全国就有21.3万家理发店注销关停，净减少8.6万家。一边是店铺数量严重过剩（巅峰期114.4万家，平均每300人一家），一边是年轻人不再频繁烫染——家庭染发市场规模已破380亿，68%的消费者选择自己动手。再加上房租年年涨、办卡套路劝退顾客，靠头衔溢价和推销生存的中间层理发店最先被挤出局。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Q1 2026 saw 213,000 barbershops closed/transferred vs 127,000 new openings, a net decrease of 86,000</li>
+                            
+                            <li>Peak industry saturation reached 1.144 million shops, roughly one per 300 people, with up to 10 shops on a single 300-400m street</li>
+                            
+                            <li>At-home hair dyeing surged: market exceeds 38 billion yuan, with 68% of consumers DIY dyeing in 2026 vs 47% in 2020</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This is a classic case of supply-side oversaturation meeting demand contraction—a cautionary tale for any local service business, and a signal that consumer downgrading is reshaping even the most resilient offline industries.<br>🇨🇳 这是供给过剩遇上消费降级的典型案例，对任何本地生活服务创业者都是警示：靠信息差和套路赚钱的模式正在失效，消费者用脚投票的速度比想象中快。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8195224.html" target="_blank" rel="noopener">创始人扶90后表弟“上位”，百亿辣条帝国面临双重挑战</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary states 'H1 2026 revenue' but the source refers to '今年上半年' (this year's first half) without specifying 2026; the article's context (Nov 3 announcement, 2022 listing) suggests 2025, not 2026. The year 2026 is not supported by the source.; The summary says Yu Feng is 'a 15-year company veteran' — the source says he has 'over 15 years of experience in the snack food industry' and joined Weilong in 2011 (about 14 years), so '15-year company veteran' is a slight mischaracterization.; The summary omits that the management changes take effect from November 3, 2026 (per source), which is inconsistent with the 'H1 2026' framing.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Weilong, the Hong Kong-listed 'first spicy strip stock,' announced that co-founder Liu Fuping has stepped down as CEO, with his 35-year-old cousin Yu Feng, a 15-year company veteran, taking over as CEO and co-chairman. The leadership change comes as Weilong's H1 2026 revenue rose 6.66% to RMB 3.715 billion, but its signature spicy strip product saw a 9.8% revenue decline, while konjac-based vegetable products grew 15.8% to account for 65.7% of revenue, now facing intensifying competition and supply chain quality control challenges.</p>
+                        <p class="zh-summary">辣条第一股卫龙迎来90后新帅：创始人刘福平辞任CEO，35岁的表弟余风接棒，这位从基层设计师一路干到高管的“自家人”掌舵百亿帝国。卫龙上半年营收37.15亿、净利7.67亿双双增长，但辣条收入下滑近10%，魔芋爽等蔬菜制品贡献超六成营收，成为新增长引擎的同时也面临赛道内卷和品控考验。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Weilong co-founder Liu Fuping resigned as CEO, with 35-year-old cousin Yu Feng appointed CEO and co-chairman, effective November 3, 2026.</li>
+                            
+                            <li>Yu Feng joined Weilong in 2011 and rose from assistant designer to senior VP and CFO, while new CFO Chen Yang brings external experience from Nestlé and Hsu Fu Chi.</li>
+                            
+                            <li>H1 2026 revenue grew 6.66% to RMB 3.715 billion and net profit rose 4.58% to RMB 767 million.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This case illustrates how family-run Chinese consumer brands are transitioning leadership to younger, internally groomed managers while pivoting from legacy products to new growth categories—a pattern relevant to anyone analyzing organizational succession and product portfolio strategy in traditional industries.<br>🇨🇳 对开发者/AI从业者而言，这则传统食品企业的接班与品类转型案例，可作为研究家族企业治理、管理层年轻化及产品组合战略的参考样本。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8196742.html" target="_blank" rel="noopener">仰望U9X极速突破500km/h，全球最快量产车易主</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">On November 6, BYD's luxury brand Yangwang announced that its U9 Xtreme (U9X) electric supercar achieved a top speed of 503.17 km/h on a closed section of the E11 highway in Abu Dhabi, certified by the FIA and Guinness World Records. This breaks the previous record of 496.22 km/h set by the same model in September 2025 and marks the first time a Chinese pure-electric supercar has surpassed 500 km/h, challenging the dominance of European hypercar brands like Bugatti. The article discusses the technical competition behind the record and the challenges of translating such achievements into sustainable brand value and mass-market benefits.</p>
+                        <p class="zh-summary">11月6日，比亚迪旗下仰望汽车宣布，仰望U9X在阿联酋阿布扎比封闭路段跑出503.17km/h的极速，获FIA和吉尼斯认证，刷新了其9月在德国创造的496.22km/h纪录。这是中国纯电超跑首次突破500km/h大关，打破了布加迪等欧洲品牌长期垄断的极速神话。文章认为，纪录背后是中国车企在电驱、整车工程和热管理等领域的持续突破，但如何将极限技术转化为品牌价值和量产车竞争力，仍是更难的考题。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Yangwang U9X set a new production car speed record of 503.17 km/h, certified by FIA and Guinness, surpassing its own previous record of 496.22 km/h.</li>
+                            
+                            <li>The car features four 30,000 rpm motors, over 3,000 Ps, a 1200V high-voltage platform, and advanced thermal and stability control systems.</li>
+                            
+                            <li>The record demonstrates China's engineering capability in extreme electric performance, but the limited-edition model (30 units) primarily serves as a technology showcase and brand builder.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, this showcases the growing maturity of electric vehicle technology and systems engineering in China, highlighting opportunities in high-performance computing, thermal management, and control systems that could trickle down to broader automotive and AI-driven mobility applications.<br>🇨🇳 对开发者和AI从业者而言，这展示了中国电动汽车技术和系统工程能力的成熟，凸显了高性能计算、热管理和控制系统等领域的机会，这些技术有望下放到更广泛的汽车和AI驱动的出行应用中。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.geekpark.net/news/373541" target="_blank" rel="noopener">一个人用得好 AI，为什么一家公司却用不好？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — Uncritical product launch coverage: the summary reads largely as a list of Tencent's announcements (WorkBuddy upgrades, Buddy One, Tencent Docs redesign) without any independent assessment or skepticism.; Missing counterpoints: the Suning case (3 days to 4 hours) is presented as a clean success metric with no caveats about scope, baseline, or whether results generalize; no mention of competing enterprise AI platforms or alternative approaches.; Vendor-centric framing: the piece centers entirely on one company's ecosystem and its narrative of the problem, without noting that the 'individual easy, enterprise hard' framing is itself a vendor talking point.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Tencent's global digital ecosystem conference highlighted a key enterprise AI challenge: while individual agents can complete tasks like drafting proposals or code, integrating them into real business workflows requires organizational capabilities—data access, permissions, and process integration. Tencent introduced upgrades to its WorkBuddy Agent platform, including an open platform, enterprise security, and cloud-hosted agents, plus a unified office suite (Buddy One) and agent-friendly redesigns of Tencent Docs and knowledge tools like ima, aiming to turn personal AI productivity into scalable organizational assets.</p>
+                        <p class="zh-summary">腾讯全球数字生态大会上，一个核心观点引发共鸣：个人用AI提效容易，但让整个公司用好AI却很难。腾讯升级了WorkBuddy企业版Agent平台，开放连接企业微信和业务系统，并推出托管智能体实现7×24小时运行；同时发布一体化办公套件Buddy One，并重新设计腾讯文档等产品，让Agent能直接与人协作。苏宁的案例显示，通过组织级智能体平台，新品发布筹备时间从3天缩短到4小时，且经验可复用。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Individual AI productivity doesn't automatically translate to organizational efficiency; enterprises need to solve integration, permissions, and data access.</li>
+                            
+                            <li>Tencent upgraded WorkBuddy Enterprise with an open platform, enterprise security, observability, and cloud-hosted agents for 24/7 operation.</li>
+                            
+                            <li>Buddy One integrates Tencent Docs, Netdisk, and Lexiang with unified accounts and shared credits to simplify AI deployment.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals a shift from individual AI tools to enterprise-grade agent platforms, emphasizing integration, security, and reusability—developers building enterprise AI solutions should focus on workflow integration and organizational scalability.<br>🇨🇳 这标志着AI从个人工具向企业级Agent平台演进，强调集成、安全和可复用性——开发企业AI方案的从业者应关注工作流整合和组织级扩展能力。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8195043.html" target="_blank" rel="noopener">Waymo不想再当“技术供应商”了</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Waymo is shifting from being an autonomous driving technology supplier to a global mobility platform, as evidenced by its expanded partnership with Toyota to produce Robotaxis for right-hand-drive markets and its decision to end its exclusive Uber partnership in 2028 to serve riders directly via its own app. The company is also expanding aggressively, having raised $5 billion in debt and launched services in multiple new cities, aiming to own the user relationship and brand.</p>
+                        <p class="zh-summary">Waymo 不想只当自动驾驶技术供应商了，它正加速转型为全球出行平台。一边拉丰田量产右舵 Robotaxi 出海，一边确认 2028 年踢开 Uber 用自有 App 直接服务用户，还借了 50 亿美元债务融资疯狂扩张。说白了，Waymo 想自己掌握用户和品牌，不再给别人做嫁衣。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Toyota will manufacture bZ4X vehicles with Waymo's autonomous driving system at its Takaoka plant in Japan, with testing in Japan starting in 2027 and expansion to the UK and other right-hand-drive markets.</li>
+                            
+                            <li>Waymo will end its exclusive partnership with Uber in Austin and Atlanta in January 2028, four months before contract expiration, to serve passengers directly through its own app.</li>
+                            
+                            <li>Waymo completed a $5 billion debt financing in October, its first ever, and has been rapidly expanding to new cities including San Antonio, San Diego, Tampa, Las Vegas, Singapore, and Toronto.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals that autonomous driving companies are moving beyond technology validation to building consumer-facing mobility brands, which could reshape partnerships and competition in the AV industry.<br>🇨🇳 这说明自动驾驶公司正从技术验证阶段迈向构建面向消费者的出行品牌，可能重塑整个自动驾驶行业的合作与竞争格局。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.technologyreview.com/2026/11/06/1148154/the-download-humanoid-robot-cleaner-samsung-ai-chip-boom/" target="_blank" rel="noopener">The Download: a humanoid cleans house and Samsung builds for the AI boom</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">MIT Technology Review</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary mentions 'warnings of an ongoing cyber threat targeting internet-connected appliances,' but the source text (which is truncated) does not contain any such claim. This appears to be hallucinated content not supported by the source.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">MIT Technology Review's The Download covers a firsthand test of a humanoid robot cleaning service in San Francisco, where humans currently pilot the robots remotely, and a visit to Samsung's massive new semiconductor campus in Pyeongtaek, South Korea, built to meet soaring demand for AI memory chips. The newsletter also highlights a nearly $2.5 trillion wipeout in tech stocks amid AI slowdown fears and warnings of an ongoing cyber threat targeting internet-connected appliances.</p>
+                        <p class="zh-summary">MIT科技评论的《The Download》日报带来两个现场体验：旧金山的人形机器人保洁服务目前还得靠人类远程操控，离真正自主还有距离；三星则在韩国平泽狂建芯片厂，为AI热潮囤积内存芯片。另外，科技股一天蒸发近2.5万亿美元，AI泡沫担忧蔓延，连冰箱都成了网络攻击目标。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Tau Robotics offers a humanoid robot cleaning service in San Francisco, but humans remotely pilot the robots for now.</li>
+                            
+                            <li>Samsung is expanding its Pyeongtaek semiconductor campus with multiple fabs to meet AI-driven memory chip demand.</li>
+                            
+                            <li>Tech stocks lost almost $2.5 trillion as the Nasdaq had its worst day since April 2025 amid AI slowdown fears.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers should note that domestic robots remain teleoperated rather than autonomous, while the AI hardware boom and stock volatility signal both opportunity and risk in the infrastructure layer.<br>🇨🇳 开发者需注意：家用机器人仍是远程操控而非自主，AI硬件热潮与股市震荡则提醒基础设施层既有机遇也有风险。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Ethics & Policy" id="topic-8">
+                    <h2 class="topic-header">AI Ethics & Policy <span class="topic-count">(2)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Ethics & Policy">
+                        <h3><a href="https://openai.com/global-affairs/introducing-openai-for-government" target="_blank" rel="noopener">Introducing OpenAI for Government</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched 'OpenAI for Government,' a new initiative to bring its most advanced AI tools to U.S. public servants. The program supports the U.S. government's adoption of best-in-class technology for public good.</p>
+                        <p class="zh-summary">OpenAI 推出了“OpenAI for Government”计划，旨在将最先进的 AI 工具带给美国公务员系统。该计划支持美国政府采用顶尖技术，服务于公共利益。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI launches a dedicated initiative for government use.</li>
+                            
+                            <li>Aims to provide advanced AI tools to U.S. public servants.</li>
+                            
+                            <li>Supports government adoption of best-in-class technology for public good.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals growing AI adoption in the public sector, potentially opening new opportunities for developers to build government-focused AI solutions.<br>🇨🇳 这标志着 AI 在公共部门的采用日益增长，可能为开发者带来构建面向政府的 AI 解决方案的新机会。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Ethics & Policy">
+                        <h3><a href="http://www.geekpark.net/news/373554" target="_blank" rel="noopener">中期选举后美国芯片股重挫，纳指单日暴跌 5.52%；民主党宣布推动《禁止人工智能法案》；OpenAI 推出 GPT-6 Cyber</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims OpenAI's GPT-6 Cyber has an 'under 1% unauthorized action rate' — this figure does not appear in the source. The source only says the model improves vulnerability discovery and reduces privilege-escalation attack risk; the article is also truncated.; The summary states Democrats 'won control of Congress' — the source says Democrats won the midterm elections and won control of Congress, which is consistent, but the summary omits that the selloff was described as the worst second trading day after a midterm since 1896 (not an error, just omitted).; The summary says the ASI bill was 'announced' by Democrats — consistent with source. No issue.; The summary says Gemini Omni 1.2 Flash supports '15-second conversational video editing' — consistent with source. No issue.">🔴 Factual</span>
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — Chinese summary uses sensationalist framing ('吓崩', '狂泻', '更狠的是', '监管力度堪比核武器') that goes beyond neutral reporting and amplifies market panic; GPT-6 Cyber's 'under 1% unauthorized action rate' is presented as a bare vendor claim without noting it is self-reported or unverified; Google's price cut ('价格还降了三成') is stated without context on prior pricing or comparison to competitors; No counterpoint on the proposed ASI ban — no mention of industry opposition, feasibility concerns, or likelihood of passage, making the regulatory threat read as more certain than it is; Framing of the selloff as directly 'caused' by the election outcome is asserted without acknowledging other market factors">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">US tech stocks suffered a massive selloff after Democrats won control of Congress in the midterm elections, with the Nasdaq dropping 5.52% and the Philadelphia Semiconductor Index plunging 12.3% amid fears of stricter AI regulation and slower data center construction. Democrats also announced a bill to ban artificial superintelligence (ASI) with penalties up to 20 years in prison and forced corporate dissolution, while OpenAI launched GPT-6 Cyber with improved vulnerability discovery and under 1% unauthorized action rate, and Google released Gemini Omni 1.2 Flash for 15-second conversational video editing.</p>
+                        <p class="zh-summary">美国中期选举民主党大胜，直接把科技股吓崩了：纳指单日暴跌5.52%，费城半导体指数狂泻12.3%，英伟达一夜蒸发近一成市值，华尔街一天没了3.2万亿美元。更狠的是，民主党还宣布推动《禁止人工超级智能法案》，个人违规最高判20年、企业直接强制解散，监管力度堪比核武器。同一天，OpenAI推出网络安全模型GPT-6 Cyber，越权操作率降到1%以下；Google发布Gemini Omni 1.2 Flash，支持15秒视频对话式编辑，价格还降了三成。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Nasdaq fell 5.52% and the Philadelphia Semiconductor Index dropped 12.3%, with Nvidia down 9.3% and SanDisk down 22%, erasing about $3.2 trillion in market value in one day.</li>
+                            
+                            <li>Democrats proposed the 'Ban Artificial Superintelligence Act,' which would ban ASI development, impose up to 20 years imprisonment for individuals, force dissolution of violating companies, and create a cabinet-level AI department.</li>
+                            
+                            <li>OpenAI launched GPT-6 Cyber, which reduced unauthorized out-of-scope actions to under 1% (from about 5% in GPT-5.6 Cyber) and improved vulnerability discovery.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> The election-driven selloff and proposed ASI ban signal a potential regulatory shift that could slow AI infrastructure investment and reshape compliance requirements for developers building frontier AI systems.<br>🇨🇳 美国监管风向可能急转，AI基础设施投资和前沿模型研发将面临更严合规压力，开发者需提前关注政策风险。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+            </main>
+
+            <footer>
+                <div class="container">
+                    <p>Generated daily at 08:00 Beijing time · Powered by <a href="https://deepseek.com" target="_blank">DeepSeek</a></p>
+                    <p>Content automatically curated from RSS feeds, Reddit, GitHub Trending, and web search</p>
+                    <p style="margin-top: 8px; font-size: 0.8rem;">⚠ AI-generated content may contain errors. Verify important claims against original sources.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- TOC mobile toggle -->
+    <button class="toc-toggle" id="toc-toggle" onclick="toggleToc()" title="Table of Contents">☰</button>
+
+    <script>
+        /* ── Theme ── */
+        function toggleTheme() {
+            const html = document.documentElement, btn = document.getElementById('theme-btn');
+            const next = html.dataset.theme === 'light' ? 'dark' : 'light';
+            html.dataset.theme = next;
+            btn.textContent = next === 'dark' ? '☀️ Light' : '🌙 Dark';
+            localStorage.setItem('theme', next);
+        }
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) { document.documentElement.dataset.theme = saved; document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark'; }
+        })();
+
+        /* ── Search & Filter ── */
+        let activeTopic = 'all';
+        function setTopicFilter(topic, el) {
+            activeTopic = topic;
+            document.querySelectorAll('#filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            filterArticles();
+        }
+        function filterArticles() {
+            const query = document.getElementById('search').value.toLowerCase();
+            document.querySelectorAll('.topic-section').forEach(section => {
+                const t = section.dataset.topic;
+                let visible = (activeTopic === 'all' || activeTopic === t);
+                let hasVisible = false;
+                section.querySelectorAll('.article-card').forEach(card => {
+                    const show = visible && card.textContent.toLowerCase().includes(query);
+                    card.style.display = show ? '' : 'none';
+                    if (show) hasVisible = true;
+                });
+                section.style.display = hasVisible ? '' : 'none';
+            });
+        }
+
+        /* ── TOC Scroll Spy ── */
+        const tocLinks = document.querySelectorAll('.toc-sidebar a[data-toc]');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.toc-sidebar a[data-toc="${id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-80px 0px -70% 0px' });
+
+        // Observe header and all topic sections
+        const topEl = document.getElementById('top');
+        if (topEl) observer.observe(topEl);
+        document.querySelectorAll('.topic-section[id]').forEach(s => observer.observe(s));
+
+        // Smooth scroll on TOC click
+        tocLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-toc');
+                const el = document.getElementById(targetId);
+                if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                // Close mobile TOC
+                if (window.innerWidth <= 900) closeToc();
+            });
+        });
+
+        /* ── Mobile TOC ── */
+        function toggleToc() {
+            document.getElementById('toc-sidebar').classList.toggle('open');
+            document.getElementById('toc-overlay').classList.toggle('show');
+        }
+        function closeToc() {
+            document.getElementById('toc-sidebar').classList.remove('open');
+            document.getElementById('toc-overlay').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
