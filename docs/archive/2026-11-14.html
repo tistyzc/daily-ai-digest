@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily AI Digest — 2026-11-14</title>
+    <meta name="description" content="Daily AI/IT industry news digest — auto-generated bilingual summary of what matters today.">
+    <style>
+        :root {
+            --bg: #ffffff; --bg-secondary: #f8f9fa; --bg-card: #ffffff;
+            --text: #1a1a2e; --text-secondary: #6b7280; --border: #e5e7eb;
+            --accent: #2563eb; --accent-hover: #1d4ed8;
+            --tag-bg: #eff6ff; --tag-text: #2563eb;
+            --factual: #dc2626; --bias: #d97706; --safety: #7c3aed; --privacy: #059669;
+            --factual-bg: #fef2f2; --bias-bg: #fffbeb; --safety-bg: #f5f3ff; --privacy-bg: #ecfdf5;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08); --radius: 8px;
+            --toc-width: 220px;
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a; --bg-secondary: #1e293b; --bg-card: #1e293b;
+            --text: #e2e8f0; --text-secondary: #94a3b8; --border: #334155;
+            --accent: #60a5fa; --accent-hover: #93bbfd;
+            --tag-bg: #1e3a5f; --tag-text: #60a5fa;
+            --factual: #f87171; --bias: #fbbf24; --safety: #c084fc; --privacy: #34d399;
+            --factual-bg: #3b1414; --bias-bg: #3b2e0a; --safety-bg: #2e1a4f; --privacy-bg: #0a3b2e;
+            --shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* ── Layout ── */
+        .page-wrapper { display: flex; min-height: 100vh; }
+        .content-area { flex: 1; min-width: 0; }
+
+        /* ── TOC Sidebar ── */
+        .toc-sidebar {
+            width: var(--toc-width); position: sticky; top: 0; height: 100vh;
+            overflow-y: auto; padding: 24px 16px; background: var(--bg-secondary);
+            border-right: 1px solid var(--border); font-size: 0.85rem;
+            flex-shrink: 0; z-index: 10; scrollbar-width: thin;
+        }
+        .toc-sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 12px; }
+        .toc-sidebar a {
+            display: block; padding: 5px 10px; border-radius: 4px; color: var(--text-secondary);
+            text-decoration: none; transition: all 0.15s; margin-bottom: 2px;
+            border-left: 2px solid transparent;
+        }
+        .toc-sidebar a:hover { color: var(--text); background: var(--bg); }
+        .toc-sidebar a.active { color: var(--accent); font-weight: 600; border-left-color: var(--accent); background: var(--bg); }
+        .toc-toggle { display: none; position: fixed; bottom: 20px; left: 20px; z-index: 100;
+            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border);
+            background: var(--bg); font-size: 1.2rem; cursor: pointer; box-shadow: var(--shadow);
+        }
+
+        /* ── Container ── */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Header ── */
+        header {
+            background: var(--bg-secondary); border-bottom: 1px solid var(--border);
+            padding: 32px 0 24px; margin-bottom: 32px;
+        }
+        header h1 { font-size: 2rem; font-weight: 800; color: var(--text); }
+        header .subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-top: 4px; }
+        .header-actions { display: flex; gap: 12px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+        .header-actions a, .header-actions button {
+            text-decoration: none; font-size: 0.875rem; padding: 6px 14px;
+            border-radius: var(--radius); border: 1px solid var(--border);
+            background: var(--bg); color: var(--text); cursor: pointer; transition: all 0.2s;
+        }
+        .header-actions a:hover, .header-actions button:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ── Stats ── */
+        .stats-bar {
+            display: flex; gap: 24px; flex-wrap: wrap; padding: 16px 20px;
+            background: var(--bg-secondary); border-radius: var(--radius);
+            margin-bottom: 24px; font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .stats-bar strong { color: var(--text); }
+
+        /* ── Search & Filter ── */
+        .search-box { width: 100%; max-width: 400px; padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); font-size: 0.9rem; }
+        .search-box:focus { outline: none; border-color: var(--accent); }
+        .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .filter-chip { font-size: 0.82rem; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+        .filter-chip.active, .filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* ── Critic Flags Summary Box ── */
+        .flags-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: var(--radius); padding: 14px 20px; margin-bottom: 24px; font-size: 0.85rem; }
+        [data-theme="dark"] .flags-box { background: #3b2e0a; border-color: #92400e; }
+        .flags-box summary { cursor: pointer; font-weight: 600; color: var(--bias); }
+        .flags-box ul { list-style: none; padding: 0; margin-top: 8px; }
+        .flags-box li { padding: 3px 0; border-bottom: 1px solid var(--border); }
+        .flags-box li:last-child { border-bottom: none; }
+        .flags-box .flag-article { font-weight: 600; font-size: 0.82rem; color: var(--text); }
+
+        /* ── Critic Icons ── */
+        .critic-badges { display: inline-flex; gap: 4px; align-items: center; vertical-align: middle; }
+        .critic-badge {
+            display: inline-flex; align-items: center; gap: 3px; font-size: 0.72rem;
+            padding: 2px 7px; border-radius: 12px; font-weight: 600; cursor: help;
+            white-space: nowrap; transition: opacity 0.15s;
+        }
+        .critic-badge:hover { opacity: 0.8; }
+        .critic-badge.factual { background: var(--factual-bg); color: var(--factual); }
+        .critic-badge.bias { background: var(--bias-bg); color: var(--bias); }
+        .critic-badge.safety { background: var(--safety-bg); color: var(--safety); }
+        .critic-badge.privacy { background: var(--privacy-bg); color: var(--privacy); }
+
+        /* ── Topic Sections ── */
+        .topic-section { margin-bottom: 40px; scroll-margin-top: 20px; }
+        .topic-header { font-size: 1.3rem; font-weight: 700; color: var(--accent); padding-bottom: 8px; margin-bottom: 16px; border-bottom: 2px solid var(--accent); }
+        .topic-count { font-size: 0.85rem; font-weight: 400; color: var(--text-secondary); }
+
+        /* ── Article Card ── */
+        .article-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px 24px; margin-bottom: 16px;
+            box-shadow: var(--shadow); transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .article-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+        .article-card h3 a { color: var(--text); text-decoration: none; }
+        .article-card h3 a:hover { color: var(--accent); }
+        .article-meta { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 10px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .source-tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 4px; background: var(--tag-bg); color: var(--tag-text); }
+        .en-summary { font-size: 0.92rem; color: var(--text); margin-bottom: 8px; }
+        .zh-summary { font-size: 0.92rem; color: var(--text-secondary); padding-left: 12px; border-left: 3px solid var(--border); margin-bottom: 8px; }
+        .key-points { list-style: none; padding: 0; margin: 8px 0 0; font-size: 0.85rem; color: var(--text-secondary); }
+        .key-points li::before { content: "▸ "; color: var(--accent); }
+        .impact { font-size: 0.85rem; padding: 8px 12px; margin-top: 8px; background: var(--bg-secondary); border-radius: 6px; color: var(--text-secondary); font-style: italic; }
+
+        /* ── Footer ── */
+        footer { text-align: center; padding: 32px 0; margin-top: 40px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.85rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* ── Mobile ── */
+        @media (max-width: 900px) {
+            .toc-sidebar {
+                position: fixed; left: -280px; top: 0; width: 260px; height: 100vh;
+                z-index: 99; transition: left 0.3s; box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            }
+            .toc-sidebar.open { left: 0; }
+            .toc-toggle { display: flex; align-items: center; justify-content: center; }
+            .toc-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 98; }
+            .toc-overlay.show { display: block; }
+            .container { padding: 0 16px; }
+        }
+        @media (max-width: 640px) {
+            header h1 { font-size: 1.5rem; }
+            .article-card { padding: 14px 16px; }
+            .stats-bar { gap: 12px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- ── TOC Sidebar ── -->
+        <div class="toc-overlay" id="toc-overlay" onclick="closeToc()"></div>
+        <nav class="toc-sidebar" id="toc-sidebar">
+            <h3>📑 Contents</h3>
+            <a href="#top" class="active" data-toc="top">📰 Top</a>
+            
+            <a href="#topic-1" data-toc="topic-1">AI Startup & Entrepreneurship <small>(1)</small></a>
+            
+            <a href="#topic-2" data-toc="topic-2">Large Language Models <small>(1)</small></a>
+            
+            <a href="#topic-3" data-toc="topic-3">AI Research & Breakthroughs <small>(1)</small></a>
+            
+            <a href="#topic-4" data-toc="topic-4">Open Source <small>(1)</small></a>
+            
+            <a href="#topic-5" data-toc="topic-5">AI Business & Funding <small>(4)</small></a>
+            
+            <a href="#topic-6" data-toc="topic-6">Infrastructure & Cloud <small>(1)</small></a>
+            
+            <a href="#topic-7" data-toc="topic-7">Industry Trends & Analysis <small>(20)</small></a>
+            
+            <a href="#topic-8" data-toc="topic-8">AI Ethics & Policy <small>(1)</small></a>
+            
+        </nav>
+
+        <!-- ── Main Content ── -->
+        <div class="content-area">
+            <header id="top">
+                <div class="container">
+                    <h1>🤖 Daily AI Digest</h1>
+                    <p class="subtitle">November 14, 2026 · AI-powered bilingual IT/AI news summary · Auto-generated daily</p>
+                    <div class="header-actions">
+                        <a href="archive/index.html">📚 Archives</a>
+                        <a href="https://github.com" target="_blank">⭐ GitHub</a>
+                        <button onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="container">
+                <!-- Stats -->
+                <div class="stats-bar">
+                    <span>📰 <strong>30</strong> articles</span>
+                    <span>📡 <strong>5</strong> sources</span>
+                    <span>🏷️ <strong>8</strong> topics</span>
+                    <span>🕐 2026-11-14T04:40:55 UTC</span>
+                    <span>🧠 DeepSeek</span>
+                </div>
+
+                <!-- Search & Filter -->
+                <input type="text" class="search-box" id="search" placeholder="🔍 Search articles..." oninput="filterArticles()">
+                <div class="filter-bar" id="filter-bar">
+                    <span class="filter-chip active" onclick="setTopicFilter('all', this)">All</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Startup & Entrepreneurship', this)">AI Startup & Entrepreneurship</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Large Language Models', this)">Large Language Models</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Research & Breakthroughs', this)">AI Research & Breakthroughs</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Open Source', this)">Open Source</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Business & Funding', this)">AI Business & Funding</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Infrastructure & Cloud', this)">Infrastructure & Cloud</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Industry Trends & Analysis', this)">Industry Trends & Analysis</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Ethics & Policy', this)">AI Ethics & Policy</span>
+                    
+                </div>
+
+                <!-- Critic Flags Summary (collapsible) -->
+                
+                <details class="flags-box" id="flags-summary">
+                    <summary>⚠️ AI Critic Notes (15 articles flagged — click to expand)</summary>
+                    <ul>
+                        
+                        <li>
+                            <span class="flag-article">Introducing OpenAI for Ireland</span>
+                            <br><small>Bias (mild): ["Uncritical product launch coverage: the summary reads like a press release, repeating OpenAI's stated aims ('innovate, boost productivity, build the next generation of Irish tech startups') without any independent framing or acknowledgment of limitations.", "Missing counterpoints: no mention of concerns such as vendor lock-in, data privacy, or whether such partnerships deliver measurable outcomes; the initiative's benefits are presented as given.", "Promotional framing: phrases like 'next generation of Irish tech startups' echo marketing language rather than neutral reporting."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">Introducing OpenAI for Government</span>
+                            <br><small>Bias (mild): ["Uncritical product launch coverage: the summary closely mirrors OpenAI's own framing ('best-in-class technology', 'most advanced AI tools') without any independent context or counterpoints.", "Promotional phrasing: 'best-in-class' and 'most advanced' are vendor claims presented as fact, with no evidence or comparison to competing tools.", 'Missing counterpoints: no mention of concerns around government AI adoption (privacy, procurement, vendor lock-in, competing providers).']</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">Introducing GPT-5.2</span>
+                            <br><small>Bias (moderate): ["Uncritical product launch coverage that reads like a press release: 'most advanced frontier model', 'state-of-the-art', '业界领先水平' are vendor marketing claims presented as fact without independent benchmarks or evidence.", "Missing counterpoints: no mention of limitations, benchmark comparisons against competitors, pricing, or independent evaluation; claims of 'faster, more reliable agentic workflows' are unsubstantiated.", "Hype inflation: superlatives ('most advanced', 'state-of-the-art') applied to an incremental version bump (5.2) without justification.", "Vendor framing: the digest adopts OpenAI's own positioning ('designed to power...') rather than reporting critically."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">黄仁勋宣布辞职，特朗普：库克适合接任；微信「看一看」测试短剧入口；《GTA 6》还没发售就狂卖近千万份｜极客早知道</span>
+                            <br><small>Factual: ['The source states Nvidia shares fell 10% in pre-market trading, not 13%; the 13% figure appears only in the headline and is not supported by the article body.', 'The source says Huang resigned after 33 years as CEO (founded 1993), not 33 years total; minor but the summary omits this.', "The summary says 'reports cited a personal scandal' — the source attributes the scandal claim to Reuters, which is consistent, but the source also notes the official announcement did not state a reason; this is acceptable but the 13% figure is the main error."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">黄仁勋夫人，还一言不发？</span>
+                            <br><small>Factual: ["Summary says Huang admitted to an extramarital affair 'with his wife' — source says he admitted to being unfaithful TO his wife (对妻子不忠), not an affair with her.", "Summary names the CFO as 'Colette Kress' — source only gives the surname '克雷斯' (Kress) and age 59; the first name Colette is not in the source (hallucinated).", "Summary says the scandal 'raised governance concerns' — this framing is not stated in the source.", 'Summary omits that the resignation was effective immediately, though this is minor.']</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">黄仁勋下课，硅谷没有永远的主人</span>
+                            <br><small>Factual: ["The summary mentions 'Kalanick's 2017 exit' as part of the Silicon Valley history framing, but the source article does not mention Kalanick or Uber at all—this is a hallucinated addition.", "The summary states 'CFO Colette Kress named interim CEO'—the source says she was CFO for 13 years and became interim CEO, which is consistent, but the summary omits that Harvey Jones is 73 (minor, not an error).", "The summary says 'first time Nvidia has had a chairman and begun searching for a CEO other than Huang'—this matches the source.", "The summary's claim that 'founder credit is rarely disputed, but whether that credit entitles them to keep power is' matches the source's framing."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">马斯克：正在签署请求黄仁勋复职的请愿书</span>
+                            <br><small>Bias (mild): ["The Chinese summary uses colloquial and slightly partisan language: '老黄' (familiar nickname for Jensen Huang) and '落井下石' (kick someone when they're down) which frames critics negatively and lacks neutrality.", "The phrase '硅谷大佬们纷纷声援' (Silicon Valley bigwigs are all voicing support) implies widespread, unanimous backing without noting that it's a subset of figures.", "The summary does not acknowledge any reasons for Huang's resignation or the substance of the criticism from politicians and media, presenting only one side."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">苹果不想一直“躺赢”</span>
+                            <br><small>Factual: ["Summary states 'privacy-driven caution' as a cause of Apple's AI lag, but the source attributes the lag to two factors: slow progress in frontier foundation model R&D/capability/talent, and reliance on external technology (e.g., OpenAI). Privacy-driven caution is not mentioned in the source."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">英伟达，还有比黄仁勋离任更大的麻烦</span>
+                            <br><small>Factual: ["The summary claims that 'AI-driven software porting lowers switching costs' — this is not mentioned in the source text (hallucinated).", "The summary states major customers 'accelerate custom ASIC development' — the source mentions cloud giants wanting to reduce dependence on NVIDIA, but does not specifically mention ASIC development in the provided excerpt.", "The summary omits that the source says the technical roadmap extends to 2028 (source says '延伸至2028年的产品路线图'), which is consistent, but the summary's phrasing 'through 2028' is acceptable.", "The summary's claim about 'NVLink-based ecosystem moat' is supported, but the specific detail about switching costs and software porting is fabricated."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">英伟达第一次没有黄仁勋</span>
+                            <br><small>Factual: ['The summary claims CFO Colette Kress was named interim CEO, but the source does not mention Colette Kress or any interim CEO appointment.', "The summary claims Harvey C. Jones becomes Nvidia's first chairman, but the source does not mention Harvey C. Jones or any chairman appointment.", 'The summary claims the board launched an internal and external search for a permanent successor, which is not stated in the source.', "The summary omits that the source describes an independent investigation (led by Joon H. Kim and Wachtell) into Huang's conduct, which is relevant context for the resignation."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">英伟达的技术、泡泡玛特的运营都不是看十年的护城河</span>
+                            <br><small>Factual: ['The summary mentions Pop Mart, which does not appear anywhere in the source article.', "The summary claims Nvidia's CUDA ecosystem is being eroded by AI itself and cites Anthropic demonstrating chip portability; neither CUDA erosion by AI nor Anthropic is mentioned in the source.", "The summary claims Nvidia's concentrated customer base is increasingly designing in-house chips; the source only says customers are a few giants who are wealthy, technical, and calculate costs each quarter, but does not state they are designing in-house chips.", "The summary omits the source's actual examples (e.g., Haidilao, Coca-Cola, Moutai, Wuliangye, Three Squirrels, Liangpin Puzi) and misattributes the moat argument to Nvidia's technological leadership and Pop Mart's operations."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">英伟达“跌倒”，会是平头哥和昆仑芯的窗口期吗？</span>
+                            <br><small>Factual: ["The summary claims the article notes 'strong competition from Nvidia and Huawei in China's AI chip market,' but the source text does not mention Huawei or describe competitive pressure from Nvidia/Huawei; this appears fabricated.", "The summary frames the article as about capitalizing on 'Nvidia's leadership change,' but the source states Huang Renxun resigned from Nvidia CEO and other positions, and does not characterize it as a leadership change opening a market opportunity in the way summarized."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">科技爱好者周刊（第 419 期）：机房来了，写字楼走了</span>
+                            <br><small>Privacy: ['email address']</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">硅谷创业“修道院”：HF0与OpenRouter早期故事</span>
+                            <br><small>Factual: ["The summary claims Louis was tracking 'weekly token usage as the company's key metric' — this detail does not appear anywhere in the source text and appears to be fabricated.", "The summary states Dave Fontenot emphasizes 'subtraction' and a 'single north-star metric' — the source attributes the 'subtraction'/'monastery-style' framing to Joe (the interviewee), not directly to Fontenot, though Fontenot is described as eliminating distractions. This is a minor attribution issue."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">汽车芯片再次告急，这次是晶圆厂不想生产了</span>
+                            <br><small>Factual: ["The summary claims AI customers offer 'volume commitments and prepayments' — the source does not mention prepayments or volume commitments by AI customers; it only says AI data centers are attracting manufacturing resources and that AI customers help chipmakers bear investment risk (英飞凌 context), without specifying prepayments.", "The summary states automotive chip demand is fragmented 'across thousands of part numbers' — the source says a car needs thousands of semiconductor devices (数千颗半导体器件), not thousands of part numbers; it describes many models/variants but does not quantify part numbers as thousands.", "The summary omits that Nexperia's supply tightness is also attributed to its own control dispute between Dutch and Chinese operations and ongoing capacity recovery in Malaysia, which the source presents as an important cause — not a contradiction but an incomplete representation of the source's explanation."]</small>
+                        </li>
+                        
+                    </ul>
+                </details>
+                
+
+                <!-- Legend -->
+                <div style="margin-bottom: 20px; font-size: 0.78rem; color: var(--text-secondary); display: flex; gap: 14px; flex-wrap: wrap;">
+                    <span class="critic-badge factual">🔴 Factual</span> 事实可能不准
+                    <span class="critic-badge bias">🟡 Bias</span> 有营销/偏见
+                    <span class="critic-badge safety">🟣 Safety</span> 内容安全
+                    <span class="critic-badge privacy">🟢 Privacy</span> 有隐私信息
+                </div>
+
+                <!-- Topic Sections -->
+                
+                <section class="topic-section" data-topic="AI Startup & Entrepreneurship" id="topic-1">
+                    <h2 class="topic-header">AI Startup & Entrepreneurship <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Startup & Entrepreneurship">
+                        <h3><a href="https://www.tmtpost.com/8204330.html" target="_blank" rel="noopener">硅谷创业“修道院”：HF0与OpenRouter早期故事</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims Louis was tracking 'weekly token usage as the company's key metric' — this detail does not appear anywhere in the source text and appears to be fabricated.; The summary states Dave Fontenot emphasizes 'subtraction' and a 'single north-star metric' — the source attributes the 'subtraction'/'monastery-style' framing to Joe (the interviewee), not directly to Fontenot, though Fontenot is described as eliminating distractions. This is a minor attribution issue.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">HF0 (Hacker Fellowship Zero) is emerging as Silicon Valley's most selective startup accelerator, admitting only about 10 teams per cohort across three annual batches, compared to Y Combinator's roughly 200 teams per batch. Its founder Dave Fontenot emphasizes a 'monastery-style' residency focused on subtraction—eliminating all distractions so founders can concentrate on a single north-star metric. ACE Studio's Joe grew monthly revenue from $80K to $800K in three months at HF0, where he also witnessed OpenRouter co-founder Louis's early work tracking weekly token usage as the company's key metric.</p>
+                        <p class="zh-summary">硅谷新晋最难进的孵化器HF0火了：每年只收三期、每期约十个团队，走的是"修道院式"驻场路线，和YC广撒网的模式截然不同。创始人Dave Fontenot的核心哲学就俩字——做减法：生活上顶级厨师、桑拿、按摩师全包，创业者只需专注一个北极星指标。ACE Studio的郭靖在HF0三个月把月收入从8万美元做到80万美元，还见证了OpenRouter联合创始人Louis每天熬到凌晨三点、以token调用量为指标的早期状态。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>HF0 admits only ~10 teams per cohort, three times a year, with an acceptance rate far lower than Y Combinator's ~200 teams per batch.</li>
+                            
+                            <li>The 2024 fall cohort terms were $1M for 5% equity, up from earlier deals like $250K for 2.5%.</li>
+                            
+                            <li>HF0's philosophy is 'subtraction': founders live in a mansion with chefs, sauna, cold plunge, and massage, but focus on a single north-star metric.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This reveals a counter-trend to YC-style mass incubation: extreme selectivity plus radical focus on one metric may produce faster growth, offering founders a model for prioritizing signal over noise.<br>🇨🇳 这揭示了与YC式广撒网相反的孵化趋势：极致精选加单一指标聚焦可能带来更快增长，为创业者提供了"做减法"的优先级范本。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Large Language Models" id="topic-2">
+                    <h2 class="topic-header">Large Language Models <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="Large Language Models">
+                        <h3><a href="https://openai.com/index/introducing-gpt-5-2" target="_blank" rel="noopener">Introducing GPT-5.2</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: moderate — Uncritical product launch coverage that reads like a press release: 'most advanced frontier model', 'state-of-the-art', '业界领先水平' are vendor marketing claims presented as fact without independent benchmarks or evidence.; Missing counterpoints: no mention of limitations, benchmark comparisons against competitors, pricing, or independent evaluation; claims of 'faster, more reliable agentic workflows' are unsubstantiated.; Hype inflation: superlatives ('most advanced', 'state-of-the-art') applied to an incremental version bump (5.2) without justification.; Vendor framing: the digest adopts OpenAI's own positioning ('designed to power...') rather than reporting critically.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI announced GPT-5.2, its most advanced frontier model for everyday professional work, featuring state-of-the-art reasoning, long-context understanding, coding, and vision. The model is available in ChatGPT and the OpenAI API, designed to power faster, more reliable agentic workflows.</p>
+                        <p class="zh-summary">OpenAI 发布了 GPT-5.2，这是其面向日常专业工作的最先进前沿模型，在推理、长上下文理解、编程和视觉方面均达到业界领先水平。该模型已在 ChatGPT 和 OpenAI API 中上线，旨在支持更快速、更可靠的智能体工作流。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>GPT-5.2 is OpenAI's most advanced frontier model for everyday professional work.</li>
+                            
+                            <li>It offers state-of-the-art reasoning, long-context understanding, coding, and vision capabilities.</li>
+                            
+                            <li>Available in ChatGPT and the OpenAI API for faster, more reliable agentic workflows.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners can leverage GPT-5.2's improved reasoning and coding abilities to build more capable and efficient agentic applications.<br>🇨🇳 开发者和 AI 从业者可以利用 GPT-5.2 增强的推理和编程能力，构建更强大、更高效的智能体应用。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Research & Breakthroughs" id="topic-3">
+                    <h2 class="topic-header">AI Research & Breakthroughs <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Research & Breakthroughs">
+                        <h3><a href="https://openai.com/index/introducing-indqa" target="_blank" rel="noopener">Introducing IndQA</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched IndQA, a new benchmark designed to evaluate AI systems' cultural understanding and reasoning in Indian languages. Developed with domain experts, it covers 12 languages and 10 knowledge areas, aiming to provide a more accurate assessment of AI performance in diverse Indian linguistic contexts.</p>
+                        <p class="zh-summary">OpenAI 推出了 IndQA，一个专门评估 AI 系统在印度语言环境下文化理解与推理能力的新基准。该基准由领域专家参与构建，覆盖 12 种语言和 10 个知识领域，旨在更精准地衡量 AI 在印度多语言场景中的表现。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>IndQA is a new benchmark for evaluating AI in Indian languages.</li>
+                            
+                            <li>It tests cultural understanding and reasoning across 12 languages and 10 knowledge areas.</li>
+                            
+                            <li>Built with domain experts to ensure relevance and accuracy.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This benchmark enables developers to better assess and improve AI models for Indian language users, addressing cultural nuances often overlooked in mainstream evaluations.<br>🇨🇳 该基准帮助开发者更准确地评估和改进面向印度语言用户的 AI 模型，解决主流评估中常被忽视的文化细微差异问题。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Open Source" id="topic-4">
+                    <h2 class="topic-header">Open Source <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="Open Source">
+                        <h3><a href="https://openai.com/index/introducing-gpt-oss" target="_blank" rel="noopener">Introducing gpt-oss</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has released gpt-oss-120b and gpt-oss-20b, two open-weight language models under the Apache 2.0 license. They outperform similarly sized open models on reasoning tasks, show strong tool use, and are optimized for consumer hardware deployment.</p>
+                        <p class="zh-summary">OpenAI 推出了 gpt-oss-120b 和 gpt-oss-20b 两款开源权重模型，采用 Apache 2.0 许可。它们在推理任务上优于同尺寸开源模型，工具调用能力强，且针对消费级硬件部署做了优化。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Two open-weight models: gpt-oss-120b and gpt-oss-20b</li>
+                            
+                            <li>Released under Apache 2.0 license</li>
+                            
+                            <li>Outperform similarly sized open models on reasoning tasks</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers can now deploy high-performance open-weight models locally on consumer hardware, enabling cost-effective AI applications without vendor lock-in.<br>🇨🇳 开发者现在可以在消费级硬件上本地部署高性能开源权重模型，实现低成本 AI 应用，避免供应商锁定。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Business & Funding" id="topic-5">
+                    <h2 class="topic-header">AI Business & Funding <span class="topic-count">(4)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://openai.com/index/openai-for-ireland" target="_blank" rel="noopener">Introducing OpenAI for Ireland</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — Uncritical product launch coverage: the summary reads like a press release, repeating OpenAI's stated aims ('innovate, boost productivity, build the next generation of Irish tech startups') without any independent framing or acknowledgment of limitations.; Missing counterpoints: no mention of concerns such as vendor lock-in, data privacy, or whether such partnerships deliver measurable outcomes; the initiative's benefits are presented as given.; Promotional framing: phrases like 'next generation of Irish tech startups' echo marketing language rather than neutral reporting.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched 'OpenAI for Ireland' in partnership with the Irish Government, Dogpatch Labs, and Patch. The initiative aims to help SMEs, founders, and young builders use AI to innovate, boost productivity, and build the next generation of Irish tech startups.</p>
+                        <p class="zh-summary">OpenAI 携手爱尔兰政府、Dogpatch Labs 和 Patch 推出“OpenAI for Ireland”计划，旨在帮助中小企业、创业者和年轻开发者利用 AI 创新、提升生产力，并培育下一代爱尔兰科技初创企业。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI partners with Irish Government, Dogpatch Labs, and Patch to launch OpenAI for Ireland.</li>
+                            
+                            <li>The initiative targets SMEs, founders, and young builders to drive AI adoption.</li>
+                            
+                            <li>Goals include boosting productivity and fostering next-generation Irish tech startups.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This partnership signals OpenAI's push into national-level AI adoption programs, potentially creating new opportunities for developers and startups in Ireland to access AI tools and support.<br>🇨🇳 这一合作表明 OpenAI 正在推动国家级 AI 普及计划，可能为爱尔兰的开发者和初创企业带来获取 AI 工具和支持的新机会。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://openai.com/index/introducing-openai" target="_blank" rel="noopener">Introducing OpenAI</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI launched as a non-profit artificial intelligence research company with the mission to advance digital intelligence in ways that benefit humanity, free from the pressure to generate financial returns. The organization emphasizes that its research is unconstrained by financial obligations, allowing it to focus on positive human impact.</p>
+                        <p class="zh-summary">OpenAI 以非营利人工智能研究公司的身份亮相，目标是推动数字智能发展、造福全人类，而不受盈利压力的束缚。由于研究不背负财务义务，团队可以更专注地追求积极的社会影响。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI is a non-profit AI research company.</li>
+                            
+                            <li>Its mission is to advance digital intelligence for the benefit of humanity as a whole.</li>
+                            
+                            <li>Research is free from financial obligations, enabling focus on positive human impact.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This announcement signals the emergence of a well-funded, mission-driven AI lab that prioritizes long-term safety and broad benefit over commercial returns, shaping how developers and researchers think about AI's societal role.<br>🇨🇳 这标志着一家资金雄厚、使命驱动的 AI 实验室诞生，它把长期安全和广泛福祉置于商业回报之上，将影响开发者和研究者对 AI 社会角色的思考。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://www.tmtpost.com/8204078.html" target="_blank" rel="noopener">银泰到底姓什么？43亿REITs背后的招牌之争</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">A dispute over the 'Yintai' trademark has emerged between Shen Guojun's Yintai Group and Youngor Group (backed by Li Rucheng), which acquired Yintai Department Store from Alibaba in 2024. The Shanghai Stock Exchange questioned the ownership of the trademark as part of its review of a 4.3 billion yuan REITs offering for Hefei Yintai Center, whose valuation relies heavily on the brand. The outcome could affect the REITs issuance and the future operations of Yintai Department Store.</p>
+                        <p class="zh-summary">银泰百货的商标权属争议浮出水面，沈国军的银泰集团与雅戈尔（李如成）旗下银泰百货各执一词。上交所对43亿元华夏银泰百货REITs的问询直指商标归属，而合肥银泰中心的估值高度依赖“银泰”品牌。这场招牌之争不仅关乎REITs能否顺利发行，也牵动银泰百货的未来经营。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Shen Guojun founded the Yintai brand in 1998; Yintai Department Store was sold to Alibaba in 2017 and then to Youngor and management in 2024 for 7.4 billion yuan.</li>
+                            
+                            <li>The Shanghai Stock Exchange asked Yintai Department Store to verify whether the 'Yintai' trademark is used by other parties and whether there are intellectual property disputes.</li>
+                            
+                            <li>The 4.3 billion yuan REITs for Hefei Yintai Center values the property at 4.273 billion yuan, 143.77% above its book value of 1.753 billion yuan, largely due to the brand's credit enhancement.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, this case highlights how trademark ownership and brand value can directly affect asset valuation and financial product issuance, underscoring the importance of clear IP rights in any business transaction.<br>🇨🇳 对开发者和AI从业者而言，此案说明商标所有权和品牌价值会直接影响资产估值和金融产品发行，凸显了在任何商业交易中明确知识产权归属的重要性。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://www.tmtpost.com/8204937.html" target="_blank" rel="noopener">等离子电源小巨人上会迎考，神州股份砍掉3亿补流，中微公司身兼两角</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">订单高度集中，产能消化成核心考题。</p>
+                        <p class="zh-summary">订单高度集中，产能消化成核心考题。</p>
+                        
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Infrastructure & Cloud" id="topic-6">
+                    <h2 class="topic-header">Infrastructure & Cloud <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="Infrastructure & Cloud">
+                        <h3><a href="https://www.tmtpost.com/8204916.html" target="_blank" rel="noopener">汽车芯片再次告急，这次是晶圆厂不想生产了</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims AI customers offer 'volume commitments and prepayments' — the source does not mention prepayments or volume commitments by AI customers; it only says AI data centers are attracting manufacturing resources and that AI customers help chipmakers bear investment risk (英飞凌 context), without specifying prepayments.; The summary states automotive chip demand is fragmented 'across thousands of part numbers' — the source says a car needs thousands of semiconductor devices (数千颗半导体器件), not thousands of part numbers; it describes many models/variants but does not quantify part numbers as thousands.; The summary omits that Nexperia's supply tightness is also attributed to its own control dispute between Dutch and Chinese operations and ongoing capacity recovery in Malaysia, which the source presents as an important cause — not a contradiction but an incomplete representation of the source's explanation.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">At the Munich electronics show, Nexperia's interim CEO warned that orders far exceed capacity for basic semiconductors like diodes and MOSFETs, as fabs shift resources toward higher-return AI data center customers. STMicroelectronics' CEO echoed this, noting that foundries and packaging firms are reallocating capacity away from traditional automotive and industrial chips. The structural issue is that automotive chip demand is fragmented across thousands of part numbers with thin margins, making new fab investment hard to justify compared with AI customers who offer volume commitments and prepayments.</p>
+                        <p class="zh-summary">汽车芯片又缺了，但这次不是产能不够，而是晶圆厂“不想陪你玩了”。安世半导体和意法半导体高管接连警告：基础汽车芯片订单爆满，可晶圆厂正把资源挪去伺候AI数据中心——人家量大、利润高、还愿意预付。汽车行业每年买几千亿颗芯片，却因为型号太散、价格压得太狠，在资本争夺战里输给了AI。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Nexperia's interim CEO says order demand far exceeds capacity for basic discrete semiconductors used in automotive electronics.</li>
+                            
+                            <li>STMicroelectronics warns foundries and packaging firms are reallocating capacity to higher-return markets, threatening traditional automotive chip supply.</li>
+                            
+                            <li>Automotive chip demand is fragmented across many part numbers with long qualification cycles, weakening economies of scale for fabs.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners should recognize that AI's insatiable demand for power semiconductors is now directly competing with automotive and industrial chip supply, which could raise costs and extend lead times for embedded and hardware projects.<br>🇨🇳 AI对电源芯片的巨量需求正在挤占汽车和工业芯片的产能，做嵌入式或硬件项目的开发者可能面临成本上升和交期拉长。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Industry Trends & Analysis" id="topic-7">
+                    <h2 class="topic-header">Industry Trends & Analysis <span class="topic-count">(20)</span></h2>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905576.html" target="_blank" rel="noopener">黄仁勋走了，“达链”老板们开始盘订单</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia announced that founder Jensen Huang has resigned as president, CEO, and director effective immediately, with CFO Colette Kress named interim CEO and board member Harvey Jones appointed chairman. The stock fell as much as 14% intraday before closing down 4.34%. While Nvidia's product roadmap and orders for the next two years are already locked in, longer-term planning now falls to a successor, introducing uncertainty for A-share companies in Nvidia's supply chain such as optical module, PCB, and liquid cooling suppliers.</p>
+                        <p class="zh-summary">英伟达突然宣布创始人黄仁勋辞去CEO及董事职务，即刻生效，CFO科莱特·克雷斯临时代任CEO，股价盘中一度跌超14%。虽然未来两年的产品和订单早已排定，但更长期的规划交到了继任者手里，A股“达链”上的光模块、PCB、液冷厂商们难免要多盘算盘算了。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang resigned as Nvidia CEO and director effective immediately; CFO Colette Kress becomes interim CEO and Harvey Jones is appointed chairman, a newly created role.</li>
+                            
+                            <li>Nvidia stock dropped over 14% intraday before closing down 4.34%; the board launched a formal CEO search considering both internal and external candidates.</li>
+                            
+                            <li>The resignation followed a personal conduct controversy and a four-day board investigation; the announcement came just before Nvidia's November 17 earnings report.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners should watch for potential shifts in Nvidia's long-term product cadence and supply allocation, which could affect GPU availability, pricing, and the broader AI infrastructure buildout beyond 2028.<br>🇨🇳 开发者和AI从业者需关注英伟达长期产品节奏和产能分配可能的变化，这可能影响2028年之后的GPU供应、价格以及整个AI基础设施的建设节奏。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.geekpark.net/news/373907" target="_blank" rel="noopener">黄仁勋宣布辞职，特朗普：库克适合接任；微信「看一看」测试短剧入口；《GTA 6》还没发售就狂卖近千万份｜极客早知道</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The source states Nvidia shares fell 10% in pre-market trading, not 13%; the 13% figure appears only in the headline and is not supported by the article body.; The source says Huang resigned after 33 years as CEO (founded 1993), not 33 years total; minor but the summary omits this.; The summary says 'reports cited a personal scandal' — the source attributes the scandal claim to Reuters, which is consistent, but the source also notes the official announcement did not state a reason; this is acceptable but the 13% figure is the main error.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia announced that CEO Jensen Huang has resigned as president, CEO, and board member effective immediately, with CFO Colette Kress serving as interim CEO; Nvidia shares fell 13% and AI-related stocks tumbled globally, while AMD and Broadcom rose. The announcement did not state a reason, though reports cited a personal scandal, and President Trump suggested former Apple CEO Tim Cook should take over.</p>
+                        <p class="zh-summary">英伟达突然宣布黄仁勋辞去CEO等全部职务，即刻生效，CFO科莱特·克雷斯临时代任，股价应声重挫13%。公告未说明辞职原因，但外媒称与婚外情丑闻发酵有关；特朗普还凑热闹说库克适合接任。全球AI概念股随之震荡，AMD和博通则逆势上涨。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang resigned as Nvidia CEO, president, and board member effective immediately after 33 years; CFO Colette Kress is interim CEO and director Harvey Jones is board chair.</li>
+                            
+                            <li>Nvidia shares fell 13% and AI stocks dropped globally (CoreWeave -9.1%, Nebius -16.2%), while AMD and Broadcom gained 3.7% and 5.6% on expectations of competitive opportunity.</li>
+                            
+                            <li>Reports linked the resignation to an ongoing extramarital affair scandal; Trump suggested Tim Cook should replace Huang.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> A leadership vacuum at the world's dominant AI chip supplier introduces major uncertainty for AI infrastructure planning and supply chains, while competitors and cloud providers may benefit.<br>🇨🇳 全球AI芯片龙头突然换帅，给算力供应链和AI基础设施规划带来巨大不确定性，竞争对手和云厂商可能借机抢份额。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905530.html" target="_blank" rel="noopener">黄仁勋夫人，还一言不发？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="Summary says Huang admitted to an extramarital affair 'with his wife' — source says he admitted to being unfaithful TO his wife (对妻子不忠), not an affair with her.; Summary names the CFO as 'Colette Kress' — source only gives the surname '克雷斯' (Kress) and age 59; the first name Colette is not in the source (hallucinated).; Summary says the scandal 'raised governance concerns' — this framing is not stated in the source.; Summary omits that the resignation was effective immediately, though this is minor.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia CEO Jensen Huang resigned on November 12 after admitting to an extramarital affair with his wife and a relationship with a female executive who directly reported to him. The board accepted his resignation, appointing CFO Colette Kress as interim CEO and Harvey Jones as chairman. The scandal, which broke on November 8, led to a nearly 10% after-hours stock drop and raised governance concerns.</p>
+                        <p class="zh-summary">英伟达CEO黄仁勋因承认对妻子不忠及与直接汇报的女高管有婚外情，于11月12日辞职。董事会接受辞呈，任命CFO克雷斯为临时CEO，并首次设立董事长一职。消息导致股价盘后跌近10%，引发公司治理质疑。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang admitted to infidelity with his wife and a relationship with a female executive reporting to him.</li>
+                            
+                            <li>He resigned as President, CEO, and Director effective immediately on November 12.</li>
+                            
+                            <li>CFO Colette Kress became interim CEO; Harvey Jones was appointed Chairman.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This highlights the importance of corporate governance and personal conduct for tech leaders, potentially affecting Nvidia's strategic direction and investor confidence.<br>🇨🇳 这凸显了科技领袖的公司治理和个人行为的重要性，可能影响英伟达的战略方向和投资者信心。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8204793.html" target="_blank" rel="noopener">黄仁勋下课，硅谷没有永远的主人</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary mentions 'Kalanick's 2017 exit' as part of the Silicon Valley history framing, but the source article does not mention Kalanick or Uber at all—this is a hallucinated addition.; The summary states 'CFO Colette Kress named interim CEO'—the source says she was CFO for 13 years and became interim CEO, which is consistent, but the summary omits that Harvey Jones is 73 (minor, not an error).; The summary says 'first time Nvidia has had a chairman and begun searching for a CEO other than Huang'—this matches the source.; The summary's claim that 'founder credit is rarely disputed, but whether that credit entitles them to keep power is' matches the source's framing.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia disclosed in an 8-K filing that its board accepted Jensen Huang's resignation as president, CEO, and director, effective immediately, with CFO Colette Kress named interim CEO and Harvey Jones appointed chairman. The filing gave no reason and did not disclose the outcome of an independent investigation, marking the first time Nvidia has had a chairman and begun searching for a CEO other than Huang. The article frames this against Silicon Valley history—Jobs' 1985 ouster and Kalanick's 2017 exit—arguing that founder credit is rarely disputed, but whether that credit entitles them to keep power is.</p>
+                        <p class="zh-summary">英伟达一纸8-K文件宣告黄仁勋辞去总裁、CEO及董事职务，即刻生效，CFO科莱特·克雷斯出任临时CEO，公司33年来首次设立董事长。公告未说明原因，也未披露独立调查结论，接班程序已经启动。文章借乔布斯1985年被斯卡利赶走、卡兰尼克2017年被投资人逼退的旧事提醒：创始人的功劳少有争议，争议在于这份功劳还能不能让他继续掌权。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Nvidia's board accepted Jensen Huang's resignation as president, CEO, and director effective immediately; CFO Colette Kress is interim CEO and Harvey Jones is chairman.</li>
+                            
+                            <li>The 8-K filing did not explain the departure or disclose the conclusion of a previously launched independent investigation.</li>
+                            
+                            <li>The article parallels Jobs' 1985 removal by Sculley and Kalanick's 2017 resignation under investor pressure, noting founders' contributions are rarely disputed—their continued control is.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, a leadership shake-up at the company underpinning most AI infrastructure introduces strategic uncertainty around GPU roadmaps and platform continuity—worth watching closely.<br>🇨🇳 对开发者和AI从业者来说，支撑大多数AI基础设施的英伟达突然换帅，GPU路线图和平台连续性都添了变数，值得密切关注。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905571.html" target="_blank" rel="noopener">马斯克：正在签署请求黄仁勋复职的请愿书</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — The Chinese summary uses colloquial and slightly partisan language: '老黄' (familiar nickname for Jensen Huang) and '落井下石' (kick someone when they're down) which frames critics negatively and lacks neutrality.; The phrase '硅谷大佬们纷纷声援' (Silicon Valley bigwigs are all voicing support) implies widespread, unanimous backing without noting that it's a subset of figures.; The summary does not acknowledge any reasons for Huang's resignation or the substance of the criticism from politicians and media, presenting only one side.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">After Jensen Huang resigned as NVIDIA CEO, Elon Musk publicly expressed support and said he is signing a petition urging Huang's reinstatement. The move follows widespread backing from Silicon Valley figures, including Tim Sweeney, Lex Fridman, and CZ, while politicians and some media outlets have criticized Huang. Musk did not specify which petition he signed, and some online petitions falsely claim his endorsement.</p>
+                        <p class="zh-summary">黄仁勋辞去英伟达CEO后，马斯克在推特上表示正在签署请愿书，呼吁让老黄回归。硅谷大佬们纷纷声援，从Tim Sweeney到Lex Fridman都发声支持，而政客和部分媒体则落井下石。不过老马没说自己签的是哪份请愿书，网上有些请愿书打着他的旗号，大家注意甄别。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Elon Musk said he is signing a petition to reinstate Jensen Huang as NVIDIA CEO.</li>
+                            
+                            <li>Silicon Valley figures like Tim Sweeney, Lex Fridman, and CZ have voiced strong support for Huang.</li>
+                            
+                            <li>Some politicians and media outlets, including The Economist and FT, have criticized Huang and called for accountability.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This highlights the intense scrutiny on NVIDIA's leadership and the high stakes for the AI hardware ecosystem, as Huang's departure could affect the company's strategic direction and developer confidence.<br>🇨🇳 这凸显了英伟达领导层面临的巨大压力以及AI硬件生态的高风险，黄仁勋的离开可能影响公司战略方向和开发者信心。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905569.html" target="_blank" rel="noopener">赵本山：老剧常看常新，新剧越看越旧</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Despite the comedy industry's emphasis on innovation and youth-oriented content, Zhao Benshan's team (Zhao Jiaban) has found success with a formulaic, nostalgia-driven approach. Their new series 'Zou Ma Shang Ren' set a viewership record on Tencent Video's midday comedy slot, even though critics note declining creativity and reliance on familiar tropes. The article argues that long-running IPs like 'Country Love' and 'Liu Laogen' have cultivated a loyal audience base that values familiarity and comfort over novelty, allowing Zhao Jiaban to thrive with a 'new bottle, old wine' strategy.</p>
+                        <p class="zh-summary">在喜剧行业高喊创新和年轻化的当下，赵家班却反其道而行之，新剧《走马上任》虽然被批创作退步、套路满满，却创下了腾讯视频板凳单元的热度纪录。文章指出，赵家班凭借《乡村爱情》《刘老根》等长线IP积累的观众基本盘，用“新瓶装旧酒”的方式满足观众对熟悉感和解压的需求，老剧常看常新，新剧越看越旧，这种反差值得行业重新审视。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Zhao Jiaban's new series 'Zou Ma Shang Ren' set a new heat record (26495) on Tencent Video's midday comedy slot despite criticism of declining creativity.</li>
+                            
+                            <li>The article contrasts the industry's push for innovation and youth with Zhao Jiaban's formulaic, nostalgia-based approach.</li>
+                            
+                            <li>Long-running IPs like 'Country Love' and 'Liu Laogen' have built a loyal audience that values familiarity and emotional connection over novelty.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, this highlights the power of user familiarity and emotional loyalty in content consumption—a reminder that algorithmic recommendations and AI-generated content must account for deep-seated audience habits and the value of long-term IP relationships.<br>🇨🇳 对开发者和AI从业者而言，这揭示了用户熟悉度和情感忠诚在内容消费中的力量——提醒我们算法推荐和AI生成内容必须考虑深层的观众习惯和长期IP关系的价值。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905561.html" target="_blank" rel="noopener">谁最痛恨柏林墙的倒塌？是失去铁饭碗的前既得利益者</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">On the 37th anniversary of the fall of the Berlin Wall, the article reviews decades of German surveys showing that most Germans, in both former East and West, consider the Wall's fall correct. Opposition is concentrated among older former East Germans who held privileged positions or guaranteed jobs under the planned economy and lost those advantages after reunification, while younger, better-educated groups report far higher satisfaction.</p>
+                        <p class="zh-summary">柏林墙倒塌37周年之际，德国民调显示：无论经济好坏，多数德国人都认为墙倒得对。最不买账的是前东德那些曾端着铁饭碗、享有特权的老人；年轻人、高学历者反而满意度更高。文章还算了笔账：当年东德马克按1:1兑换西德马克，实际被高估400%，东德人一度购买力大增，但低效工业随之萎缩，转型阵痛难免。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Most Germans consistently view the fall of the Berlin Wall as correct, though approval has always been higher in the former West than the former East.</li>
+                            
+                            <li>Opposition is strongest among older former East Germans who lost privileges and job security after reunification; younger and highly educated people are more satisfied.</li>
+                            
+                            <li>A 2011 Berliner Zeitung survey found 10% said building the Wall in 1961 was 'completely right' and 62% 'completely wrong', with former East German cadres overwhelmingly in the former camp.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, the piece is a reminder that technological and systemic change creates winners and losers, and that resistance often comes from those whose privileges depended on the old system—a dynamic familiar in today's AI-driven job displacement debates.<br>🇨🇳 对开发者和AI从业者来说，这提醒我们：技术和制度变革总会有人受益、有人失落，反对声往往来自旧体系的既得利益者——这和今天AI冲击就业的讨论如出一辙。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905575.html" target="_blank" rel="noopener">西西弗买了200块的书但咖啡区不让坐，合理吗？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">A customer who spent nearly 200 yuan on books at a Sisyphe bookstore was denied seating in the café area unless they bought a drink. The article argues the employee's refusal is not malicious but a rational self-protection strategy: café staff are evaluated only on café sales, and company rules treat book and café revenue separately, so enforcing the rule strictly shields the employee from blame.</p>
+                        <p class="zh-summary">有顾客在西西弗买了近200块的书，想坐咖啡区却被要求另买饮品，这事上了热搜。作者半佛仙人分析说，店员不是故意刁难，而是严格执行公司“各算各的”规定——咖啡部门的绩效和书店部门的消费无关，按规矩办事才能职场不粘锅。看似魔幻，其实每个环节都符合逻辑。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>A customer spent nearly 200 yuan on books but was barred from the café seating without buying a drink, sparking online debate.</li>
+                            
+                            <li>The employee's behavior is explained as rational self-protection: café staff are only responsible for café sales, not bookstore purchases.</li>
+                            
+                            <li>Company policy treats bookstore and café revenue separately, so strict rule-following minimizes personal risk.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, this is a reminder that rigidly optimizing for local metrics (like department-level KPIs) can produce globally poor user experiences—a lesson applicable to system design and cross-team collaboration.<br>🇨🇳 对开发者和AI从业者来说，这提醒我们：只优化局部指标（如部门KPI）可能导致整体用户体验变差，这在系统设计和跨团队协作中同样值得警惕。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8204097.html" target="_blank" rel="noopener">苹果不想一直“躺赢”</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="Summary states 'privacy-driven caution' as a cause of Apple's AI lag, but the source attributes the lag to two factors: slow progress in frontier foundation model R&D/capability/talent, and reliance on external technology (e.g., OpenAI). Privacy-driven caution is not mentioned in the source.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Apple's new CEO John Ternus reportedly issued a blunt internal warning that Apple has fallen far behind rivals in AI and must accelerate its roadmap beyond mere Siri patches, even as the company posted record Q4 FY2026 results with $114.5B revenue and $57.58B in iPhone sales. The article argues Apple's hardware and ecosystem strengths are being undercut by lagging foundation models, privacy-driven caution, and a shifting AI entry point that threatens its App Store-centric business model.</p>
+                        <p class="zh-summary">苹果刚交出史上最强财报，新CEO特努斯却在闭门会上拍桌子：AI已经落后太多，不能再只给Siri打补丁了。文章犀利指出，苹果靠硬件和生态躺赢的日子正在被AI改写——入口从App转向AI助手，而苹果的基模能力、隐私执念和研发惯性，都可能让它重演诺基亚的剧本。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Apple's Q4 FY2026 revenue hit $114.5B (+12% YoY) with iPhone revenue at a record $57.58B, but services growth slowed to 9.8%, its first sub-10% growth in three years.</li>
+                            
+                            <li>New CEO John Ternus told software teams Apple is far behind in AI and must move beyond incremental Siri fixes with the same urgency as competitors.</li>
+                            
+                            <li>Apple Intelligence's China launch will use Alibaba's Qwen model, opening testing Nov 4 and shipping with iOS 27.3 in December.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers, this signals that Apple may finally open up agent-style cross-app execution and that its China AI stack will run on Alibaba's Qwen—both of which could reshape app distribution and integration opportunities on iOS.<br>🇨🇳 对开发者来说，苹果若真转向Agent架构并接入通义千问，意味着iOS上的应用分发和跨应用集成方式可能被重写，值得提前布局。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905552.html" target="_blank" rel="noopener">英伟达，还有比黄仁勋离任更大的麻烦</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims that 'AI-driven software porting lowers switching costs' — this is not mentioned in the source text (hallucinated).; The summary states major customers 'accelerate custom ASIC development' — the source mentions cloud giants wanting to reduce dependence on NVIDIA, but does not specifically mention ASIC development in the provided excerpt.; The summary omits that the source says the technical roadmap extends to 2028 (source says '延伸至2028年的产品路线图'), which is consistent, but the summary's phrasing 'through 2028' is acceptable.; The summary's claim about 'NVLink-based ecosystem moat' is supported, but the specific detail about switching costs and software porting is fabricated.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Jensen Huang resigned as NVIDIA's president, CEO, and director on November 12, ending a 33-year tenure, with CFO Colette Kress named interim CEO. The article argues that while NVIDIA's technical roadmap through 2028 and its NVLink-based ecosystem moat remain intact, Huang's departure comes as major customers like Google, Amazon, and Microsoft accelerate custom ASIC development and AI-driven software porting lowers switching costs, potentially eroding NVIDIA's dominance.</p>
+                        <p class="zh-summary">黄仁勋11月12日辞去英伟达CEO等全部职务，33年掌舵生涯画上句号，CFO科莱特·克雷斯临时代任。文章认为，英伟达的技术路线图和NVLink生态护城河短期内依然稳固，但谷歌、亚马逊、微软等大客户正加速自研芯片，加上AI编程大幅降低软件迁移成本，英伟达的长期霸主地位面临真正考验。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang resigned as NVIDIA CEO on November 12 after 33 years; CFO Colette Kress is interim CEO.</li>
+                            
+                            <li>NVIDIA's product roadmap through 2028 (Blackwell, Rubin, Feynman) and NVLink Fusion ecosystem provide a near-term moat.</li>
+                            
+                            <li>Major customers including Google, Amazon, Microsoft, OpenAI, and Anthropic are developing custom ASICs to reduce dependence on NVIDIA.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers should watch for a potential shift in AI hardware economics: cheaper chip porting and custom ASICs could loosen CUDA lock-in, making multi-platform AI infrastructure strategies more viable.<br>🇨🇳 对开发者而言，芯片迁移成本下降和定制ASIC崛起可能打破CUDA的锁定效应，多平台AI基础设施策略将更具可行性。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8204046.html" target="_blank" rel="noopener">英伟达第一次没有黄仁勋</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims CFO Colette Kress was named interim CEO, but the source does not mention Colette Kress or any interim CEO appointment.; The summary claims Harvey C. Jones becomes Nvidia's first chairman, but the source does not mention Harvey C. Jones or any chairman appointment.; The summary claims the board launched an internal and external search for a permanent successor, which is not stated in the source.; The summary omits that the source describes an independent investigation (led by Joon H. Kim and Wachtell) into Huang's conduct, which is relevant context for the resignation.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia announced that co-founder Jensen Huang has resigned as president, CEO, and director, effective immediately, ending his 33-year tenure. The stock fell as much as 14% intraday before closing down 4.34%, wiping out $182 billion in market value. CFO Colette Kress has been named interim CEO, while Harvey C. Jones becomes Nvidia's first chairman, and the board has launched an internal and external search for a permanent successor.</p>
+                        <p class="zh-summary">英伟达联合创始人黄仁勋突然辞去总裁、CEO和董事职务，33年掌舵生涯就此画上句号。消息一出股价盘中一度暴跌近14%，市值蒸发约1820亿美元。CFO科莱特·克雷斯临时接任CEO，哈维·琼斯出任首位董事长，董事会已启动内外部选聘。谁来押注下一个十年，成了英伟达必须回答的新问题。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang resigned as Nvidia CEO effective immediately after 33 years, following an internal investigation into a personal conduct matter.</li>
+                            
+                            <li>Nvidia stock fell nearly 14% intraday and closed down 4.34%, erasing about $182 billion in market value.</li>
+                            
+                            <li>CFO Colette Kress is interim CEO; Harvey C. Jones becomes the company's first chairman; Ian Buck, a CUDA core developer, is another internal candidate.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, the leadership shake-up at the world's dominant AI chip supplier introduces uncertainty around GPU supply commitments, pricing, and the CUDA roadmap—factors that directly affect AI infrastructure planning and model training costs.<br>🇨🇳 对开发者和AI从业者来说，全球最大AI芯片供应商的换帅给GPU供应、定价和CUDA路线图带来不确定性，直接影响AI基础设施规划和模型训练成本。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905572.html" target="_blank" rel="noopener">英伟达的技术、泡泡玛特的运营都不是看十年的护城河</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary mentions Pop Mart, which does not appear anywhere in the source article.; The summary claims Nvidia's CUDA ecosystem is being eroded by AI itself and cites Anthropic demonstrating chip portability; neither CUDA erosion by AI nor Anthropic is mentioned in the source.; The summary claims Nvidia's concentrated customer base is increasingly designing in-house chips; the source only says customers are a few giants who are wealthy, technical, and calculate costs each quarter, but does not state they are designing in-house chips.; The summary omits the source's actual examples (e.g., Haidilao, Coca-Cola, Moutai, Wuliangye, Three Squirrels, Liangpin Puzi) and misattributes the moat argument to Nvidia's technological leadership and Pop Mart's operations.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">The article argues that Nvidia's technological leadership and Pop Mart's operational prowess are not durable moats, as they require constant re-winning. True moats, like brand mindshare or network effects, persist even with mediocre management. Nvidia's CUDA ecosystem is being eroded by AI itself, as companies like Anthropic demonstrate chip portability, and its concentrated customer base is increasingly designing in-house chips.</p>
+                        <p class="zh-summary">这篇文章犀利指出，英伟达的技术和泡泡玛特的运营都不是真正的护城河，因为它们需要每年重新赢一次。真正的护城河是管理层平庸多年也依然存在的东西，比如品牌心智或网络效应。英伟达的CUDA生态正被AI自己拆掉，Anthropic等大客户已在自研芯片，护城河并不牢固。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Management, operations, and technology are capabilities, not moats; they must be re-earned annually.</li>
+                            
+                            <li>True moats include brand mindshare, platform/network effects, scale economies, switching costs, and IP rights.</li>
+                            
+                            <li>Nvidia's CUDA ecosystem is being eroded as AI companies like Anthropic treat chips as interchangeable.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For AI practitioners, this underscores that relying solely on Nvidia's ecosystem may be risky; diversifying hardware and software stacks is prudent as the AI landscape evolves.<br>🇨🇳 对AI从业者而言，这提醒我们过度依赖英伟达生态可能存在风险，随着AI格局演变，多元化硬件和软件栈是明智之举。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8204784.html" target="_blank" rel="noopener">英伟达“跌倒”，会是平头哥和昆仑芯的窗口期吗？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims the article notes 'strong competition from Nvidia and Huawei in China's AI chip market,' but the source text does not mention Huawei or describe competitive pressure from Nvidia/Huawei; this appears fabricated.; The summary frames the article as about capitalizing on 'Nvidia's leadership change,' but the source states Huang Renxun resigned from Nvidia CEO and other positions, and does not characterize it as a leadership change opening a market opportunity in the way summarized.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">The article examines whether Alibaba's T-Head and Baidu's Kunlunxin can capitalize on Nvidia's leadership change and potential market opening. It details their IPO ambitions, valuation expectations (T-Head $25-62B, Kunlunxin $50B), and revenue models, while noting they still face strong competition from Nvidia and Huawei in China's AI chip market.</p>
+                        <p class="zh-summary">英伟达CEO黄仁勋辞职之际，阿里平头哥和百度昆仑芯正推进港股上市，估值预期分别高达620亿和500亿美元。文章分析了两家公司的营收模式、外部客户拓展及盈利挑战，指出它们虽有机会填补市场空缺，但仍需直面英伟达和华为的激烈竞争。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>T-Head and Kunlunxin are pursuing Hong Kong IPOs with reported valuations of up to $62B and $50B respectively.</li>
+                            
+                            <li>Kunlunxin's external business now exceeds internal Baidu orders, with customers in telecom, finance, energy, and industrial sectors.</li>
+                            
+                            <li>T-Head leverages Alibaba Cloud's demand and has external customers like XPeng and BYD, but internal transfer pricing affects profitability.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals a potential shift in China's AI chip landscape, offering developers more domestic hardware options but requiring them to navigate software migration and ecosystem compatibility.<br>🇨🇳 这预示着中国AI芯片格局可能生变，开发者将拥有更多国产硬件选择，但也需应对软件迁移和生态适配的挑战。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905443.html" target="_blank" rel="noopener">腾讯“裁员”风波背后：物理AI正在重塑大厂的权力序列</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">The article argues that the Tencent 'layoff' panic of November 2026 was triggered not by an actual restructuring but by a leaked internal metaphor about splitting staff 50/50 between core business and AI-native exploration. Cheap physical AI devices (smart glasses, card-sized recorders) combined with anonymous communities like Maimai bypassed corporate DLP and network controls, collapsing the information asymmetry that underpins managerial power. The author contends that middle management is losing both its buffering role (leaks deliver raw minutes directly to staff) and its routing role (LLMs move data from frontline to executives), hollowing out its organizational legitimacy.</p>
+                        <p class="zh-summary">腾讯28周年司庆闭门会上，管理层用“50%陆军、50%海军”比喻资源分配，几小时内就被传成“裁员50%”，脉脉流量暴涨5倍。作者指出，几百块的AI眼镜、卡片转录设备加上匿名社区，绕开了DLP、内外网隔离等所有传统防线——泄密不再需要“动作”，溯源也无从谈起。更深远的影响是中层：泄密抽走了缓冲权，大模型抽走了路由权，靠信息差收“过路费”的日子到头了。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>A closed-door metaphor about 50/50 resource allocation between core business and AI-native exploration was reframed as a 50% layoff, with Maimai traffic spiking 5x and anonymous activity reaching over half of Tencent's headcount.</li>
+                            
+                            <li>Physical AI devices (smart glasses, card-sized transcription hardware) capture audio and video without any detectable action, and transmit over local/5G links that never touch corporate networks, defeating DLP, MDM, and forensic tracing.</li>
+                            
+                            <li>The DeepSeek 2025 investor meeting leak, caused by the same class of device, reportedly delayed a ~50 billion RMB financing decision.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Security teams must accept that the leak perimeter has moved from network egress to human sensory capture, meaning DLP-centric architectures need rethinking and managers should assume any meeting content may become public within hours.<br>🇨🇳 安全团队得认清：泄密边界已从网络出口挪到了人的感官采集环节，只靠DLP的架构该重做了；而管理者最好默认，任何会议内容都可能在几小时内见光。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905551.html" target="_blank" rel="noopener">胖东来又上热搜：一瓶洗发水背后，我交过的三笔“洋牌”学费</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">A controversy over whether the Cabelo anti-hair-loss shampoo sold by Chinese retailer Pang Dong Lai is a genuine Japanese brand has sparked debate. Pang Dong Lai verified the product is manufactured in Japan, but media found the CABELO trademark was registered by a Guangzhou trading company in 2019, and Japanese retailer Matsumoto Kiyoshi said it never sold the brand. The author uses three personal purchasing mistakes to illustrate how 'made in Japan,' 'Japanese brand,' and 'recognized by Japanese consumers' are often conflated, and offers four questions consumers should ask before buying.</p>
+                        <p class="zh-summary">胖东来卖的卡蓓诺洗发水被质疑是“假洋牌”，虽然胖东来实地调查后确认产品确实在日本生产，但媒体发现CABELO商标是广州一家贸易公司2019年注册的，日本松本清也表示从未卖过这个品牌。作者借自己三次“交学费”的经历，点出“日本制造”“日本品牌”“日本本土认可”根本是三回事，并总结了四个防坑问题。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Pang Dong Lai confirmed Cabelo shampoo is manufactured in Japan, but the CABELO trademark was registered by a Guangzhou trading company in 2019, and Matsumoto Kiyoshi denied ever selling it.</li>
+                            
+                            <li>The author identifies three generations of 'fake foreign brand' tactics: foreign-looking packaging, overseas trademark + OEM production, and fabricated overseas research credentials with exaggerated efficacy claims.</li>
+                            
+                            <li>Consumers should check four things: actual origin on the back label, who owns the trademark, whether the brand has real sales channels in its claimed home market, and whether efficacy claims are backed by reliable research.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, this is a reminder that verifying data provenance and claims—whether product origin or model capabilities—requires checking primary sources, not just surface-level signals.<br>🇨🇳 对开发者和AI从业者来说，这提醒我们验证数据来源和宣称（无论是产品产地还是模型能力）都要查一手信息，不能只看表面信号。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.geekpark.net/news/373906" target="_blank" rel="noopener">穿了 33 年皮衣的那个人，离开了英伟达</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia announced before market open on November 12 that Jensen Huang has resigned as President, CEO, and board member, effective immediately, after 33 years leading the company he co-founded in 1993. CFO Colette Kress becomes interim CEO while Harvey C. Jones takes the newly created board chair role, and shares fell 10% pre-market. The resignation followed a New York Times report linking a close associate to alleged export-control circumvention and Huang's own admission of extramarital affairs, with the board launching an independent investigation.</p>
+                        <p class="zh-summary">33年老黄，说走就走。英伟达在11月12日美股开盘前突然宣布，黄仁勋辞去CEO及董事职务、即刻生效，CFO科莱特·克雷斯临时代任，股价盘前应声跌10%。这场辞职风暴的导火索，是《纽约时报》关于芯片出口管制疑云的报道，以及黄仁勋本人承认婚外情——从第一篇报道到官宣，只用了14天。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang resigned as Nvidia CEO and board member effective immediately, ending a 33-year tenure since co-founding the company in 1993.</li>
+                            
+                            <li>CFO Colette Kress was named interim CEO and Harvey C. Jones board chair; the board has begun searching for a permanent CEO.</li>
+                            
+                            <li>Nvidia shares dropped 10% pre-market; analysts flagged the lack of a clear succession plan as a major governance weakness.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Nvidia's roadmap through 2028 and its $99B+ equity investment web now depend on an interim CEO, creating major uncertainty for AI chip supply chains and the broader AI infrastructure ecosystem.<br>🇨🇳 英伟达的芯片路线图和近千亿美元投资版图如今交到临时CEO手上，AI芯片供应链和整个AI基础设施生态都将面临不小的不确定性。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.ruanyifeng.com/blog/2026/11/weekly-issue-419.html" target="_blank" rel="noopener">科技爱好者周刊（第 419 期）：机房来了，写字楼走了</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">阮一峰周刊</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                                <span class="critic-badge privacy" title="PII: email address">🟢 Privacy</span>
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">The article highlights Ulanqab in Inner Mongolia emerging as a major data center hub due to its proximity to Beijing, cheap green energy, and cool climate, leading to the observation that data centers are becoming the new office buildings for AI-driven intellectual work. It also discusses the Nyquist limit applied to AI coding, a security flaw in Lenovo's fingerprint-encrypted USB drive, and various tech news and tools.</p>
+                        <p class="zh-summary">阮一峰周刊第419期聚焦内蒙古乌兰察布崛起为算力重镇，凭借近京低延迟、廉价绿电和凉爽气候，吸引百余个数据中心落户。博主感叹“机房是新的写字楼”，智力产出正转移至数据中心，传统写字楼需求将下降。文章还探讨了AI编程的奈奎斯特极限、联想加密U盘被曝仅用SD卡等趣闻。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Ulanqab has over 100 data centers due to low latency to Beijing (4.2ms), abundant green energy, and cool climate.</li>
+                            
+                            <li>Data centers are becoming the primary sites for intellectual production, potentially reducing demand for office buildings.</li>
+                            
+                            <li>The Nyquist limit applied to AI coding: code reading frequency should be at least twice the modification frequency to avoid losing understanding.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers should recognize the shifting infrastructure landscape for AI and apply principles like the Nyquist limit to maintain code comprehension when using AI coding tools.<br>🇨🇳 开发者应关注AI基础设施的变迁，并在使用AI编程工具时遵循奈奎斯特极限原则，保持对代码的理解。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8204080.html" target="_blank" rel="noopener">禾赛，胜宏，英伟达，深扒科技大佬婚外情的“定价体系”</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">This article examines how scandals involving tech leaders affect their companies' stock prices, using cases like Jensen Huang's resignation from Nvidia, the elevator kiss scandal of Victory Giant Technology's chairman, and the marital affair of Hesai's co-founder. It argues that market impact depends not on moral severity but on whether the leader is irreplaceable to the company's control, operations, and core competitiveness.</p>
+                        <p class="zh-summary">这篇文章深扒了科技大佬婚外情对公司的“定价体系”：黄仁勋辞职让英伟达股价暴跌，胜宏科技董事长“电梯激吻”蒸发200亿市值，而禾赛创始人出轨、贝索斯离婚却几乎没影响。结论很扎心——市场怕的不是私德有亏，而是“灵魂人物”一旦出事，公司控制权和战略连续性就悬了。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang's resignation caused Nvidia's stock to plunge over 10% pre-market, reflecting fears about losing the company's key strategic leader.</li>
+                            
+                            <li>Victory Giant Technology's chairman Chen Tao saw over 20 billion yuan in market value evaporate after a leaked elevator video, due to his role as founder and actual controller.</li>
+                            
+                            <li>Hesai's co-founder Sun Kai's public affair confession in 2017 had limited impact because the company's control structure and operations did not depend solely on him.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, this highlights the concentration risk in companies led by visionary founders—especially Nvidia, whose AI roadmap and industry influence are deeply tied to Jensen Huang, making leadership stability a critical factor to watch.<br>🇨🇳 对开发者和AI从业者来说，这提醒我们关注“英雄式创始人”公司的集中风险——尤其是英伟达，其AI路线和行业影响力与黄仁勋深度绑定，领导层稳定性是必须紧盯的关键变量。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8204697.html" target="_blank" rel="noopener">瑞幸越来越不像一家咖啡公司了</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Luckin Coffee is aggressively expanding its non-coffee menu—light milk tea, fruit tea, pearl milk tea, and Chinese-style sweet soups—as same-store sales at self-operated locations declined for three consecutive quarters (-0.1%, -5.3%, -11.1%) despite 17% revenue growth and 38,909 stores. Rather than inventing new categories, Luckin replicates proven products from tea brands like Chagee and Heytea, leveraging its data-driven product pipeline and standardized supply chain to scale them quickly.</p>
+                        <p class="zh-summary">瑞幸的自营门店同店销售额已连续三个季度负增长，降幅还在扩大，于是它把目光投向了咖啡之外的品类——轻乳茶、果茶、珍珠奶茶、木薯桃胶炖奶纷纷挤进菜单。有意思的是，瑞幸并不发明新品类，而是把霸王茶姬、喜茶们验证过的爆款，用自己近4万家门店的规模和标准化能力重新做一遍，非咖产品累计销售额已突破200亿元。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Luckin's self-operated same-store sales fell -0.1%, -5.3%, and -11.1% across the first three quarters of 2026, despite 17% overall revenue growth and 38,909 total stores.</li>
+                            
+                            <li>Non-coffee drinks exceeded 20% of total cup volume in 2025 and surpassed 20 billion RMB in cumulative sales by May 2026.</li>
+                            
+                            <li>Luckin's strategy is to replicate validated categories (light milk tea, fruit tea, pearl milk tea) rather than invent new ones, using data-driven product development and standardized operations.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This illustrates how scale-driven beverage chains use data pipelines and supply-chain standardization to enter adjacent categories—a playbook relevant to anyone building consumer products or thinking about platform expansion under growth pressure.<br>🇨🇳 这展示了规模化饮品连锁如何用数据流水线和供应链标准化切入相邻品类，对做消费产品、思考增长压力下平台扩张的从业者很有参考价值。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4905550.html" target="_blank" rel="noopener">淘宝新“销冠”FPA栽在AI模特图上</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Chinese menswear brand FPA, currently the top-selling store on Taobao's men's clothing chart, apologized after a blogger accused it of stealing her photos and feeding them to AI to swap her outfit for FPA products in promotional posts. FPA blamed a department's pursuit of image-generation efficiency, and lawyers note that AI ad content must comply with advertising law and be labeled as AI-generated, while infringement claims are hard to enforce due to low damages.</p>
+                        <p class="zh-summary">淘宝男装销冠FPA翻车了：有博主指控品牌盗用她的照片，用AI换衣成自家产品再拿去带货。FPA官方道歉，甩锅给“某部门盲目追求出图效率”。律师提醒，AI广告素材既要符合广告法、不能误导，还得标注AI生成；但这类侵权维权成本高、赔偿低，博主们往往只能吃哑巴亏。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>FPA, Taobao's top men's clothing store during Double 11, was accused of using a blogger's photos with AI outfit-swapping for promotional images.</li>
+                            
+                            <li>FPA apologized, citing a department's blind pursuit of image-generation efficiency, and pledged to remove violating images and compensate.</li>
+                            
+                            <li>Lawyers say AI ad content must comply with advertising law and be labeled as AI-generated; infringement enforcement is hampered by low damages.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This case highlights the legal and ethical risks of AI-generated marketing content, reminding developers building AI image tools to consider copyright, disclosure requirements, and compliance guardrails.<br>🇨🇳 这给做AI生图工具的开发者提了个醒：版权、AI标识和广告合规不是小事，产品设计里得把护栏建好。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Ethics & Policy" id="topic-8">
+                    <h2 class="topic-header">AI Ethics & Policy <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Ethics & Policy">
+                        <h3><a href="https://openai.com/global-affairs/introducing-openai-for-government" target="_blank" rel="noopener">Introducing OpenAI for Government</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — Uncritical product launch coverage: the summary closely mirrors OpenAI's own framing ('best-in-class technology', 'most advanced AI tools') without any independent context or counterpoints.; Promotional phrasing: 'best-in-class' and 'most advanced' are vendor claims presented as fact, with no evidence or comparison to competing tools.; Missing counterpoints: no mention of concerns around government AI adoption (privacy, procurement, vendor lock-in, competing providers).">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched 'OpenAI for Government,' an initiative to bring its most advanced AI tools to U.S. public servants. The program supports the U.S. government's adoption of best-in-class technology for public good.</p>
+                        <p class="zh-summary">OpenAI 推出了“OpenAI for Government”计划，旨在将最先进的 AI 工具带给美国公务员群体。该计划支持美国政府采用顶尖技术，服务于公共利益。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI launches a new initiative called OpenAI for Government.</li>
+                            
+                            <li>Aims to provide advanced AI tools to U.S. public servants.</li>
+                            
+                            <li>Supports the U.S. government in adopting best-in-class technology for public good.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals growing government adoption of AI, potentially creating new opportunities for developers to build public-sector AI solutions and influencing AI policy and procurement.<br>🇨🇳 这标志着政府对 AI 的采用日益增长，可能为开发者创造构建公共部门 AI 解决方案的新机会，并影响 AI 政策和采购。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+            </main>
+
+            <footer>
+                <div class="container">
+                    <p>Generated daily at 08:00 Beijing time · Powered by <a href="https://deepseek.com" target="_blank">DeepSeek</a></p>
+                    <p>Content automatically curated from RSS feeds, Reddit, GitHub Trending, and web search</p>
+                    <p style="margin-top: 8px; font-size: 0.8rem;">⚠ AI-generated content may contain errors. Verify important claims against original sources.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- TOC mobile toggle -->
+    <button class="toc-toggle" id="toc-toggle" onclick="toggleToc()" title="Table of Contents">☰</button>
+
+    <script>
+        /* ── Theme ── */
+        function toggleTheme() {
+            const html = document.documentElement, btn = document.getElementById('theme-btn');
+            const next = html.dataset.theme === 'light' ? 'dark' : 'light';
+            html.dataset.theme = next;
+            btn.textContent = next === 'dark' ? '☀️ Light' : '🌙 Dark';
+            localStorage.setItem('theme', next);
+        }
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) { document.documentElement.dataset.theme = saved; document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark'; }
+        })();
+
+        /* ── Search & Filter ── */
+        let activeTopic = 'all';
+        function setTopicFilter(topic, el) {
+            activeTopic = topic;
+            document.querySelectorAll('#filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            filterArticles();
+        }
+        function filterArticles() {
+            const query = document.getElementById('search').value.toLowerCase();
+            document.querySelectorAll('.topic-section').forEach(section => {
+                const t = section.dataset.topic;
+                let visible = (activeTopic === 'all' || activeTopic === t);
+                let hasVisible = false;
+                section.querySelectorAll('.article-card').forEach(card => {
+                    const show = visible && card.textContent.toLowerCase().includes(query);
+                    card.style.display = show ? '' : 'none';
+                    if (show) hasVisible = true;
+                });
+                section.style.display = hasVisible ? '' : 'none';
+            });
+        }
+
+        /* ── TOC Scroll Spy ── */
+        const tocLinks = document.querySelectorAll('.toc-sidebar a[data-toc]');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.toc-sidebar a[data-toc="${id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-80px 0px -70% 0px' });
+
+        // Observe header and all topic sections
+        const topEl = document.getElementById('top');
+        if (topEl) observer.observe(topEl);
+        document.querySelectorAll('.topic-section[id]').forEach(s => observer.observe(s));
+
+        // Smooth scroll on TOC click
+        tocLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-toc');
+                const el = document.getElementById(targetId);
+                if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                // Close mobile TOC
+                if (window.innerWidth <= 900) closeToc();
+            });
+        });
+
+        /* ── Mobile TOC ── */
+        function toggleToc() {
+            document.getElementById('toc-sidebar').classList.toggle('open');
+            document.getElementById('toc-overlay').classList.toggle('show');
+        }
+        function closeToc() {
+            document.getElementById('toc-sidebar').classList.remove('open');
+            document.getElementById('toc-overlay').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
