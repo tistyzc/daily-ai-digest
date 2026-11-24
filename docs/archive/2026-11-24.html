@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily AI Digest — 2026-11-24</title>
+    <meta name="description" content="Daily AI/IT industry news digest — auto-generated bilingual summary of what matters today.">
+    <style>
+        :root {
+            --bg: #ffffff; --bg-secondary: #f8f9fa; --bg-card: #ffffff;
+            --text: #1a1a2e; --text-secondary: #6b7280; --border: #e5e7eb;
+            --accent: #2563eb; --accent-hover: #1d4ed8;
+            --tag-bg: #eff6ff; --tag-text: #2563eb;
+            --factual: #dc2626; --bias: #d97706; --safety: #7c3aed; --privacy: #059669;
+            --factual-bg: #fef2f2; --bias-bg: #fffbeb; --safety-bg: #f5f3ff; --privacy-bg: #ecfdf5;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08); --radius: 8px;
+            --toc-width: 220px;
+        }
+        [data-theme="dark"] {
+            --bg: #0f172a; --bg-secondary: #1e293b; --bg-card: #1e293b;
+            --text: #e2e8f0; --text-secondary: #94a3b8; --border: #334155;
+            --accent: #60a5fa; --accent-hover: #93bbfd;
+            --tag-bg: #1e3a5f; --tag-text: #60a5fa;
+            --factual: #f87171; --bias: #fbbf24; --safety: #c084fc; --privacy: #34d399;
+            --factual-bg: #3b1414; --bias-bg: #3b2e0a; --safety-bg: #2e1a4f; --privacy-bg: #0a3b2e;
+            --shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* ── Layout ── */
+        .page-wrapper { display: flex; min-height: 100vh; }
+        .content-area { flex: 1; min-width: 0; }
+
+        /* ── TOC Sidebar ── */
+        .toc-sidebar {
+            width: var(--toc-width); position: sticky; top: 0; height: 100vh;
+            overflow-y: auto; padding: 24px 16px; background: var(--bg-secondary);
+            border-right: 1px solid var(--border); font-size: 0.85rem;
+            flex-shrink: 0; z-index: 10; scrollbar-width: thin;
+        }
+        .toc-sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); margin-bottom: 12px; }
+        .toc-sidebar a {
+            display: block; padding: 5px 10px; border-radius: 4px; color: var(--text-secondary);
+            text-decoration: none; transition: all 0.15s; margin-bottom: 2px;
+            border-left: 2px solid transparent;
+        }
+        .toc-sidebar a:hover { color: var(--text); background: var(--bg); }
+        .toc-sidebar a.active { color: var(--accent); font-weight: 600; border-left-color: var(--accent); background: var(--bg); }
+        .toc-toggle { display: none; position: fixed; bottom: 20px; left: 20px; z-index: 100;
+            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border);
+            background: var(--bg); font-size: 1.2rem; cursor: pointer; box-shadow: var(--shadow);
+        }
+
+        /* ── Container ── */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+        /* ── Header ── */
+        header {
+            background: var(--bg-secondary); border-bottom: 1px solid var(--border);
+            padding: 32px 0 24px; margin-bottom: 32px;
+        }
+        header h1 { font-size: 2rem; font-weight: 800; color: var(--text); }
+        header .subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-top: 4px; }
+        .header-actions { display: flex; gap: 12px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+        .header-actions a, .header-actions button {
+            text-decoration: none; font-size: 0.875rem; padding: 6px 14px;
+            border-radius: var(--radius); border: 1px solid var(--border);
+            background: var(--bg); color: var(--text); cursor: pointer; transition: all 0.2s;
+        }
+        .header-actions a:hover, .header-actions button:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* ── Stats ── */
+        .stats-bar {
+            display: flex; gap: 24px; flex-wrap: wrap; padding: 16px 20px;
+            background: var(--bg-secondary); border-radius: var(--radius);
+            margin-bottom: 24px; font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .stats-bar strong { color: var(--text); }
+
+        /* ── Search & Filter ── */
+        .search-box { width: 100%; max-width: 400px; padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--text); font-size: 0.9rem; }
+        .search-box:focus { outline: none; border-color: var(--accent); }
+        .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+        .filter-chip { font-size: 0.82rem; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+        .filter-chip.active, .filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* ── Critic Flags Summary Box ── */
+        .flags-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: var(--radius); padding: 14px 20px; margin-bottom: 24px; font-size: 0.85rem; }
+        [data-theme="dark"] .flags-box { background: #3b2e0a; border-color: #92400e; }
+        .flags-box summary { cursor: pointer; font-weight: 600; color: var(--bias); }
+        .flags-box ul { list-style: none; padding: 0; margin-top: 8px; }
+        .flags-box li { padding: 3px 0; border-bottom: 1px solid var(--border); }
+        .flags-box li:last-child { border-bottom: none; }
+        .flags-box .flag-article { font-weight: 600; font-size: 0.82rem; color: var(--text); }
+
+        /* ── Critic Icons ── */
+        .critic-badges { display: inline-flex; gap: 4px; align-items: center; vertical-align: middle; }
+        .critic-badge {
+            display: inline-flex; align-items: center; gap: 3px; font-size: 0.72rem;
+            padding: 2px 7px; border-radius: 12px; font-weight: 600; cursor: help;
+            white-space: nowrap; transition: opacity 0.15s;
+        }
+        .critic-badge:hover { opacity: 0.8; }
+        .critic-badge.factual { background: var(--factual-bg); color: var(--factual); }
+        .critic-badge.bias { background: var(--bias-bg); color: var(--bias); }
+        .critic-badge.safety { background: var(--safety-bg); color: var(--safety); }
+        .critic-badge.privacy { background: var(--privacy-bg); color: var(--privacy); }
+
+        /* ── Topic Sections ── */
+        .topic-section { margin-bottom: 40px; scroll-margin-top: 20px; }
+        .topic-header { font-size: 1.3rem; font-weight: 700; color: var(--accent); padding-bottom: 8px; margin-bottom: 16px; border-bottom: 2px solid var(--accent); }
+        .topic-count { font-size: 0.85rem; font-weight: 400; color: var(--text-secondary); }
+
+        /* ── Article Card ── */
+        .article-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px 24px; margin-bottom: 16px;
+            box-shadow: var(--shadow); transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .article-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+        .article-card h3 a { color: var(--text); text-decoration: none; }
+        .article-card h3 a:hover { color: var(--accent); }
+        .article-meta { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 10px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+        .source-tag { font-size: 0.78rem; padding: 2px 8px; border-radius: 4px; background: var(--tag-bg); color: var(--tag-text); }
+        .en-summary { font-size: 0.92rem; color: var(--text); margin-bottom: 8px; }
+        .zh-summary { font-size: 0.92rem; color: var(--text-secondary); padding-left: 12px; border-left: 3px solid var(--border); margin-bottom: 8px; }
+        .key-points { list-style: none; padding: 0; margin: 8px 0 0; font-size: 0.85rem; color: var(--text-secondary); }
+        .key-points li::before { content: "▸ "; color: var(--accent); }
+        .impact { font-size: 0.85rem; padding: 8px 12px; margin-top: 8px; background: var(--bg-secondary); border-radius: 6px; color: var(--text-secondary); font-style: italic; }
+
+        /* ── Footer ── */
+        footer { text-align: center; padding: 32px 0; margin-top: 40px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.85rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* ── Mobile ── */
+        @media (max-width: 900px) {
+            .toc-sidebar {
+                position: fixed; left: -280px; top: 0; width: 260px; height: 100vh;
+                z-index: 99; transition: left 0.3s; box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            }
+            .toc-sidebar.open { left: 0; }
+            .toc-toggle { display: flex; align-items: center; justify-content: center; }
+            .toc-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 98; }
+            .toc-overlay.show { display: block; }
+            .container { padding: 0 16px; }
+        }
+        @media (max-width: 640px) {
+            header h1 { font-size: 1.5rem; }
+            .article-card { padding: 14px 16px; }
+            .stats-bar { gap: 12px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- ── TOC Sidebar ── -->
+        <div class="toc-overlay" id="toc-overlay" onclick="closeToc()"></div>
+        <nav class="toc-sidebar" id="toc-sidebar">
+            <h3>📑 Contents</h3>
+            <a href="#top" class="active" data-toc="top">📰 Top</a>
+            
+            <a href="#topic-1" data-toc="topic-1">Large Language Models <small>(2)</small></a>
+            
+            <a href="#topic-2" data-toc="topic-2">AI Research & Breakthroughs <small>(1)</small></a>
+            
+            <a href="#topic-3" data-toc="topic-3">Open Source <small>(1)</small></a>
+            
+            <a href="#topic-4" data-toc="topic-4">AI Business & Funding <small>(6)</small></a>
+            
+            <a href="#topic-5" data-toc="topic-5">Infrastructure & Cloud <small>(1)</small></a>
+            
+            <a href="#topic-6" data-toc="topic-6">Industry Trends & Analysis <small>(18)</small></a>
+            
+            <a href="#topic-7" data-toc="topic-7">AI Ethics & Policy <small>(1)</small></a>
+            
+        </nav>
+
+        <!-- ── Main Content ── -->
+        <div class="content-area">
+            <header id="top">
+                <div class="container">
+                    <h1>🤖 Daily AI Digest</h1>
+                    <p class="subtitle">November 24, 2026 · AI-powered bilingual IT/AI news summary · Auto-generated daily</p>
+                    <div class="header-actions">
+                        <a href="archive/index.html">📚 Archives</a>
+                        <a href="https://github.com" target="_blank">⭐ GitHub</a>
+                        <button onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="container">
+                <!-- Stats -->
+                <div class="stats-bar">
+                    <span>📰 <strong>30</strong> articles</span>
+                    <span>📡 <strong>4</strong> sources</span>
+                    <span>🏷️ <strong>7</strong> topics</span>
+                    <span>🕐 2026-11-24T08:04:50 UTC</span>
+                    <span>🧠 DeepSeek</span>
+                </div>
+
+                <!-- Search & Filter -->
+                <input type="text" class="search-box" id="search" placeholder="🔍 Search articles..." oninput="filterArticles()">
+                <div class="filter-bar" id="filter-bar">
+                    <span class="filter-chip active" onclick="setTopicFilter('all', this)">All</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Large Language Models', this)">Large Language Models</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Research & Breakthroughs', this)">AI Research & Breakthroughs</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Open Source', this)">Open Source</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Business & Funding', this)">AI Business & Funding</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Infrastructure & Cloud', this)">Infrastructure & Cloud</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('Industry Trends & Analysis', this)">Industry Trends & Analysis</span>
+                    
+                    <span class="filter-chip" onclick="setTopicFilter('AI Ethics & Policy', this)">AI Ethics & Policy</span>
+                    
+                </div>
+
+                <!-- Critic Flags Summary (collapsible) -->
+                
+                <details class="flags-box" id="flags-summary">
+                    <summary>⚠️ AI Critic Notes (11 articles flagged — click to expand)</summary>
+                    <ul>
+                        
+                        <li>
+                            <span class="flag-article">Introducing OpenAI for Ireland</span>
+                            <br><small>Bias (mild): ["Uncritical product launch coverage: the summary reads like a press release, repeating the initiative's stated aims ('innovate, boost productivity, build the next generation of Irish tech startups') without any independent framing or acknowledgment of what the program actually entails.", "Missing counterpoints: no mention of potential concerns such as vendor lock-in to OpenAI's ecosystem, data/privacy implications, or whether similar government-backed AI programs exist with other providers.", "Hype inflation: phrases like 'build the next generation of Irish tech startups' echo promotional language rather than describing concrete deliverables."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">Introducing OpenAI for Government</span>
+                            <br><small>Bias (mild): ["Uncritical product launch coverage: the summary closely mirrors OpenAI's own promotional framing ('most advanced AI tools', 'best-in-class technology', 'for the public good') without any independent context or scrutiny.", 'Missing counterpoints: no mention of privacy, surveillance, procurement, or accountability concerns that typically accompany government AI deployments, nor any competing vendors or approaches.', "Hype-adjacent language: 'best-in-class' and 'most advanced' are vendor claims presented as fact rather than attributed or qualified."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">Introducing OpenAI</span>
+                            <br><small>Bias (mild): ["Uncritical launch coverage: the summary restates OpenAI's stated mission and framing ('free from financial return constraints', 'without commercial pressures') as fact rather than as the organization's own claims, reading somewhat like a press release.", 'Missing counterpoints: no acknowledgment that a non-profit structure does not guarantee freedom from commercial influence, nor any mention of skepticism about how such an organization would fund large-scale AI research.']</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">Introducing GPT-5.2</span>
+                            <br><small>Bias (moderate): ["Uncritical product launch coverage that reads like a press release: 'most advanced frontier model', 'state-of-the-art', '业界顶尖水平' are vendor marketing claims presented as fact without independent benchmarks or evidence.", 'Missing counterpoints: no mention of limitations, benchmark comparisons, competing models (e.g., Anthropic, Google), or independent evaluation.', "Hype inflation: 'faster and more reliable agentic workflows' and '更快速、更可靠的智能体工作流' are unsubstantiated performance claims.", "Vendor lock-in bias: promotes OpenAI's ecosystem (ChatGPT and API) without noting alternatives or portability considerations."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">黄仁勋重返英伟达，市值涨31.48%；马斯克：AI 研发落后对手，出租算力比自研更赚钱；新一代 AI 模型更爱「爆粗口」</span>
+                            <br><small>Bias (mild): ["The headline '市值涨31.48%' presents a stock price movement as a factual news hook without context, which can read as promotional for NVIDIA.", "The quoted statement '全球最具影响力的科技公司之一' is a self-serving corporate claim presented without attribution or counterpoint.", 'The summary is essentially a verbatim reproduction of a corporate press release/statement, with no independent reporting, analysis, or acknowledgment of challenges (e.g., why the CEO returned, market skepticism, or governance concerns).', "The phrase '新一轮工业革命' is a hype-laden framing repeated uncritically."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">黄仁勋归来：AI大航海时代的产业逻辑、政治博弈与地缘重构</span>
+                            <br><small>Factual: ["The summary claims 'direct White House intervention—driven by internal Republican factional battles over China tech policy' proves the AI industry is inseparable from state power. The source mentions Wall Street and industry capital collectively pressuring the White House to push for Huang's return, but does not mention any 'direct White House intervention' nor 'internal Republican factional battles over China tech policy'—these are fabricated details not present in the source."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">马斯克谈支持黄仁勋：逆境时才能看到真朋友</span>
+                            <br><small>Factual: ["The summary introduces 'SpaceX's Kessel project' and claims Musk is 'working to bypass Nvidia's full-rack bundling' — neither the 'Kessel' project nor any full-rack bundling bypass effort appears anywhere in the source article. This is fabricated/hallucinated content.", "The source describes Musk offering SpaceX and 'Terafab' positions to departing Nvidia employees, not a 'Kessel' project or bundling workaround.", "Other claims (11-day ouster, 'real friend' framing, Michael Jordan comparison, $1.16 trillion market cap loss, >30% surge on reinstatement) are supported by the source."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">零跑股价大跌13%，市场在恐慌什么？</span>
+                            <br><small>Factual: ["The summary claims 'analysts like JPMorgan and Citi to cut profit forecasts' — this is not mentioned anywhere in the source article (hallucinated)."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">追忆廖建文教授：我人生重要的上下文</span>
+                            <br><small>Factual: ["The summary claims discussions covered 'AGI,' but the source only mentions '人工智能' (artificial intelligence); AGI is not stated in the source.", "The summary says 'over a decade of intellectual partnership,' but the source describes their relationship starting in 2012, which is roughly a decade but not explicitly 'over a decade'; this is a minor overstatement.", "The summary states Liao 'continuously connected people and ideas across academia and industry,' which is a reasonable inference but not explicitly stated in the source text."]</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">推力与阻力</span>
+                            <br><small>Factual: ["The summary claims China's macro leverage ratio surged 167.4% from 2008 to 2025 and far exceeded other major economies; the source does not mention any macro leverage ratio figure or 167.4%.", 'The summary claims fixed asset investment turned negative across real estate, manufacturing, and infrastructure in the first 10 months of 2025; the source does not contain this claim or these specifics.', 'The summary states households and private firms are now deleveraging; the source says that after the 2008 crisis, US households and firms deleveraged while China began adding leverage, not that Chinese households/private firms are now deleveraging.']</small>
+                        </li>
+                        
+                        <li>
+                            <span class="flag-article">恒隆与太古，为什么在同一轮繁荣里走出了两种命运？</span>
+                            <br><small>Factual: ["The summary claims Swire's low net gearing (around 15%) and a HK$100 billion counter-cyclical investment commitment in 2022; neither figure nor claim appears in the source text (hallucinated).", "The source does not mention 'asset mix' as an explicit cause of divergence in the way summarized, though it does note differing property portfolios; the lease-structure point is supported.", 'The summary omits that the 33% dividend cut was from HK$0.78 to HK$0.52, but this is not an error, just incomplete.']</small>
+                        </li>
+                        
+                    </ul>
+                </details>
+                
+
+                <!-- Legend -->
+                <div style="margin-bottom: 20px; font-size: 0.78rem; color: var(--text-secondary); display: flex; gap: 14px; flex-wrap: wrap;">
+                    <span class="critic-badge factual">🔴 Factual</span> 事实可能不准
+                    <span class="critic-badge bias">🟡 Bias</span> 有营销/偏见
+                    <span class="critic-badge safety">🟣 Safety</span> 内容安全
+                    <span class="critic-badge privacy">🟢 Privacy</span> 有隐私信息
+                </div>
+
+                <!-- Topic Sections -->
+                
+                <section class="topic-section" data-topic="Large Language Models" id="topic-1">
+                    <h2 class="topic-header">Large Language Models <span class="topic-count">(2)</span></h2>
+                    
+                    <article class="article-card" data-topic="Large Language Models">
+                        <h3><a href="https://openai.com/index/introducing-gpt-5-2" target="_blank" rel="noopener">Introducing GPT-5.2</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: moderate — Uncritical product launch coverage that reads like a press release: 'most advanced frontier model', 'state-of-the-art', '业界顶尖水平' are vendor marketing claims presented as fact without independent benchmarks or evidence.; Missing counterpoints: no mention of limitations, benchmark comparisons, competing models (e.g., Anthropic, Google), or independent evaluation.; Hype inflation: 'faster and more reliable agentic workflows' and '更快速、更可靠的智能体工作流' are unsubstantiated performance claims.; Vendor lock-in bias: promotes OpenAI's ecosystem (ChatGPT and API) without noting alternatives or portability considerations.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI announced GPT-5.2, its most advanced frontier model for everyday professional work, featuring state-of-the-art reasoning, long-context understanding, coding, and vision. It is available in ChatGPT and the OpenAI API, enabling faster and more reliable agentic workflows.</p>
+                        <p class="zh-summary">OpenAI 发布了 GPT-5.2，这是其面向日常专业工作的最先进前沿模型，在推理、长上下文理解、编程和视觉方面均达到业界顶尖水平。该模型已在 ChatGPT 和 OpenAI API 中上线，旨在支持更快速、更可靠的智能体工作流。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>GPT-5.2 is OpenAI's most advanced frontier model for everyday professional work.</li>
+                            
+                            <li>It offers state-of-the-art reasoning, long-context understanding, coding, and vision capabilities.</li>
+                            
+                            <li>Available in ChatGPT and the OpenAI API, it powers faster and more reliable agentic workflows.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners can leverage GPT-5.2's improved reasoning and long-context capabilities to build more sophisticated and reliable agentic applications.<br>🇨🇳 开发者和 AI 从业者可以利用 GPT-5.2 增强的推理和长上下文能力，构建更复杂、更可靠的智能体应用。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Large Language Models">
+                        <h3><a href="https://www.huxiu.com/article/4908000.html" target="_blank" rel="noopener">腾讯想做什么，姚顺雨真的“交底”了？三个重要问题还没讲清</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Tencent's Hunyuan team, led by chief AI scientist Yao Shunyu, held its first Reddit AMA on November 20-21, with nine members posting over 100 replies in about two hours. The team gave concrete details on quantization, GGUF, local deployment, MoE architecture, and writing quality, and admitted known issues with overly long reasoning and formulaic writing, but left three strategic questions unanswered: post-Hy4 direction, small-model roadmap, and the state of recursive self-improvement (RSI) research.</p>
+                        <p class="zh-summary">腾讯混元团队在姚顺雨带领下首次跑到 Reddit 开 AMA，两个多小时里 9 个人回了 100 多条，量化、GGUF、本地部署、MoE 架构这些技术细节都聊得挺实在，也坦白了“想太久”和“写作套话”两个毛病。但一碰到战略走向、小模型路线图、RSI 自进化进展这三个关键问题，团队就收口了，没给出清晰答案。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Hunyuan's first Reddit AMA featured 9 team members and 100+ replies over roughly two hours, with no individual identified as Yao Shunyu.</li>
+                            
+                            <li>The team shared specifics on quantization, GGUF format, local deployment, MoE architecture, and writing improvements.</li>
+                            
+                            <li>They acknowledged two weaknesses: Hy4's long pre-answer reasoning and formulaic model writing, the latter tied to training objectives.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers get useful signals on Hunyuan's local-deployment and quantization support, but the vague answers on small models and strategy mean teams planning to build on Tencent's stack still lack a clear roadmap.<br>🇨🇳 开发者能从中摸到混元在本地部署和量化上的支持力度，但小模型和战略层面的模糊回答意味着想基于腾讯技术栈做规划的团队仍缺一张清晰路线图。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Research & Breakthroughs" id="topic-2">
+                    <h2 class="topic-header">AI Research & Breakthroughs <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Research & Breakthroughs">
+                        <h3><a href="https://openai.com/index/introducing-indqa" target="_blank" rel="noopener">Introducing IndQA</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched IndQA, a new benchmark designed to evaluate AI systems' cultural understanding and reasoning in Indian languages. Developed with domain experts, it covers 12 languages and 10 knowledge areas, aiming to provide a more accurate assessment of AI performance in diverse Indian linguistic and cultural contexts.</p>
+                        <p class="zh-summary">OpenAI 推出了 IndQA，一个专门评估 AI 系统在印度语言和文化理解方面表现的新基准。该基准由领域专家参与构建，覆盖 12 种语言和 10 个知识领域，旨在更准确地衡量 AI 在印度多元语言文化环境下的推理能力。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>IndQA is a new benchmark for evaluating AI in Indian languages.</li>
+                            
+                            <li>It tests cultural understanding and reasoning across 12 languages and 10 knowledge areas.</li>
+                            
+                            <li>Built with domain experts to ensure accuracy and relevance.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This benchmark enables developers to better assess and improve AI models for Indian language users, addressing cultural nuances often overlooked in mainstream evaluations.<br>🇨🇳 该基准使开发者能够更好地评估和改进面向印度语言用户的 AI 模型，解决主流评估中常被忽视的文化细微差别。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Open Source" id="topic-3">
+                    <h2 class="topic-header">Open Source <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="Open Source">
+                        <h3><a href="https://openai.com/index/introducing-gpt-oss" target="_blank" rel="noopener">Introducing gpt-oss</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has released gpt-oss-120b and gpt-oss-20b, two open-weight language models under the Apache 2.0 license. They outperform similarly sized open models on reasoning tasks, show strong tool use capabilities, and are optimized for efficient deployment on consumer hardware.</p>
+                        <p class="zh-summary">OpenAI 正式发布 gpt-oss-120b 和 gpt-oss-20b 两款开源权重模型，采用 Apache 2.0 许可。这两款模型在推理任务上超越同规模开源模型，工具调用能力出色，并针对消费级硬件进行了高效优化。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Two models released: gpt-oss-120b and gpt-oss-20b</li>
+                            
+                            <li>Apache 2.0 license allows flexible use</li>
+                            
+                            <li>Outperform similarly sized open models on reasoning tasks</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers can now deploy powerful open-weight models locally on consumer hardware, enabling cost-effective AI applications with strong reasoning and tool use.<br>🇨🇳 开发者现在可以在消费级硬件上本地部署强大的开源权重模型，实现低成本、高推理和工具调用能力的 AI 应用。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Business & Funding" id="topic-4">
+                    <h2 class="topic-header">AI Business & Funding <span class="topic-count">(6)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://openai.com/index/openai-for-ireland" target="_blank" rel="noopener">Introducing OpenAI for Ireland</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — Uncritical product launch coverage: the summary reads like a press release, repeating the initiative's stated aims ('innovate, boost productivity, build the next generation of Irish tech startups') without any independent framing or acknowledgment of what the program actually entails.; Missing counterpoints: no mention of potential concerns such as vendor lock-in to OpenAI's ecosystem, data/privacy implications, or whether similar government-backed AI programs exist with other providers.; Hype inflation: phrases like 'build the next generation of Irish tech startups' echo promotional language rather than describing concrete deliverables.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched 'OpenAI for Ireland' in partnership with the Irish Government, Dogpatch Labs, and Patch. The initiative aims to help SMEs, founders, and young builders use AI to innovate, boost productivity, and build the next generation of Irish tech startups.</p>
+                        <p class="zh-summary">OpenAI 与爱尔兰政府、Dogpatch Labs 和 Patch 合作推出“OpenAI for Ireland”计划，旨在帮助中小企业、创业者和年轻开发者利用 AI 创新、提高生产力，并培育下一代爱尔兰科技初创企业。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI partners with Irish Government, Dogpatch Labs, and Patch to launch OpenAI for Ireland.</li>
+                            
+                            <li>The program targets SMEs, founders, and young builders to leverage AI for innovation and productivity.</li>
+                            
+                            <li>Goal is to foster the next generation of Irish tech startups.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This initiative provides developers and AI practitioners in Ireland with resources and support to integrate AI into their products and workflows, potentially accelerating local startup growth.<br>🇨🇳 该计划为爱尔兰的开发者和 AI 从业者提供了将 AI 集成到产品和流程中的资源与支持，有望加速当地初创企业的发展。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://www.tmtpost.com/8215547.html" target="_blank" rel="noopener">黄仁勋回来了，明星创始人为何“赶不走”？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Jensen Huang returned as Nvidia's CEO just 11 days after resigning, and the stock jumped 31.5%, adding nearly $1 trillion in market value. The episode highlights how star founders are both irreplaceable assets—holding strategic judgment, team authority, and customer relationships—and a governance risk due to over-reliance on one person, prompting Nvidia to add new compliance constraints.</p>
+                        <p class="zh-summary">黄仁勋辞职11天后火速回归英伟达CEO岗位，股价应声暴涨31.5%，市值一天增加近1万亿美元。这出反转剧说明：明星创始人的价值远不止签字开会，而是战略判断、团队号召力和客户关系的集合体。英伟达虽然业务体系成熟，但想找人完整接住黄仁勋33年攒下的“关系网”，11天显然不够。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang resigned on Nov 12 and was reinstated on Nov 23; Nvidia's stock rose 31.5% on the news, adding nearly $1 trillion in market cap.</li>
+                            
+                            <li>Nvidia's Q3 FY2027 revenue hit $115.8 billion (up 103% YoY), showing the business can run without Huang, but his strategic vision and industry relationships cannot be quickly replicated.</li>
+                            
+                            <li>Similar founder-return stories include Steve Jobs at Apple (1997), Jack Dorsey at Twitter (2015), and Sam Altman at OpenAI (2023).</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For AI practitioners, this underscores that founder-led companies carry unique strategic continuity risks—and that governance structures are increasingly being built to hedge against over-dependence on a single individual.<br>🇨🇳 对AI从业者来说，这提醒我们：创始人驱动的公司有独特的战略连续性风险，而治理结构正在成为对冲“个人依赖”的关键工具。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://www.huxiu.com/article/4908008.html" target="_blank" rel="noopener">黄仁勋回归首日：A股高开回落，机构称估值修复仍待业绩验证</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Jensen Huang's return to Nvidia after an 11-day resignation triggered a sharp rebound in A-share tech stocks on November 24, with the ChiNext index opening up 3.88% and over 4,900 stocks rising. Nvidia supply-chain names like Tianfu Communication and Zhongji Innolight surged over 10%, though gains narrowed by midday as capital rotated from compute hardware into robotics themes. Analysts remain cautious, noting that valuation recovery still requires confirmation from cloud capex and ongoing governance investigations.</p>
+                        <p class="zh-summary">黄仁勋辞职11天后回归英伟达，A股科技板块应声反弹，创业板指开盘涨近4%，英伟达产业链个股集体大涨。不过高开之后资金迅速轮动到人形机器人等题材，说明市场更多把这当作短线催化。机构普遍认为，算力链估值能否站稳，还得看云厂商下一轮财报和订单数据。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>A-shares opened sharply higher on Nov 24: Shanghai Composite +0.82%, ChiNext +3.88%, STAR Market +3.94%, with over 4,900 stocks advancing.</li>
+                            
+                            <li>Nvidia supply-chain stocks led gains: Tianfu Communication, Zhongji Innolight and Eoptolink each rose over 10% intraday; Foxconn Industrial Internet hit limit-up within 5 minutes.</li>
+                            
+                            <li>The rally faded by midday as capital rotated from compute hardware into humanoid robotics and physical AI themes.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This episode highlights how concentrated AI supply-chain exposure has become around Nvidia's leadership and governance, meaning developers and AI practitioners should watch cloud capex trends and regulatory investigations as key signals for compute availability and pricing.<br>🇨🇳 这件事说明AI算力供应链高度绑定英伟达的人事与治理风险，开发者和AI从业者应关注云厂商资本开支和监管调查进展，它们直接影响算力供给与成本。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://www.tmtpost.com/8215098.html" target="_blank" rel="noopener">英伟达的 10 天压力测试：没有黄仁勋，全球 AI 蒸发 4 万亿美元</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia's 10-day absence of CEO Jensen Huang triggered a $4 trillion global AI market selloff, with the Philadelphia Semiconductor Index dropping 17.1% in one week—the worst since 2001. His return on November 23 restored confidence, as the index surged 14% and Nvidia's market cap gained over $1 trillion in a single morning, highlighting how Huang's personal credit underpins the AI supply chain's financing mechanisms.</p>
+                        <p class="zh-summary">黄仁勋辞职10天，全球AI板块蒸发4万亿美元，费城半导体指数单周暴跌17.1%，创2001年以来最差纪录。他一复职，英伟达市值一上午就涨回1万亿美元。市场真正在意的不是CEO换人，而是黄仁勋用个人信用为整个AI产业链融资背书的能力——他一走，这条链就断了。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Nvidia CEO Jensen Huang resigned on Nov 12 and was reinstated on Nov 23, during which the Philadelphia Semiconductor Index fell 17.1% in a week, the worst since September 2001.</li>
+                            
+                            <li>Huang had personally brokered over $500 billion in AI infrastructure financing with firms like Apollo, Blackstone, and BlackRock, and guaranteed up to $105 billion for a data center project.</li>
+                            
+                            <li>Upon his return, Nvidia surged 33% and the semiconductor index rose 14%, adding over $1 trillion in market cap within hours.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This event demonstrates that Nvidia's ecosystem financing—not just its chips—is a systemic risk factor; developers and AI practitioners should watch how vendor financing and credit mechanisms shape AI infrastructure availability and costs.<br>🇨🇳 这件事说明英伟达的生态融资能力本身就是系统性风险点，开发者和AI从业者需要关注厂商融资和信用机制如何影响AI基础设施的供给与成本。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://www.huxiu.com/article/4908028.html" target="_blank" rel="noopener">联想股价一度跌超六成，AI生意单季却超700亿</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Lenovo's latest quarterly results show revenue of $30.24B, up 47.8% YoY, with AI-related business reaching $10.8B (36% of total revenue) and AI server revenue growing over 300%. Despite adjusted net profit rising 166% to $1.36B, Lenovo's Hong Kong-listed shares plunged over 60% from their September peak, as investors worry about PC market contraction and the sustainability of AI infrastructure margins.</p>
+                        <p class="zh-summary">联想最新财报亮眼：单季营收302亿美元，AI业务贡献108亿美元，AI服务器收入暴涨300%以上，调整后净利润同比大增166%。但资本市场并不买账，股价两个月内从高点跌超六成。PC市场萎缩、AI服务器利润含金量存疑，成了投资者最大的心病。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Lenovo's Q2 FY2026/27 revenue hit $30.24B, up 47.8% YoY, beating expectations; AI-related revenue reached $10.8B, 36% of total.</li>
+                            
+                            <li>AI server revenue surged over 300% YoY; ISG infrastructure segment revenue grew 177.6% to $11.35B with operating margin of 9.6%, surpassing the 7.1% margin of the smart devices segment.</li>
+                            
+                            <li>Adjusted net profit rose 166% to $1.36B, though GAAP net loss was $640M due to fair value changes in financial instruments like warrants.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This highlights the tension between AI-driven revenue growth and market skepticism about hardware margins, signaling that infrastructure providers must demonstrate sustainable profitability beyond GPU resale to win investor confidence.<br>🇨🇳 这揭示了AI收入增长与市场对硬件利润质疑之间的矛盾，说明基础设施厂商必须证明其在GPU转售之外的可持续盈利能力，才能赢得投资者信心。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="AI Business & Funding">
+                        <h3><a href="https://www.huxiu.com/article/4908017.html" target="_blank" rel="noopener">杨幂的前老板，投了梁文锋</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Chinese game developer Perfect World has invested 150 million RMB into DeepSeek's second funding round, indirectly acquiring less than 0.1% equity through two special-purpose funds. The investment comes as Perfect World faces a net loss of 118 million RMB in H1 2026 and a stock price that has more than halved, while it simultaneously ramps up AI investments including a 700 million RMB commitment across four funds and a direct stake in 3D AI startup VAST.</p>
+                        <p class="zh-summary">完美世界花1.5亿挤进了DeepSeek第二轮融资，穿透后持股不到0.1%。这家老牌游戏公司上半年刚亏了1.18亿、股价腰斩，却在一个多月里密集出手7亿做LP投AI，还直投了3D大模型公司VAST——一边勒紧裤腰带，一边押注第二曲线，池宇峰的资本棋局越下越大。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Perfect World invested 150 million RMB into DeepSeek's second funding round via two special funds, holding less than 0.1% post-penetration.</li>
+                            
+                            <li>DeepSeek required all investors to document data support and business synergies; Perfect World's 3D asset and open-world scene capabilities likely secured its spot.</li>
+                            
+                            <li>Perfect World committed approximately 700 million RMB across four funds as an LP between August and September 2026, plus a direct investment in 3D AI startup VAST.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals that Chinese gaming companies are becoming significant AI investors even amid financial pressure, and DeepSeek's requirement for data and business synergies shows top AI labs now prioritize strategic resources over pure capital.<br>🇨🇳 游戏公司即便自身承压也在加码AI投资，而DeepSeek要求投资方提供数据与业务协同，说明头部AI实验室融资已从“拿钱”转向“拿资源”，开发者应关注产业资本与AI技术结合的协同效应。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Infrastructure & Cloud" id="topic-5">
+                    <h2 class="topic-header">Infrastructure & Cloud <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="Infrastructure & Cloud">
+                        <h3><a href="https://www.huxiu.com/article/4907984.html" target="_blank" rel="noopener">黄仁勋回归，但全球算力链条重估仍在继续</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">当地时间11月23日，英伟达宣布，董事会一致投票决定，恢复黄仁勋（Jensen Huang）公司总裁、首席执行官及董事职务，即刻生效。根据英伟达提交给美国证券交易委员会的文件，董事会已于11月22日作出复职决定。黄仁勋离职前，华尔街已经在担心AI投资过热，而他的突然离开更加让投资者开始怀疑，全球AI产业链的增...... 本文来自微信公众号： 界面新闻 ，作者：周末 当地时间11月23日，英伟达宣布，董事会一致投票决定，恢复黄仁勋（Jensen Huang）公司总裁、首席执行官及董事职务，即刻生效。根据英伟达提交给美国证券交易委员会的文件，董事会已于11月22日作出复职决定。 黄仁勋离职前，华</p>
+                        <p class="zh-summary">当地时间11月23日，英伟达宣布，董事会一致投票决定，恢复黄仁勋（Jensen Huang）公司总裁、首席执行官及董事职务，即刻生效。根据英伟达提交给美国证券交易委员会的文件，董事会已于11月22日作出复职决定。黄仁勋离职前，华尔街已经在担心AI投资过热，而他的突然离开更加让投资者开始怀疑，全球AI产业链的增...... 本文来自微信公众号： 界面新闻 ，作者：周末 当地时间11月23日，英伟达宣布，董事会一致投票决定，恢复黄仁勋（Jensen Huang）公司总裁、首席执行官及董事职务，即刻生效。根据英伟达提交给美国证券交易委员会的文件，董事会已于11月22日作出复职决定。 黄仁勋离职前，华</p>
+                        
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="Industry Trends & Analysis" id="topic-6">
+                    <h2 class="topic-header">Industry Trends & Analysis <span class="topic-count">(18)</span></h2>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://openai.com/index/introducing-openai" target="_blank" rel="noopener">Introducing OpenAI</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — Uncritical launch coverage: the summary restates OpenAI's stated mission and framing ('free from financial return constraints', 'without commercial pressures') as fact rather than as the organization's own claims, reading somewhat like a press release.; Missing counterpoints: no acknowledgment that a non-profit structure does not guarantee freedom from commercial influence, nor any mention of skepticism about how such an organization would fund large-scale AI research.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI launched as a non-profit AI research company with the mission to advance digital intelligence for the benefit of humanity, free from financial return constraints. The organization aims to focus on positive human impact without commercial pressures.</p>
+                        <p class="zh-summary">OpenAI 以非营利人工智能研究公司的身份亮相，目标是推动数字智能发展，造福全人类，而不受财务回报的束缚。没有盈利压力，他们能更专注于产生积极的社会影响。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI is a non-profit AI research company.</li>
+                            
+                            <li>Its goal is to advance digital intelligence to benefit humanity as a whole.</li>
+                            
+                            <li>Research is unconstrained by financial return obligations.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This announcement signals a new model for AI research driven by public benefit rather than profit, which could influence how developers and researchers prioritize ethical and societal outcomes.<br>🇨🇳 这一声明标志着以公益而非利润驱动的人工智能研究新模式，可能影响开发者和研究者如何优先考虑伦理和社会效益。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.geekpark.net/news/374375" target="_blank" rel="noopener">黄仁勋重返英伟达，市值涨31.48%；马斯克：AI 研发落后对手，出租算力比自研更赚钱；新一代 AI 模型更爱「爆粗口」</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — The headline '市值涨31.48%' presents a stock price movement as a factual news hook without context, which can read as promotional for NVIDIA.; The quoted statement '全球最具影响力的科技公司之一' is a self-serving corporate claim presented without attribution or counterpoint.; The summary is essentially a verbatim reproduction of a corporate press release/statement, with no independent reporting, analysis, or acknowledgment of challenges (e.g., why the CEO returned, market skepticism, or governance concerns).; The phrase '新一轮工业革命' is a hype-laden framing repeated uncritically.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">黄仁勋重返英伟达 黄仁勋在美国当地时间 11 月 23 日重返英伟达总部，现场员工聚集在大厅高声欢呼，迎接这位创办人回归。黄仁勋在现场表示：「感谢大家给我第二次机会，接下来我一定会成为更优秀的 CEO」。 「我很荣幸能重返英伟达，并在新一轮工业革命伊始领导这家全球最具影响力的科技公司之一，」黄仁勋表示。 「我将以最大的谦逊和焕然一新的承诺肩负起这一重任。我要感谢英伟达董事会在此过程中给予的信任与审慎考量。我尤其感谢哈维 · 琼斯（Harvey Jones）作为董事长所展现的领导力，也感谢科莱特 · 克雷斯（Colette Kress）以及我们的高管团队在此期间对英伟达的领导。同时，我深切感谢我</p>
+                        <p class="zh-summary">黄仁勋重返英伟达 黄仁勋在美国当地时间 11 月 23 日重返英伟达总部，现场员工聚集在大厅高声欢呼，迎接这位创办人回归。黄仁勋在现场表示：「感谢大家给我第二次机会，接下来我一定会成为更优秀的 CEO」。 「我很荣幸能重返英伟达，并在新一轮工业革命伊始领导这家全球最具影响力的科技公司之一，」黄仁勋表示。 「我将以最大的谦逊和焕然一新的承诺肩负起这一重任。我要感谢英伟达董事会在此过程中给予的信任与审慎考量。我尤其感谢哈维 · 琼斯（Harvey Jones）作为董事长所展现的领导力，也感谢科莱特 · 克雷斯（Colette Kress）以及我们的高管团队在此期间对英伟达的领导。同时，我深切感谢我</p>
+                        
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8215836.html" target="_blank" rel="noopener">黄仁勋归来：AI大航海时代的产业逻辑、政治博弈与地缘重构</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims 'direct White House intervention—driven by internal Republican factional battles over China tech policy' proves the AI industry is inseparable from state power. The source mentions Wall Street and industry capital collectively pressuring the White House to push for Huang's return, but does not mention any 'direct White House intervention' nor 'internal Republican factional battles over China tech policy'—these are fabricated details not present in the source.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia's board reinstated Jensen Huang as CEO on November 23, 2026, after an 11-day removal that wiped over $2.7 trillion from the company's market value; the stock then jumped 31.48% in a single day, adding roughly $952 billion and setting a global record for one-day market-cap gain. The article argues the episode shows Huang is irreplaceable as Nvidia's strategy architect and CUDA ecosystem builder, and that direct White House intervention—driven by internal Republican factional battles over China tech policy—proves the AI industry is inseparable from state power.</p>
+                        <p class="zh-summary">黄仁勋被董事会罢免11天后于2026年11月23日官复原职，期间英伟达市值蒸发超2.7万亿美元，回归当天股价暴涨31.48%、市值回血约9520亿美元，创下全球上市公司单日市值增长纪录。文章认为，这场风波说明黄仁勋在技术战略、CUDA生态和资本定价上的作用无人可替代，而白宫的直接介入则暴露出美国AI产业与政治权力深度捆绑、党内对华路线博弈的真实底色。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Huang's 11-day ouster erased over $2.7 trillion in Nvidia market value; his reinstatement added about $952 billion in one day (+31.48%), lifting the Nasdaq 6.51% and the Philadelphia Semiconductor Index 14%.</li>
+                            
+                            <li>The article credits Huang with the 2006 CUDA bet and the pivot to data-center computing; CUDA now has 5.9 million registered developers and over 500 million CUDA-enabled GPUs deployed, creating very high switching costs.</li>
+                            
+                            <li>Nvidia's share of new frontier compute deals has fallen from a peak of 83% to 39% as Broadcom custom chips and cloud in-house silicon gain ground, raising the stakes for stable leadership.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers, the episode is a reminder that CUDA's moat is organizational and political as much as technical—and that AI compute supply, pricing, and export rules can shift on a single personnel decision.<br>🇨🇳 对开发者来说，这提醒我们：CUDA的护城河不仅是技术，更是组织与政治；算力供给、价格和出口规则，可能因一个人事决定而剧烈波动。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4907988.html" target="_blank" rel="noopener">黄仁勋“熹妃回宫”，但英伟达已不再是11天前的英伟达</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">After an 11-day absence, NVIDIA CEO Jensen Huang returned to the company's Santa Clara headquarters, but NVIDIA has already changed: it established a board-level National Security and Export Controls Committee, an independent director special investigation into reports that Huang could be a target of foreign intelligence operations, and a new Chief Compliance Officer role reporting to the board. These governance changes may shift export-control compliance earlier into chip design and product planning, and add independent board oversight over Huang's high-risk business decisions.</p>
+                        <p class="zh-summary">黄仁勋时隔11天重返英伟达总部，但英伟达已经不是原来的英伟达了。公司火速新设董事会国家安全与出口管制委员会、由独立董事专项调查黄仁勋可能被外国情报机构盯上的报道，还增设直接向董事会汇报的首席合规官。这套治理组合拳可能把出口合规从销售环节前移到芯片研发和产品定义阶段，也让黄仁勋的高风险商业决策多了一层董事会监督。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>NVIDIA created a board-level National Security and Export Controls Committee with three directors, quarterly meetings, and authority to hire external experts.</li>
+                            
+                            <li>An independent director committee will investigate reports that Jensen Huang may be a target of foreign intelligence operations, with outside counsel.</li>
+                            
+                            <li>A new Chief Compliance Officer will report to the board's nominating and governance committee, creating a dual-reporting compliance structure.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For AI practitioners, NVIDIA's governance shift signals that export controls will increasingly shape chip design and product availability from the ground up, not just sales, which could affect global access to advanced GPUs and AI compute planning.<br>🇨🇳 对AI从业者来说，英伟达的治理变化意味着出口管制会从芯片设计源头就影响产品供给，全球开发者获取高端GPU和规划AI算力时需更关注合规与供应链风险。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8215202.html" target="_blank" rel="noopener">马斯克谈支持黄仁勋：逆境时才能看到真朋友</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary introduces 'SpaceX's Kessel project' and claims Musk is 'working to bypass Nvidia's full-rack bundling' — neither the 'Kessel' project nor any full-rack bundling bypass effort appears anywhere in the source article. This is fabricated/hallucinated content.; The source describes Musk offering SpaceX and 'Terafab' positions to departing Nvidia employees, not a 'Kessel' project or bundling workaround.; Other claims (11-day ouster, 'real friend' framing, Michael Jordan comparison, $1.16 trillion market cap loss, >30% surge on reinstatement) are supported by the source.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Elon Musk publicly defended Nvidia CEO Jensen Huang during an 11-day boardroom ouster in November, calling him a 'real friend' and comparing his removal to the Bulls benching Michael Jordan. Nvidia's market cap lost over $1.16 trillion during Huang's absence and surged over 30% upon his reinstatement, revealing that his personal relationships across the AI supply chain cannot be replaced by corporate governance. Meanwhile, SpaceX's 'Kessel' project shows Musk simultaneously working to bypass Nvidia's full-rack bundling while still buying its chips.</p>
+                        <p class="zh-summary">马斯克在黄仁勋被英伟达董事会扫地出门的11天里高调力挺，称其为'真朋友'，还把这次罢免比作公牛队踢走乔丹。黄仁勋离任期间英伟达市值蒸发超1.16万亿美元，复职后股价暴涨30%，市场用真金白银证明：制度能制造空缺，却填不上黄仁勋留下的洞。有意思的是，马斯克一边力挺老黄，一边通过SpaceX的'Kessel'项目绕开英伟达整机捆绑——芯片照买，但芯片周围的事得自己说了算。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Nvidia's board removed Jensen Huang on Nov 12 over a personal conduct issue, but reinstated him on Nov 23 after the stock lost over $1.16 trillion in market cap.</li>
+                            
+                            <li>Musk was one of the earliest and most vocal supporters, signing a petition for Huang's return, restoring his X verification badge, and offering jobs to Nvidia employees considering leaving.</li>
+                            
+                            <li>The Musk-Huang relationship spans a decade, from Nvidia delivering the first DGX-1 to OpenAI in 2016 to the first DGX Spark to SpaceX in 2025.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This episode underscores that in the AI hardware supply chain, personal trust and relationships can outweigh formal corporate governance, while also showing that even the closest partners hedge against vendor lock-in.<br>🇨🇳 这说明在AI算力供应链里，个人信用和关系有时比公司制度更管用；同时也提醒开发者，再铁的合作伙伴也会想办法避免被单一供应商锁死。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4907990.html" target="_blank" rel="noopener">韩国高考，把教育部长考没了</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">South Korea's Education Minister Choi Kyo-jin resigned and was approved within an hour after a cheating scandal involving AI and微型 cameras disrupted the national college entrance exam. A 34-year-old exam top scorer admitted to using a micro-camera hidden in correction tape and AI to cheat, triggering a nationwide anti-cheating alert that caught 98 offenders, but also exposed inadequate preparation that burdened frontline teachers.</p>
+                        <p class="zh-summary">韩国教育部长官崔教镇在高考结束三天后闪电辞职，总统李在明一小时内批准。导火索是一名34岁考生用藏在修正带里的微型摄像头和AI作弊，在税务师考试中拿下“断层式”高分，引发全国防作弊警报。高考当天政府甚至动用灾难警报揪出49部违规手机，但临时加派的监考任务全压在一线教师身上，最终把部长“考”下了台。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>A 34-year-old candidate admitted to using a micro-camera hidden in correction tape and AI to cheat in the tax accountant exam, scoring 397.5/400 in the first round.</li>
+                            
+                            <li>The government issued a nationwide emergency disaster alert during the college entrance exam, catching 49 illegal phones and 98 total cheating cases.</li>
+                            
+                            <li>Teachers were given less than a day's training and tasked with checking students' glasses and clothing, leading to backlash over privacy and legal risks.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This case highlights the growing challenge of AI-powered cheating in high-stakes exams and the need for scalable, legally sound anti-cheating measures that don't burden frontline educators.<br>🇨🇳 AI作弊已从考场暗流变成国家级危机，开发者需关注AI检测与反作弊技术，而政策制定者则面临隐私与公平的艰难平衡。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8215444.html" target="_blank" rel="noopener">零跑股价大跌13%，市场在恐慌什么？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims 'analysts like JPMorgan and Citi to cut profit forecasts' — this is not mentioned anywhere in the source article (hallucinated).">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Leapmotor's stock fell 12.99% after its Q3 report showed record deliveries of 310,100 units (+78.3% YoY) and revenue of 31.7 billion yuan (+63%), but net profit collapsed 73.3% YoY to just 40 million yuan, with operating profit turning negative at -30 million yuan. Gross margin declined to 10.9% due to rising memory chip costs from AI demand, a shift toward lower-priced A-series models, and higher shipping costs, prompting analysts like JPMorgan and Citi to cut profit forecasts.</p>
+                        <p class="zh-summary">零跑三季度交付量创历史新高，营收大涨63%，但净利润暴跌73%，经营利润转负，股价应声大跌13%。毛利率跌至10.9%，罪魁祸首竟是AI抢走了存储芯片产能导致成本上涨，再加上低价车型占比过高和海运费用飙升。市场现在不买“规模故事”的账了，开始追问：卖这么多车，到底赚不赚钱？</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Q3 deliveries hit a record 310,100 units (+78.3% YoY) and revenue reached 31.7 billion yuan (+63%), but net profit fell 73.3% YoY to 40 million yuan and operating profit turned negative at -30 million yuan.</li>
+                            
+                            <li>Gross margin dropped to 10.9% from 15% peak, driven by rising memory chip costs due to AI data center demand, a higher mix of lower-priced A-series models, and increased shipping costs.</li>
+                            
+                            <li>Per-vehicle gross profit of 11,200 yuan was surpassed by per-vehicle operating expenses of 11,400 yuan, pushing the company back into operating loss.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This highlights a critical shift in EV industry dynamics: scale alone no longer guarantees profitability, and AI-driven chip demand is now directly impacting automotive supply chains and margins, forcing developers and investors to reassess cost structures and pricing strategies.<br>🇨🇳 这标志着电动车行业逻辑生变：光靠规模已不能保证盈利，而AI抢芯片产能正直接冲击汽车供应链和利润率，开发者和投资者需要重新审视成本结构和定价策略。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4908005.html" target="_blank" rel="noopener">追忆廖建文教授：我人生重要的上下文</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims discussions covered 'AGI,' but the source only mentions '人工智能' (artificial intelligence); AGI is not stated in the source.; The summary says 'over a decade of intellectual partnership,' but the source describes their relationship starting in 2012, which is roughly a decade but not explicitly 'over a decade'; this is a minor overstatement.; The summary states Liao 'continuously connected people and ideas across academia and industry,' which is a reasonable inference but not explicitly stated in the source text.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">This memorial essay by Wu Sheng, founder of Scenario Lab, remembers Professor Liao Jianwen, former Chief Strategy Officer of JD.com and former Vice Dean of Cheung Kong Graduate School of Business, who passed away on November 22. The piece recounts over a decade of intellectual partnership—from early discussions on community economy and industrial internet to scenario revolution and AGI—highlighting Liao's role as a mentor who supported Wu during a career low point and continuously connected people and ideas across academia and industry.</p>
+                        <p class="zh-summary">场景实验室创始人吴声撰文追忆京东原首席战略官、长江商学院原副院长廖建文教授。文章回顾了两人十多年来从社群经济、产业互联网到场景革命、AGI的思想碰撞，以及廖教授在吴声人生低谷时给予的信任与支持。廖建文教授于11月22日辞世，他既是学者也是创业者，始终对新事物保持好奇，并乐于连接人与思想。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Professor Liao Jianwen, former CSO of JD.com and former Vice Dean of CKGSB, passed away on November 22.</li>
+                            
+                            <li>Wu Sheng credits Liao with supporting him during a career low point and inviting him to teach at CKGSB, which changed his life trajectory.</li>
+                            
+                            <li>Their decade-long dialogue spanned community economy, industrial internet, scenario revolution, and AGI, reflecting Liao's enduring curiosity about new tech and business models.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Liao's passing is a loss to the Chinese tech and business community, but his cross-disciplinary approach—bridging academia, strategy, and emerging tech like AGI—serves as a model for how technologists and business leaders can collaborate to drive innovation.<br>🇨🇳 廖建文教授的离世是中国科技与商业界的损失，但他跨越学术、战略与AGI等新兴技术的跨界思维，为技术人与商业领袖如何协作推动创新提供了典范。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8215096.html" target="_blank" rel="noopener">苹果做智能体，OpenAI做手机</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">On November 20, reports emerged that Apple is developing an AI agent capable of coding, browsing, and controlling apps, while OpenAI is reportedly entering smartphone hardware with Foxconn subsidiary FIH handling assembly. The two moves reflect a broader shift in AI competition from model intelligence to execution authority—who controls what AI agents can access and operate across devices and platforms.</p>
+                        <p class="zh-summary">11月20日科技圈传来两条消息：苹果正在研发能写代码、浏览网页、控制App的AI智能体；OpenAI则被曝通过富士康旗下富智康代工进军手机硬件。一个让AI走出聊天框，一个让AI走进手机——表面路线相反，实则都在争夺同一件事：AI替用户执行任务的控制权。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Apple is developing an AI agent that can write code, browse the web, and control applications to complete multi-step tasks, going beyond traditional Siri capabilities.</li>
+                            
+                            <li>OpenAI is reportedly entering smartphone hardware, with Foxconn subsidiary FIH securing assembly orders and MediaTek rumored to be involved in chip collaboration; launch expected 2027-2028.</li>
+                            
+                            <li>The competitive focus in AI is shifting from model capability to execution authority—who decides what AI agents can access and operate.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners should recognize that agent capabilities will increasingly be constrained by platform permission systems, making permission management, cross-app orchestration, and platform partnerships critical technical and strategic considerations.<br>🇨🇳 开发者和AI从业者需要意识到：智能体的能力边界将越来越取决于平台权限体系，权限管理、跨应用调度和平台合作将成为关键技术与发展策略。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8215302.html" target="_blank" rel="noopener">英伟达用11天证明，它离不开黄仁勋</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Nvidia's board unanimously reinstated Jensen Huang as CEO after an 11-day absence, triggering a 33% stock surge. The episode revealed that despite strong quarterly results under interim CEO Colette Kress, the market values Huang's personal role in backstopping AI customers through ~$530B in off-balance-sheet commitments, exposing a key-person risk and governance gap.</p>
+                        <p class="zh-summary">英伟达董事会11天后全票请回黄仁勋，股价应声暴涨33%。这11天像一场定价实验：临时CEO交出了史上最好季报，股价却连跌七日——市场真正买单的不是财报数字，而是黄仁勋用表外担保给整个AI产业兜底的能力。人回来了，但确定性和接班人问题依然悬着。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Nvidia's board reversed its stance within a week, reinstating Huang after major shareholders and industry figures pressured for his return.</li>
+                            
+                            <li>Q3 revenue hit $115.8B (+103% YoY) under interim CEO Kress, yet the stock fell for seven straight sessions, losing ~$735B in market cap.</li>
+                            
+                            <li>Huang's hidden role: ~$530B in off-balance-sheet commitments and guarantees (up from $184B a quarter earlier), including a ~$105B lease guarantee for OpenAI's Ohio data center.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This case shows that in the AI boom, a leader's personal risk-taking and customer backstops can matter more to valuation than quarterly financials—and that key-person risk is a real, quantifiable threat for any AI-dependent company.<br>🇨🇳 对AI从业者来说，这说明在AI热潮中，掌门人的个人胆识和客户兜底能力对估值的权重可能超过财报本身；关键人风险是任何依赖AI的公司都必须正视的量化威胁。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8215620.html" target="_blank" rel="noopener">百年商业帝国大洗牌，私募投资人掌舵后，香港财团要转型做PE？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Jardine Matheson, the 194-year-old Hong Kong conglomerate, is reportedly considering launching its first private-equity-style fund to raise external capital for future acquisitions, as part of a strategic shift toward becoming more investment-driven. The move is being driven by CEO Pan Linfeng, a former PAG partner who took over in December 2025 and has already overseen major deals like the $2.4B acquisition of Australia's I-MED and the buyout of Gammon Construction's remaining stake, while divesting non-core assets.</p>
+                        <p class="zh-summary">194岁的香港老牌财团怡和，居然要学PE机构对外募资了！在私募巨头PAG老将潘林峯掌舵后，这家百年帝国正加速从产业控股集团向投资公司转型——一边豪掷24亿美元收购澳洲医疗影像巨头I-MED，一边果断剥离永辉、越南乳业等非核心资产。潘林峯还计划未来四五年完成70-80亿美元的收购，这盘资本大棋你看懂了吗？</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jardine Matheson is exploring its first private equity-style fund to raise external capital, alongside co-investments, bond issuance, and asset sales.</li>
+                            
+                            <li>New CEO Pan Linfeng, former PAG partner, took over in December 2025 and is accelerating the group's shift to an investment-driven model.</li>
+                            
+                            <li>The group acquired I-MED for ~$2.4B and bought out Gammon Construction's remaining 50% stake for ~$330M, while divesting non-core assets like Yonghui Superstores and Vinamilk.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals a major shift in how traditional conglomerates allocate capital, blurring the line between industrial holdings and private equity—developers and AI practitioners should watch for similar PE-style strategies in tech-driven M&A and asset restructuring.<br>🇨🇳 传统财团开始用PE思维做资本配置，产业与私募的边界正在模糊——开发者和AI从业者可以关注这种模式在科技并购和资产重组中的复制潜力。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="http://www.geekpark.net/news/374395" target="_blank" rel="noopener">极客公园创新大会 2027 全议程公布！</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">极客公园</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">GeekPark has announced the full agenda for its Innovation Festival (IF) 2027, themed 'Revaluation,' to be held December 5-6 in Beijing's 798 Art District. The event will feature founders from various tracks sharing hard-won judgments on how AI is repricing skills, reshaping teams and products, and where opportunities lie in the next 500 days.</p>
+                        <p class="zh-summary">极客公园公布了 IF 2027 创新大会全议程，今年主题是「Revaluation 价值，另有答案」，12 月 5-6 日在北京 798 艺术区举办。大会请来各路创业者，聊聊 AI 冲击下哪些能力还值钱、团队怎么重新分工、产品该押注哪里，以及未来 500 天的机会在哪。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>IF 2027 takes place December 5-6 at Beijing's 798 Art District, with the theme 'Revaluation.'</li>
+                            
+                            <li>The agenda centers on how AI is repricing skills, business models, and previously 'understood' tracks.</li>
+                            
+                            <li>Speakers are founders who have made real business bets and will share judgments from actual trial and error.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers and AI practitioners get a curated view of how peers are recalibrating skills, team structures, and product bets amid rapid AI capability gains.<br>🇨🇳 对开发者和 AI 从业者来说，这是一次集中了解同行如何在 AI 快速迭代中重新校准能力、团队和产品押注的机会。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4907979.html" target="_blank" rel="noopener">最高明的涨价，隐藏在你看不见的地方</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Shanghai's new metro fare mechanism, effective December, keeps the 3-yuan base fare but shortens the base distance from 6 km to 4 km, raising the average fare by 0.9 yuan (21.3%). The article uses this as a case study of 'hidden' price increases—shrinkflation, redefined pricing tiers, earlier peak-hour cutoffs, and unbundled services—showing how businesses raise effective prices without changing headline numbers.</p>
+                        <p class="zh-summary">上海地铁12月起调整票价：起步价仍是3元，但起步里程从6公里缩到4公里，官方测算人均每次多花0.9元，涨幅21.3%。这篇文章借地铁涨价聊了聊商业世界里那些“看不见的涨价”——薯片减量、夜间计价提前、包邮门槛提高、机票拆分行李费，核心都是不动标价、只改计价规则，既保住了消费者的价格心智，又能精准让部分订单多掏钱。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Shanghai metro keeps the 3-yuan base fare but cuts the base distance from 6 km to 4 km, raising average fares 21.3% (0.9 yuan per trip).</li>
+                            
+                            <li>A 5-km commuter's monthly cost rises from 132 to 176 yuan, while a 3-km rider pays the same—same policy, different impact.</li>
+                            
+                            <li>Businesses prefer 'shrinkflation' and rule changes over sticker-price hikes to protect established price perceptions (menu costs).</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> Developers building pricing, billing, or subscription systems should note that effective price changes often live in the rules engine—tier boundaries, metering units, and feature bundling—not the headline number, so product and finance teams need to model and monitor these variables explicitly.<br>🇨🇳 做定价、计费或订阅系统的开发者要注意：真正的涨价往往藏在规则引擎里——档位边界、计量单位、功能打包方式，而不是那个显眼的标价数字，产品和财务团队需要显式建模并监控这些变量。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4908025.html" target="_blank" rel="noopener">暴涨前，她卖飞英伟达</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">After Jensen Huang returned to Nvidia as CEO just 11 days after leaving, Nvidia's stock surged 31% in a single day, wiping out short sellers to the tune of roughly $12.2 billion. Cathie Wood's ARK Invest had sold about 710,000 Nvidia shares (~$100 million) in the days before the announcement and rotated the proceeds into Anthropic, which then fell 1.43% while the rest of the market rallied—leaving ARK wrong-footed on both sides.</p>
+                        <p class="zh-summary">黄仁勋离开英伟达仅11天就回归，股价单日暴涨31%，空头一天亏掉约122亿美元。木头姐的ARK却在消息前抛售约71万股英伟达（约1亿美元），反手加仓Anthropic，结果英伟达暴涨、Anthropic独跌1.43%，两头踏空，堪称今年最魔幻的一幕。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Jensen Huang was reinstated as Nvidia's president, CEO and director 11 days after his departure; the stock jumped over 30% at the open, adding back roughly a trillion dollars in market cap.</li>
+                            
+                            <li>ARK Invest sold about 710,000 Nvidia shares across Nov 16, 19 and 20 (~$100M), citing a thesis that Huang might join Musk's Terafab chip project.</li>
+                            
+                            <li>ARK then bought roughly 1.64 million Anthropic shares after its IPO, but Anthropic fell 1.43% on the day of the broad tech rally.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> A vivid reminder that single-founder news can swing AI chip valuations by tens of billions overnight, so anyone tracking Nvidia as an AI infrastructure bellwether must treat leadership and policy headlines as first-order risk, not noise.<br>🇨🇳 对AI从业者来说，这提醒我们：英伟达这类AI基础设施风向标的估值会被创始人动向等单点新闻瞬间撬动，跟踪算力供应链时要把人事与政策头条当作一级风险变量。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.tmtpost.com/8214952.html" target="_blank" rel="noopener">摘帽三月再遭监管点名，逸飞激光复苏进程平添合规变量</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">钛媒体</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Yifei Laser (688646.SH), a Chinese lithium-battery laser equipment maker, received an administrative warning letter from Hubei securities regulators just three months after having its ST designation removed. Regulators found three core violations: illegal lending of 28 million yuan in raised funds to seven external companies, failure to disclose related-party transactions (including a 70 million yuan contract with one of the borrowers), and premature revenue recognition that inflated 2023 revenue by 26.35 million yuan and profit by 4.32 million yuan. The company's controlling shareholder simultaneously announced a 100-200 million yuan share buyback plan, widely seen as a move to offset the negative news.</p>
+                        <p class="zh-summary">刚摘掉ST帽子三个月的逸飞激光，又被湖北证监局点名了。监管查实三大问题：2800万募投资金违规拆借给7家外部公司、关联交易藏着掖着不披露、2023年提前确认收入虚增营收2634万。有意思的是，董事长同步抛出1-2亿回购预案护盘，一边挨罚一边撒钱，这波操作你看懂了吗？</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Yifei Laser diverted 28 million yuan of raised funds to seven external companies, violating the principle of earmarking raised capital for designated projects.</li>
+                            
+                            <li>The company failed to disclose related-party relationships and transactions, including a 70 million yuan initial contract with Henan Chuanzhong, one of the fund borrowers.</li>
+                            
+                            <li>Premature revenue recognition inflated 2023 annual revenue by 26.35 million yuan and total profit by 4.32 million yuan.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, this case highlights the compliance risks that can derail even fast-recovering hardware companies, especially as Yifei Laser attempts to pivot into AI-adjacent optical module packaging—regulatory scrutiny could delay its 400 million yuan acquisition and affect supply chain confidence.<br>🇨🇳 对开发者和AI从业者来说，这个案例提醒我们：即便是业绩反转的硬件公司，合规漏洞也可能拖累其切入AI算力产业链的步伐——逸飞激光4亿元收购光模块封装厂商的计划，可能因监管警示而增添变数。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4907974.html" target="_blank" rel="noopener">推力与阻力</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims China's macro leverage ratio surged 167.4% from 2008 to 2025 and far exceeded other major economies; the source does not mention any macro leverage ratio figure or 167.4%.; The summary claims fixed asset investment turned negative across real estate, manufacturing, and infrastructure in the first 10 months of 2025; the source does not contain this claim or these specifics.; The summary states households and private firms are now deleveraging; the source says that after the 2008 crisis, US households and firms deleveraged while China began adding leverage, not that Chinese households/private firms are now deleveraging.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Li Xunlei, a prominent Chinese economist, revisits his 15-year-old warning that investment-driven growth and export dependence could become traps. He notes that investment growth has fallen from over 50% to negative, and argues that demographic shifts—from the 1962-1973 baby boom to an aging population—are turning former economic drivers into drags. He highlights that China's macro leverage ratio surged 167.4% from 2008 to 2025, far exceeding other major economies, and that households and private firms are now deleveraging, with fixed asset investment turning negative across real estate, manufacturing, and infrastructure in the first 10 months of 2025.</p>
+                        <p class="zh-summary">经济学家李迅雷重提十五年前的警示：过度依赖投资和出口的增长模式可能从推力变阻力。他指出，投资增速已从50%以上跌至负值，而人口红利正逆转为老龄化负担——1962-1973年出生的3.1亿人曾是增长引擎，2027年后将成财政压力。更关键的是，2008-2025年中国宏观杠杆率暴增167.4%，远超全球主要经济体，如今居民和民企开始降杠杆，今年前10个月房地产、制造业、基建投资增速首次全部为负。李迅雷提醒：靠举债投资拉动增长的模式已显疲态，现金流问题可能制约内循环。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Investment growth in China has fallen from over 50% at its peak to negative territory, validating the author's 15-year-old warning about over-reliance on investment.</li>
+                            
+                            <li>The 1962-1973 baby boom (310 million births) first acted as an economic burden, then a dividend from 1977 to 2027, and will become a drag as this cohort reaches retirement age.</li>
+                            
+                            <li>China's macro leverage ratio increased by 167.4% from 2008 to 2025, far outpacing other major economies, with households and private firms now deleveraging.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and AI practitioners, this signals a tightening economic environment where capital-intensive projects face higher scrutiny, and efficiency-driven technologies—like AI for automation and optimization—become more critical as traditional growth drivers fade.<br>🇨🇳 对开发者和AI从业者而言，这意味着资本密集型项目将面临更严苛的审视，而AI等提效技术在经济换挡期更显价值——传统增长引擎熄火时，降本增效的硬科技才是新推力。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4907969.html" target="_blank" rel="noopener">恒隆与太古，为什么在同一轮繁荣里走出了两种命运？</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                <span class="critic-badge factual" title="The summary claims Swire's low net gearing (around 15%) and a HK$100 billion counter-cyclical investment commitment in 2022; neither figure nor claim appears in the source text (hallucinated).; The source does not mention 'asset mix' as an explicit cause of divergence in the way summarized, though it does note differing property portfolios; the lease-structure point is supported.; The summary omits that the 33% dividend cut was from HK$0.78 to HK$0.52, but this is not an error, just incomplete.">🔴 Factual</span>
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">In 2024, Hang Lung Properties saw mainland retail tenant sales fall 14%, rental income drop about 5%, and cut its dividend by 33% for the first time since 2013, while Swire Properties grew mainland retail rental income by roughly 7% and raised its dividend to HK$1.10. The divergence stems less from operations than from asset mix, lease structures that smooth cyclical swings, and Swire's low net gearing (around 15%), which let it commit HK$100 billion to counter-cyclical investment in 2022.</p>
+                        <p class="zh-summary">2024年高端消费寒潮下，恒隆和太古交出了两份截然不同的成绩单：恒隆内地租户销售额跌14%、股息砍掉三分之一，太古却逆势涨租、继续加派息。表面看是运营差距，实则胜负早在十年前就定了——太古靠固定租约平滑周期，更靠仅15%左右的净负债率，在行业低谷时敢砸千亿港元逆势扩张。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Hang Lung's mainland tenant sales fell 14% (Shanghai Plaza 66 down ~22%), rental income fell ~5%, and it cut its dividend 33% to HK$0.52, the first cut since 2013.</li>
+                            
+                            <li>Swire's mainland retail sales also declined (Chengdu Taikoo Li -14%, HKRI Taikoo Hui -13.9%), yet total retail rental income rose ~7% and its dividend increased to HK$1.10.</li>
+                            
+                            <li>Fixed-lease structures create a time lag between sales and rent: HKRI Taikoo Hui sales rebounded 49.6% in 2025 but rent rose only ~1%, with a ~29% rent jump only appearing in H1 2026.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> For developers and analysts, it's a reminder that stable rental income can mask delayed repricing risk, and that balance-sheet strength—not operational skill alone—determines who can invest through a downturn.<br>🇨🇳 对开发者和分析师来说，稳定的租金数字可能掩盖未来的重定价压力，而真正决定谁能穿越周期的，是资产负债表给的“选择权”，不只是运营能力。</div>
+                        
+                    </article>
+                    
+                    <article class="article-card" data-topic="Industry Trends & Analysis">
+                        <h3><a href="https://www.huxiu.com/article/4908010.html" target="_blank" rel="noopener">快手生活服务重启服务商和商户补贴</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">虎嗅 (AI原生100等)</span>
+                            <span class="critic-badges">
+                                
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">Kuaishou's local life services unit has restarted merchant and service-provider subsidies from November, offering merchants 1%-5% of GMV and service providers up to 3.5% rebates plus 50 yuan per new store, after nearly a year-long pause. The pivot back to subsidies follows an unsuccessful year-long strategy of pushing ad spending, which drove away small merchants and service providers.</p>
+                        <p class="zh-summary">快手生活服务在暂停补贴近一年后，从11月起重新向商户和服务商发钱拉新：商户能拿GMV的1%-5%补贴，服务商最高返点3.5%，新开店每店再奖50元。此前一年快手改推商户投流，结果中小商家投不起、大商家投了没效果，如今只能回头再走补贴换增长的老路。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>Merchants receive subsidies of 1%-5% of Kuaishou platform GMV; service providers get category- and tier-based rebates up to 3.5%, with general merchandise and travel/hotel categories incentivized more than food delivery.</li>
+                            
+                            <li>Service providers also earn 50 yuan per new store (requiring 500 yuan cumulative sales or 5 orders of 2.9 yuan+), plus rebates tied to verification volume such as 1 million yuan.</li>
+                            
+                            <li>The subsidy restart comes after Kuaishou paused such incentives for nearly a year following a September 2024 reorganization that merged local life services into the commercialization unit and shifted strategy toward ad spending.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals that subsidized growth remains the default playbook in China's local services market, but with platforms cutting back, developers building merchant tools or ad-tech for Kuaishou should expect volatile policy shifts and design for both subsidy-driven and ad-driven merchant acquisition.<br>🇨🇳 这说明本地生活市场仍靠补贴换增长，但平台补贴力度整体在收缩；做快手商家工具或广告技术的开发者要准备好应对政策反复，产品最好能同时适配补贴拉新和投流两种模式。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+                <section class="topic-section" data-topic="AI Ethics & Policy" id="topic-7">
+                    <h2 class="topic-header">AI Ethics & Policy <span class="topic-count">(1)</span></h2>
+                    
+                    <article class="article-card" data-topic="AI Ethics & Policy">
+                        <h3><a href="https://openai.com/global-affairs/introducing-openai-for-government" target="_blank" rel="noopener">Introducing OpenAI for Government</a></h3>
+                        <div class="article-meta">
+                            <span class="source-tag">OpenAI Blog</span>
+                            <span class="critic-badges">
+                                
+                                
+                                <span class="critic-badge bias" title="Bias level: mild — Uncritical product launch coverage: the summary closely mirrors OpenAI's own promotional framing ('most advanced AI tools', 'best-in-class technology', 'for the public good') without any independent context or scrutiny.; Missing counterpoints: no mention of privacy, surveillance, procurement, or accountability concerns that typically accompany government AI deployments, nor any competing vendors or approaches.; Hype-adjacent language: 'best-in-class' and 'most advanced' are vendor claims presented as fact rather than attributed or qualified.">🟡 Bias</span>
+                                
+                                
+                                
+                            </span>
+                        </div>
+                        <p class="en-summary">OpenAI has launched 'OpenAI for Government,' a new initiative to bring its most advanced AI tools to U.S. public servants. The program aims to support the U.S. government in adopting best-in-class technology and deploying AI for the public good.</p>
+                        <p class="zh-summary">OpenAI 推出了“OpenAI for Government”计划，旨在将最先进的 AI 工具带给美国公务员系统。该计划将协助美国政府采用顶尖技术，并推动 AI 在公共服务领域的应用。</p>
+                        
+                        <ul class="key-points">
+                            
+                            <li>OpenAI launches a dedicated initiative for U.S. government use.</li>
+                            
+                            <li>Aims to provide advanced AI tools to public servants.</li>
+                            
+                            <li>Supports government adoption of best-in-class technology for public good.</li>
+                            
+                        </ul>
+                        
+                        
+                        <div class="impact">💡 <strong>Why it matters:</strong> This signals growing AI adoption in the public sector, potentially opening new opportunities for developers to build government-focused AI solutions and highlighting the need for responsible AI deployment.<br>🇨🇳 这标志着 AI 在公共部门的采用日益增长，可能为开发者带来构建政府专用 AI 解决方案的新机会，并凸显负责任 AI 部署的重要性。</div>
+                        
+                    </article>
+                    
+                </section>
+                
+            </main>
+
+            <footer>
+                <div class="container">
+                    <p>Generated daily at 08:00 Beijing time · Powered by <a href="https://deepseek.com" target="_blank">DeepSeek</a></p>
+                    <p>Content automatically curated from RSS feeds, Reddit, GitHub Trending, and web search</p>
+                    <p style="margin-top: 8px; font-size: 0.8rem;">⚠ AI-generated content may contain errors. Verify important claims against original sources.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- TOC mobile toggle -->
+    <button class="toc-toggle" id="toc-toggle" onclick="toggleToc()" title="Table of Contents">☰</button>
+
+    <script>
+        /* ── Theme ── */
+        function toggleTheme() {
+            const html = document.documentElement, btn = document.getElementById('theme-btn');
+            const next = html.dataset.theme === 'light' ? 'dark' : 'light';
+            html.dataset.theme = next;
+            btn.textContent = next === 'dark' ? '☀️ Light' : '🌙 Dark';
+            localStorage.setItem('theme', next);
+        }
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) { document.documentElement.dataset.theme = saved; document.getElementById('theme-btn').textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark'; }
+        })();
+
+        /* ── Search & Filter ── */
+        let activeTopic = 'all';
+        function setTopicFilter(topic, el) {
+            activeTopic = topic;
+            document.querySelectorAll('#filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            filterArticles();
+        }
+        function filterArticles() {
+            const query = document.getElementById('search').value.toLowerCase();
+            document.querySelectorAll('.topic-section').forEach(section => {
+                const t = section.dataset.topic;
+                let visible = (activeTopic === 'all' || activeTopic === t);
+                let hasVisible = false;
+                section.querySelectorAll('.article-card').forEach(card => {
+                    const show = visible && card.textContent.toLowerCase().includes(query);
+                    card.style.display = show ? '' : 'none';
+                    if (show) hasVisible = true;
+                });
+                section.style.display = hasVisible ? '' : 'none';
+            });
+        }
+
+        /* ── TOC Scroll Spy ── */
+        const tocLinks = document.querySelectorAll('.toc-sidebar a[data-toc]');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const id = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.toc-sidebar a[data-toc="${id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-80px 0px -70% 0px' });
+
+        // Observe header and all topic sections
+        const topEl = document.getElementById('top');
+        if (topEl) observer.observe(topEl);
+        document.querySelectorAll('.topic-section[id]').forEach(s => observer.observe(s));
+
+        // Smooth scroll on TOC click
+        tocLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-toc');
+                const el = document.getElementById(targetId);
+                if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+                // Close mobile TOC
+                if (window.innerWidth <= 900) closeToc();
+            });
+        });
+
+        /* ── Mobile TOC ── */
+        function toggleToc() {
+            document.getElementById('toc-sidebar').classList.toggle('open');
+            document.getElementById('toc-overlay').classList.toggle('show');
+        }
+        function closeToc() {
+            document.getElementById('toc-sidebar').classList.remove('open');
+            document.getElementById('toc-overlay').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
